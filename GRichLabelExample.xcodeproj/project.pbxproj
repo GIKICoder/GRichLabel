@@ -1,0 +1,806 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2B58E56D1F61548F00505193 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B58E56C1F61548F00505193 /* main.m */; };
+		2B58E5701F61548F00505193 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B58E56F1F61548F00505193 /* AppDelegate.m */; };
+		2B58E5731F61548F00505193 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B58E5721F61548F00505193 /* ViewController.m */; };
+		2B58E5761F61548F00505193 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B58E5741F61548F00505193 /* Main.storyboard */; };
+		2B58E5781F61548F00505193 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B58E5771F61548F00505193 /* Assets.xcassets */; };
+		2B58E57B1F61548F00505193 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B58E5791F61548F00505193 /* LaunchScreen.storyboard */; };
+		2B58E5861F61548F00505193 /* GRichLabelExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B58E5851F61548F00505193 /* GRichLabelExampleTests.m */; };
+		2B58E5911F61548F00505193 /* GRichLabelExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B58E5901F61548F00505193 /* GRichLabelExampleUITests.m */; };
+		2B58E5DD1F6157DA00505193 /* LabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B58E5DC1F6157DA00505193 /* LabelViewController.m */; };
+		2B6383BB1F73E8F4001FF876 /* GACAutomaton.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383891F73E8DA001FF876 /* GACAutomaton.h */; };
+		2B6383BC1F73E8F4001FF876 /* GACAutomaton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B63838A1F73E8DA001FF876 /* GACAutomaton.m */; };
+		2B6383BD1F73E8F4001FF876 /* GACNode.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B63838B1F73E8DA001FF876 /* GACNode.h */; };
+		2B6383BE1F73E8F4001FF876 /* GACNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B63838C1F73E8DA001FF876 /* GACNode.m */; };
+		2B6383BF1F73E8F4001FF876 /* GACQueue.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B63838D1F73E8DA001FF876 /* GACQueue.h */; };
+		2B6383C01F73E8F4001FF876 /* GACQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B63838E1F73E8DA001FF876 /* GACQueue.m */; };
+		2B6383C11F73E8F4001FF876 /* GACResult.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B63838F1F73E8DA001FF876 /* GACResult.h */; };
+		2B6383C21F73E8F4001FF876 /* GACResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383901F73E8DA001FF876 /* GACResult.m */; };
+		2B6383C31F73E8F4001FF876 /* GAttributedStringFactory.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383931F73E8DA001FF876 /* GAttributedStringFactory.h */; };
+		2B6383C41F73E8F4001FF876 /* GAttributedStringFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383941F73E8DA001FF876 /* GAttributedStringFactory.m */; };
+		2B6383C51F73E8F4001FF876 /* GAttributedStringLayout.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383951F73E8DA001FF876 /* GAttributedStringLayout.h */; };
+		2B6383C61F73E8F4001FF876 /* GAttributedStringLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383961F73E8DA001FF876 /* GAttributedStringLayout.m */; };
+		2B6383C71F73E8F4001FF876 /* GAttributedToken.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383971F73E8DA001FF876 /* GAttributedToken.h */; };
+		2B6383C81F73E8F4001FF876 /* GAttributedToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383981F73E8DA001FF876 /* GAttributedToken.m */; };
+		2B6383C91F73E8F4001FF876 /* GDrawTextBuilder.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383991F73E8DA001FF876 /* GDrawTextBuilder.h */; };
+		2B6383CA1F73E8F4001FF876 /* GDrawTextBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B63839A1F73E8DA001FF876 /* GDrawTextBuilder.m */; };
+		2B6383CB1F73E8F4001FF876 /* GEmojiConfigManager.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B63839B1F73E8DA001FF876 /* GEmojiConfigManager.h */; };
+		2B6383CC1F73E8F4001FF876 /* GEmojiConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B63839C1F73E8DA001FF876 /* GEmojiConfigManager.m */; };
+		2B6383CD1F73E8F4001FF876 /* GTokenAppearance.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B63839D1F73E8DA001FF876 /* GTokenAppearance.h */; };
+		2B6383CE1F73E8F4001FF876 /* GTokenAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B63839E1F73E8DA001FF876 /* GTokenAppearance.m */; };
+		2B6383CF1F73E8F4001FF876 /* NSAttributedString+GText.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B63839F1F73E8DA001FF876 /* NSAttributedString+GText.h */; };
+		2B6383D01F73E8F4001FF876 /* NSAttributedString+GText.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383A01F73E8DA001FF876 /* NSAttributedString+GText.m */; };
+		2B6383D11F73E8F4001FF876 /* GRichLabel.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383A11F73E8DA001FF876 /* GRichLabel.h */; };
+		2B6383D21F73E8F4001FF876 /* GRichLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383A21F73E8DA001FF876 /* GRichLabel.m */; };
+		2B6383D31F73E8F4001FF876 /* GCursor.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383A41F73E8DA001FF876 /* GCursor.h */; };
+		2B6383D41F73E8F4001FF876 /* GCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383A51F73E8DA001FF876 /* GCursor.m */; };
+		2B6383D51F73E8F4001FF876 /* GEmojiRunDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383A61F73E8DA001FF876 /* GEmojiRunDelegate.h */; };
+		2B6383D61F73E8F4001FF876 /* GEmojiRunDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383A71F73E8DA001FF876 /* GEmojiRunDelegate.m */; };
+		2B6383D71F73E8F4001FF876 /* GLineLayout.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383A81F73E8DA001FF876 /* GLineLayout.h */; };
+		2B6383D81F73E8F4001FF876 /* GLineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383A91F73E8DA001FF876 /* GLineLayout.m */; };
+		2B6383D91F73E8F4001FF876 /* GMagnifiter.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383AA1F73E8DA001FF876 /* GMagnifiter.h */; };
+		2B6383DA1F73E8F4001FF876 /* GMagnifiter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383AB1F73E8DA001FF876 /* GMagnifiter.m */; };
+		2B6383DB1F73E8F4001FF876 /* GMagnifiterWindow.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383AC1F73E8DA001FF876 /* GMagnifiterWindow.h */; };
+		2B6383DC1F73E8F4001FF876 /* GMagnifiterWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383AD1F73E8DA001FF876 /* GMagnifiterWindow.m */; };
+		2B6383DD1F73E8F4001FF876 /* GSelectionView.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383AE1F73E8DA001FF876 /* GSelectionView.h */; };
+		2B6383DE1F73E8F4001FF876 /* GSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383AF1F73E8DA001FF876 /* GSelectionView.m */; };
+		2B6383DF1F73E8F4001FF876 /* GTextUtils.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383B01F73E8DA001FF876 /* GTextUtils.h */; };
+		2B6383E01F73E8F4001FF876 /* GTextUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383B11F73E8DA001FF876 /* GTextUtils.m */; };
+		2B6383E11F73E8F4001FF876 /* UIView+GText.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383B21F73E8DA001FF876 /* UIView+GText.h */; };
+		2B6383E21F73E8F4001FF876 /* UIView+GText.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383B31F73E8DA001FF876 /* UIView+GText.m */; };
+		2B6383E31F73E8F4001FF876 /* YYAsyncLayer.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383B51F73E8DA001FF876 /* YYAsyncLayer.h */; };
+		2B6383E41F73E8F4001FF876 /* YYAsyncLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383B61F73E8DA001FF876 /* YYAsyncLayer.m */; };
+		2B6383E51F73E8F4001FF876 /* YYSentinel.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383B71F73E8DA001FF876 /* YYSentinel.h */; };
+		2B6383E61F73E8F4001FF876 /* YYSentinel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383B81F73E8DA001FF876 /* YYSentinel.m */; };
+		2B6383E71F73E8F4001FF876 /* YYTransaction.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383B91F73E8DA001FF876 /* YYTransaction.h */; };
+		2B6383E81F73E8F4001FF876 /* YYTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383BA1F73E8DA001FF876 /* YYTransaction.m */; };
+		2B6383EE1F73E9CD001FF876 /* anwei@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6383EA1F73E94B001FF876 /* anwei@2x.png */; };
+		2B6383EF1F73E9CD001FF876 /* dabian@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6383EB1F73E94B001FF876 /* dabian@2x.png */; };
+		2B6383F01F73E9CD001FF876 /* daku@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6383EC1F73E94B001FF876 /* daku@2x.png */; };
+		2B6383F11F73E9CD001FF876 /* expression.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B6383ED1F73E94B001FF876 /* expression.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2B58E5821F61548F00505193 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B58E5601F61548F00505193 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B58E5671F61548F00505193;
+			remoteInfo = GRichLabelExample;
+		};
+		2B58E58D1F61548F00505193 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B58E5601F61548F00505193 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B58E5671F61548F00505193;
+			remoteInfo = GRichLabelExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2B58E5681F61548F00505193 /* GRichLabelExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GRichLabelExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B58E56C1F61548F00505193 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2B58E56E1F61548F00505193 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2B58E56F1F61548F00505193 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2B58E5711F61548F00505193 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		2B58E5721F61548F00505193 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2B58E5751F61548F00505193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2B58E5771F61548F00505193 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2B58E57A1F61548F00505193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2B58E57C1F61548F00505193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B58E5811F61548F00505193 /* GRichLabelExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GRichLabelExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B58E5851F61548F00505193 /* GRichLabelExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GRichLabelExampleTests.m; sourceTree = "<group>"; };
+		2B58E5871F61548F00505193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B58E58C1F61548F00505193 /* GRichLabelExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GRichLabelExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B58E5901F61548F00505193 /* GRichLabelExampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GRichLabelExampleUITests.m; sourceTree = "<group>"; };
+		2B58E5921F61548F00505193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B58E5DB1F6157DA00505193 /* LabelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelViewController.h; sourceTree = "<group>"; };
+		2B58E5DC1F6157DA00505193 /* LabelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelViewController.m; sourceTree = "<group>"; };
+		2B6383891F73E8DA001FF876 /* GACAutomaton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GACAutomaton.h; sourceTree = "<group>"; };
+		2B63838A1F73E8DA001FF876 /* GACAutomaton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GACAutomaton.m; sourceTree = "<group>"; };
+		2B63838B1F73E8DA001FF876 /* GACNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GACNode.h; sourceTree = "<group>"; };
+		2B63838C1F73E8DA001FF876 /* GACNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GACNode.m; sourceTree = "<group>"; };
+		2B63838D1F73E8DA001FF876 /* GACQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GACQueue.h; sourceTree = "<group>"; };
+		2B63838E1F73E8DA001FF876 /* GACQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GACQueue.m; sourceTree = "<group>"; };
+		2B63838F1F73E8DA001FF876 /* GACResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GACResult.h; sourceTree = "<group>"; };
+		2B6383901F73E8DA001FF876 /* GACResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GACResult.m; sourceTree = "<group>"; };
+		2B6383931F73E8DA001FF876 /* GAttributedStringFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAttributedStringFactory.h; sourceTree = "<group>"; };
+		2B6383941F73E8DA001FF876 /* GAttributedStringFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GAttributedStringFactory.m; sourceTree = "<group>"; };
+		2B6383951F73E8DA001FF876 /* GAttributedStringLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAttributedStringLayout.h; sourceTree = "<group>"; };
+		2B6383961F73E8DA001FF876 /* GAttributedStringLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GAttributedStringLayout.m; sourceTree = "<group>"; };
+		2B6383971F73E8DA001FF876 /* GAttributedToken.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAttributedToken.h; sourceTree = "<group>"; };
+		2B6383981F73E8DA001FF876 /* GAttributedToken.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GAttributedToken.m; sourceTree = "<group>"; };
+		2B6383991F73E8DA001FF876 /* GDrawTextBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDrawTextBuilder.h; sourceTree = "<group>"; };
+		2B63839A1F73E8DA001FF876 /* GDrawTextBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDrawTextBuilder.m; sourceTree = "<group>"; };
+		2B63839B1F73E8DA001FF876 /* GEmojiConfigManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GEmojiConfigManager.h; sourceTree = "<group>"; };
+		2B63839C1F73E8DA001FF876 /* GEmojiConfigManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GEmojiConfigManager.m; sourceTree = "<group>"; };
+		2B63839D1F73E8DA001FF876 /* GTokenAppearance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTokenAppearance.h; sourceTree = "<group>"; };
+		2B63839E1F73E8DA001FF876 /* GTokenAppearance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTokenAppearance.m; sourceTree = "<group>"; };
+		2B63839F1F73E8DA001FF876 /* NSAttributedString+GText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+GText.h"; sourceTree = "<group>"; };
+		2B6383A01F73E8DA001FF876 /* NSAttributedString+GText.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+GText.m"; sourceTree = "<group>"; };
+		2B6383A11F73E8DA001FF876 /* GRichLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GRichLabel.h; sourceTree = "<group>"; };
+		2B6383A21F73E8DA001FF876 /* GRichLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GRichLabel.m; sourceTree = "<group>"; };
+		2B6383A41F73E8DA001FF876 /* GCursor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCursor.h; sourceTree = "<group>"; };
+		2B6383A51F73E8DA001FF876 /* GCursor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCursor.m; sourceTree = "<group>"; };
+		2B6383A61F73E8DA001FF876 /* GEmojiRunDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GEmojiRunDelegate.h; sourceTree = "<group>"; };
+		2B6383A71F73E8DA001FF876 /* GEmojiRunDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GEmojiRunDelegate.m; sourceTree = "<group>"; };
+		2B6383A81F73E8DA001FF876 /* GLineLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLineLayout.h; sourceTree = "<group>"; };
+		2B6383A91F73E8DA001FF876 /* GLineLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLineLayout.m; sourceTree = "<group>"; };
+		2B6383AA1F73E8DA001FF876 /* GMagnifiter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMagnifiter.h; sourceTree = "<group>"; };
+		2B6383AB1F73E8DA001FF876 /* GMagnifiter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMagnifiter.m; sourceTree = "<group>"; };
+		2B6383AC1F73E8DA001FF876 /* GMagnifiterWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMagnifiterWindow.h; sourceTree = "<group>"; };
+		2B6383AD1F73E8DA001FF876 /* GMagnifiterWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMagnifiterWindow.m; sourceTree = "<group>"; };
+		2B6383AE1F73E8DA001FF876 /* GSelectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSelectionView.h; sourceTree = "<group>"; };
+		2B6383AF1F73E8DA001FF876 /* GSelectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GSelectionView.m; sourceTree = "<group>"; };
+		2B6383B01F73E8DA001FF876 /* GTextUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTextUtils.h; sourceTree = "<group>"; };
+		2B6383B11F73E8DA001FF876 /* GTextUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTextUtils.m; sourceTree = "<group>"; };
+		2B6383B21F73E8DA001FF876 /* UIView+GText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+GText.h"; sourceTree = "<group>"; };
+		2B6383B31F73E8DA001FF876 /* UIView+GText.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+GText.m"; sourceTree = "<group>"; };
+		2B6383B51F73E8DA001FF876 /* YYAsyncLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYAsyncLayer.h; sourceTree = "<group>"; };
+		2B6383B61F73E8DA001FF876 /* YYAsyncLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYAsyncLayer.m; sourceTree = "<group>"; };
+		2B6383B71F73E8DA001FF876 /* YYSentinel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYSentinel.h; sourceTree = "<group>"; };
+		2B6383B81F73E8DA001FF876 /* YYSentinel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYSentinel.m; sourceTree = "<group>"; };
+		2B6383B91F73E8DA001FF876 /* YYTransaction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYTransaction.h; sourceTree = "<group>"; };
+		2B6383BA1F73E8DA001FF876 /* YYTransaction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYTransaction.m; sourceTree = "<group>"; };
+		2B6383EA1F73E94B001FF876 /* anwei@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "anwei@2x.png"; sourceTree = "<group>"; };
+		2B6383EB1F73E94B001FF876 /* dabian@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dabian@2x.png"; sourceTree = "<group>"; };
+		2B6383EC1F73E94B001FF876 /* daku@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "daku@2x.png"; sourceTree = "<group>"; };
+		2B6383ED1F73E94B001FF876 /* expression.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = expression.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2B58E5651F61548F00505193 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B58E57E1F61548F00505193 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B58E5891F61548F00505193 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2B58E55F1F61548F00505193 = {
+			isa = PBXGroup;
+			children = (
+				2B6383871F73E8DA001FF876 /* GRichLabel */,
+				2B58E56A1F61548F00505193 /* GRichLabelExample */,
+				2B58E5841F61548F00505193 /* GRichLabelExampleTests */,
+				2B58E58F1F61548F00505193 /* GRichLabelExampleUITests */,
+				2B58E5691F61548F00505193 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2B58E5691F61548F00505193 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2B58E5681F61548F00505193 /* GRichLabelExample.app */,
+				2B58E5811F61548F00505193 /* GRichLabelExampleTests.xctest */,
+				2B58E58C1F61548F00505193 /* GRichLabelExampleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2B58E56A1F61548F00505193 /* GRichLabelExample */ = {
+			isa = PBXGroup;
+			children = (
+				2B58E56E1F61548F00505193 /* AppDelegate.h */,
+				2B58E56F1F61548F00505193 /* AppDelegate.m */,
+				2B58E5711F61548F00505193 /* ViewController.h */,
+				2B58E5721F61548F00505193 /* ViewController.m */,
+				2B58E5DB1F6157DA00505193 /* LabelViewController.h */,
+				2B58E5DC1F6157DA00505193 /* LabelViewController.m */,
+				2B58E5741F61548F00505193 /* Main.storyboard */,
+				2B58E5771F61548F00505193 /* Assets.xcassets */,
+				2B58E5791F61548F00505193 /* LaunchScreen.storyboard */,
+				2B58E57C1F61548F00505193 /* Info.plist */,
+				2B6383E91F73E94B001FF876 /* emoji */,
+				2B58E56B1F61548F00505193 /* Supporting Files */,
+			);
+			path = GRichLabelExample;
+			sourceTree = "<group>";
+		};
+		2B58E56B1F61548F00505193 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2B58E56C1F61548F00505193 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2B58E5841F61548F00505193 /* GRichLabelExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				2B58E5851F61548F00505193 /* GRichLabelExampleTests.m */,
+				2B58E5871F61548F00505193 /* Info.plist */,
+			);
+			path = GRichLabelExampleTests;
+			sourceTree = "<group>";
+		};
+		2B58E58F1F61548F00505193 /* GRichLabelExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2B58E5901F61548F00505193 /* GRichLabelExampleUITests.m */,
+				2B58E5921F61548F00505193 /* Info.plist */,
+			);
+			path = GRichLabelExampleUITests;
+			sourceTree = "<group>";
+		};
+		2B6383871F73E8DA001FF876 /* GRichLabel */ = {
+			isa = PBXGroup;
+			children = (
+				2B6383881F73E8DA001FF876 /* GACAutomaton */,
+				2B6383911F73E8DA001FF876 /* RichLabel */,
+				2B6383B41F73E8DA001FF876 /* YYAsyncLayer */,
+			);
+			path = GRichLabel;
+			sourceTree = "<group>";
+		};
+		2B6383881F73E8DA001FF876 /* GACAutomaton */ = {
+			isa = PBXGroup;
+			children = (
+				2B6383891F73E8DA001FF876 /* GACAutomaton.h */,
+				2B63838A1F73E8DA001FF876 /* GACAutomaton.m */,
+				2B63838B1F73E8DA001FF876 /* GACNode.h */,
+				2B63838C1F73E8DA001FF876 /* GACNode.m */,
+				2B63838D1F73E8DA001FF876 /* GACQueue.h */,
+				2B63838E1F73E8DA001FF876 /* GACQueue.m */,
+				2B63838F1F73E8DA001FF876 /* GACResult.h */,
+				2B6383901F73E8DA001FF876 /* GACResult.m */,
+			);
+			path = GACAutomaton;
+			sourceTree = "<group>";
+		};
+		2B6383911F73E8DA001FF876 /* RichLabel */ = {
+			isa = PBXGroup;
+			children = (
+				2B6383921F73E8DA001FF876 /* Common */,
+				2B6383A11F73E8DA001FF876 /* GRichLabel.h */,
+				2B6383A21F73E8DA001FF876 /* GRichLabel.m */,
+				2B6383A31F73E8DA001FF876 /* Internal */,
+			);
+			path = RichLabel;
+			sourceTree = "<group>";
+		};
+		2B6383921F73E8DA001FF876 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2B6383931F73E8DA001FF876 /* GAttributedStringFactory.h */,
+				2B6383941F73E8DA001FF876 /* GAttributedStringFactory.m */,
+				2B6383951F73E8DA001FF876 /* GAttributedStringLayout.h */,
+				2B6383961F73E8DA001FF876 /* GAttributedStringLayout.m */,
+				2B6383971F73E8DA001FF876 /* GAttributedToken.h */,
+				2B6383981F73E8DA001FF876 /* GAttributedToken.m */,
+				2B6383991F73E8DA001FF876 /* GDrawTextBuilder.h */,
+				2B63839A1F73E8DA001FF876 /* GDrawTextBuilder.m */,
+				2B63839B1F73E8DA001FF876 /* GEmojiConfigManager.h */,
+				2B63839C1F73E8DA001FF876 /* GEmojiConfigManager.m */,
+				2B63839D1F73E8DA001FF876 /* GTokenAppearance.h */,
+				2B63839E1F73E8DA001FF876 /* GTokenAppearance.m */,
+				2B63839F1F73E8DA001FF876 /* NSAttributedString+GText.h */,
+				2B6383A01F73E8DA001FF876 /* NSAttributedString+GText.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		2B6383A31F73E8DA001FF876 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				2B6383A41F73E8DA001FF876 /* GCursor.h */,
+				2B6383A51F73E8DA001FF876 /* GCursor.m */,
+				2B6383A61F73E8DA001FF876 /* GEmojiRunDelegate.h */,
+				2B6383A71F73E8DA001FF876 /* GEmojiRunDelegate.m */,
+				2B6383A81F73E8DA001FF876 /* GLineLayout.h */,
+				2B6383A91F73E8DA001FF876 /* GLineLayout.m */,
+				2B6383AA1F73E8DA001FF876 /* GMagnifiter.h */,
+				2B6383AB1F73E8DA001FF876 /* GMagnifiter.m */,
+				2B6383AC1F73E8DA001FF876 /* GMagnifiterWindow.h */,
+				2B6383AD1F73E8DA001FF876 /* GMagnifiterWindow.m */,
+				2B6383AE1F73E8DA001FF876 /* GSelectionView.h */,
+				2B6383AF1F73E8DA001FF876 /* GSelectionView.m */,
+				2B6383B01F73E8DA001FF876 /* GTextUtils.h */,
+				2B6383B11F73E8DA001FF876 /* GTextUtils.m */,
+				2B6383B21F73E8DA001FF876 /* UIView+GText.h */,
+				2B6383B31F73E8DA001FF876 /* UIView+GText.m */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		2B6383B41F73E8DA001FF876 /* YYAsyncLayer */ = {
+			isa = PBXGroup;
+			children = (
+				2B6383B51F73E8DA001FF876 /* YYAsyncLayer.h */,
+				2B6383B61F73E8DA001FF876 /* YYAsyncLayer.m */,
+				2B6383B71F73E8DA001FF876 /* YYSentinel.h */,
+				2B6383B81F73E8DA001FF876 /* YYSentinel.m */,
+				2B6383B91F73E8DA001FF876 /* YYTransaction.h */,
+				2B6383BA1F73E8DA001FF876 /* YYTransaction.m */,
+			);
+			path = YYAsyncLayer;
+			sourceTree = "<group>";
+		};
+		2B6383E91F73E94B001FF876 /* emoji */ = {
+			isa = PBXGroup;
+			children = (
+				2B6383EA1F73E94B001FF876 /* anwei@2x.png */,
+				2B6383EB1F73E94B001FF876 /* dabian@2x.png */,
+				2B6383EC1F73E94B001FF876 /* daku@2x.png */,
+				2B6383ED1F73E94B001FF876 /* expression.plist */,
+			);
+			path = emoji;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2B58E5671F61548F00505193 /* GRichLabelExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B58E5951F61548F00505193 /* Build configuration list for PBXNativeTarget "GRichLabelExample" */;
+			buildPhases = (
+				2B58E5641F61548F00505193 /* Sources */,
+				2B58E5651F61548F00505193 /* Frameworks */,
+				2B58E5661F61548F00505193 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GRichLabelExample;
+			productName = GRichLabelExample;
+			productReference = 2B58E5681F61548F00505193 /* GRichLabelExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2B58E5801F61548F00505193 /* GRichLabelExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B58E5981F61548F00505193 /* Build configuration list for PBXNativeTarget "GRichLabelExampleTests" */;
+			buildPhases = (
+				2B58E57D1F61548F00505193 /* Sources */,
+				2B58E57E1F61548F00505193 /* Frameworks */,
+				2B58E57F1F61548F00505193 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2B58E5831F61548F00505193 /* PBXTargetDependency */,
+			);
+			name = GRichLabelExampleTests;
+			productName = GRichLabelExampleTests;
+			productReference = 2B58E5811F61548F00505193 /* GRichLabelExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2B58E58B1F61548F00505193 /* GRichLabelExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B58E59B1F61548F00505193 /* Build configuration list for PBXNativeTarget "GRichLabelExampleUITests" */;
+			buildPhases = (
+				2B58E5881F61548F00505193 /* Sources */,
+				2B58E5891F61548F00505193 /* Frameworks */,
+				2B58E58A1F61548F00505193 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2B58E58E1F61548F00505193 /* PBXTargetDependency */,
+			);
+			name = GRichLabelExampleUITests;
+			productName = GRichLabelExampleUITests;
+			productReference = 2B58E58C1F61548F00505193 /* GRichLabelExampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2B58E5601F61548F00505193 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = GIKI;
+				TargetAttributes = {
+					2B58E5671F61548F00505193 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = RCF9CM736N;
+						ProvisioningStyle = Automatic;
+					};
+					2B58E5801F61548F00505193 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = RCF9CM736N;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2B58E5671F61548F00505193;
+					};
+					2B58E58B1F61548F00505193 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = RCF9CM736N;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2B58E5671F61548F00505193;
+					};
+				};
+			};
+			buildConfigurationList = 2B58E5631F61548F00505193 /* Build configuration list for PBXProject "GRichLabelExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2B58E55F1F61548F00505193;
+			productRefGroup = 2B58E5691F61548F00505193 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2B58E5671F61548F00505193 /* GRichLabelExample */,
+				2B58E5801F61548F00505193 /* GRichLabelExampleTests */,
+				2B58E58B1F61548F00505193 /* GRichLabelExampleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2B58E5661F61548F00505193 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B6383EE1F73E9CD001FF876 /* anwei@2x.png in Resources */,
+				2B6383EF1F73E9CD001FF876 /* dabian@2x.png in Resources */,
+				2B6383F01F73E9CD001FF876 /* daku@2x.png in Resources */,
+				2B6383F11F73E9CD001FF876 /* expression.plist in Resources */,
+				2B58E57B1F61548F00505193 /* LaunchScreen.storyboard in Resources */,
+				2B58E5781F61548F00505193 /* Assets.xcassets in Resources */,
+				2B58E5761F61548F00505193 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B58E57F1F61548F00505193 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B58E58A1F61548F00505193 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2B58E5641F61548F00505193 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B6383BB1F73E8F4001FF876 /* GACAutomaton.h in Sources */,
+				2B6383BC1F73E8F4001FF876 /* GACAutomaton.m in Sources */,
+				2B6383BD1F73E8F4001FF876 /* GACNode.h in Sources */,
+				2B6383BE1F73E8F4001FF876 /* GACNode.m in Sources */,
+				2B6383BF1F73E8F4001FF876 /* GACQueue.h in Sources */,
+				2B6383C01F73E8F4001FF876 /* GACQueue.m in Sources */,
+				2B6383C11F73E8F4001FF876 /* GACResult.h in Sources */,
+				2B6383C21F73E8F4001FF876 /* GACResult.m in Sources */,
+				2B6383C31F73E8F4001FF876 /* GAttributedStringFactory.h in Sources */,
+				2B6383C41F73E8F4001FF876 /* GAttributedStringFactory.m in Sources */,
+				2B6383C51F73E8F4001FF876 /* GAttributedStringLayout.h in Sources */,
+				2B6383C61F73E8F4001FF876 /* GAttributedStringLayout.m in Sources */,
+				2B6383C71F73E8F4001FF876 /* GAttributedToken.h in Sources */,
+				2B6383C81F73E8F4001FF876 /* GAttributedToken.m in Sources */,
+				2B6383C91F73E8F4001FF876 /* GDrawTextBuilder.h in Sources */,
+				2B6383CA1F73E8F4001FF876 /* GDrawTextBuilder.m in Sources */,
+				2B6383CB1F73E8F4001FF876 /* GEmojiConfigManager.h in Sources */,
+				2B6383CC1F73E8F4001FF876 /* GEmojiConfigManager.m in Sources */,
+				2B6383CD1F73E8F4001FF876 /* GTokenAppearance.h in Sources */,
+				2B6383CE1F73E8F4001FF876 /* GTokenAppearance.m in Sources */,
+				2B6383CF1F73E8F4001FF876 /* NSAttributedString+GText.h in Sources */,
+				2B6383D01F73E8F4001FF876 /* NSAttributedString+GText.m in Sources */,
+				2B6383D11F73E8F4001FF876 /* GRichLabel.h in Sources */,
+				2B6383D21F73E8F4001FF876 /* GRichLabel.m in Sources */,
+				2B6383D31F73E8F4001FF876 /* GCursor.h in Sources */,
+				2B6383D41F73E8F4001FF876 /* GCursor.m in Sources */,
+				2B6383D51F73E8F4001FF876 /* GEmojiRunDelegate.h in Sources */,
+				2B6383D61F73E8F4001FF876 /* GEmojiRunDelegate.m in Sources */,
+				2B6383D71F73E8F4001FF876 /* GLineLayout.h in Sources */,
+				2B6383D81F73E8F4001FF876 /* GLineLayout.m in Sources */,
+				2B6383D91F73E8F4001FF876 /* GMagnifiter.h in Sources */,
+				2B6383DA1F73E8F4001FF876 /* GMagnifiter.m in Sources */,
+				2B6383DB1F73E8F4001FF876 /* GMagnifiterWindow.h in Sources */,
+				2B6383DC1F73E8F4001FF876 /* GMagnifiterWindow.m in Sources */,
+				2B6383DD1F73E8F4001FF876 /* GSelectionView.h in Sources */,
+				2B6383DE1F73E8F4001FF876 /* GSelectionView.m in Sources */,
+				2B6383DF1F73E8F4001FF876 /* GTextUtils.h in Sources */,
+				2B6383E01F73E8F4001FF876 /* GTextUtils.m in Sources */,
+				2B6383E11F73E8F4001FF876 /* UIView+GText.h in Sources */,
+				2B6383E21F73E8F4001FF876 /* UIView+GText.m in Sources */,
+				2B6383E31F73E8F4001FF876 /* YYAsyncLayer.h in Sources */,
+				2B6383E41F73E8F4001FF876 /* YYAsyncLayer.m in Sources */,
+				2B6383E51F73E8F4001FF876 /* YYSentinel.h in Sources */,
+				2B6383E61F73E8F4001FF876 /* YYSentinel.m in Sources */,
+				2B6383E71F73E8F4001FF876 /* YYTransaction.h in Sources */,
+				2B6383E81F73E8F4001FF876 /* YYTransaction.m in Sources */,
+				2B58E5731F61548F00505193 /* ViewController.m in Sources */,
+				2B58E5701F61548F00505193 /* AppDelegate.m in Sources */,
+				2B58E5DD1F6157DA00505193 /* LabelViewController.m in Sources */,
+				2B58E56D1F61548F00505193 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B58E57D1F61548F00505193 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B58E5861F61548F00505193 /* GRichLabelExampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B58E5881F61548F00505193 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B58E5911F61548F00505193 /* GRichLabelExampleUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2B58E5831F61548F00505193 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2B58E5671F61548F00505193 /* GRichLabelExample */;
+			targetProxy = 2B58E5821F61548F00505193 /* PBXContainerItemProxy */;
+		};
+		2B58E58E1F61548F00505193 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2B58E5671F61548F00505193 /* GRichLabelExample */;
+			targetProxy = 2B58E58D1F61548F00505193 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2B58E5741F61548F00505193 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2B58E5751F61548F00505193 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2B58E5791F61548F00505193 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2B58E57A1F61548F00505193 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2B58E5931F61548F00505193 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2B58E5941F61548F00505193 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2B58E5961F61548F00505193 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RCF9CM736N;
+				INFOPLIST_FILE = GRichLabelExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = GIKI.GRichLabelExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2B58E5971F61548F00505193 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RCF9CM736N;
+				INFOPLIST_FILE = GRichLabelExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = GIKI.GRichLabelExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2B58E5991F61548F00505193 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = RCF9CM736N;
+				INFOPLIST_FILE = GRichLabelExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = GIKI.GRichLabelExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GRichLabelExample.app/GRichLabelExample";
+			};
+			name = Debug;
+		};
+		2B58E59A1F61548F00505193 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = RCF9CM736N;
+				INFOPLIST_FILE = GRichLabelExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = GIKI.GRichLabelExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GRichLabelExample.app/GRichLabelExample";
+			};
+			name = Release;
+		};
+		2B58E59C1F61548F00505193 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = RCF9CM736N;
+				INFOPLIST_FILE = GRichLabelExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = GIKI.GRichLabelExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = GRichLabelExample;
+			};
+			name = Debug;
+		};
+		2B58E59D1F61548F00505193 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = RCF9CM736N;
+				INFOPLIST_FILE = GRichLabelExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = GIKI.GRichLabelExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = GRichLabelExample;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2B58E5631F61548F00505193 /* Build configuration list for PBXProject "GRichLabelExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B58E5931F61548F00505193 /* Debug */,
+				2B58E5941F61548F00505193 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2B58E5951F61548F00505193 /* Build configuration list for PBXNativeTarget "GRichLabelExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B58E5961F61548F00505193 /* Debug */,
+				2B58E5971F61548F00505193 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2B58E5981F61548F00505193 /* Build configuration list for PBXNativeTarget "GRichLabelExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B58E5991F61548F00505193 /* Debug */,
+				2B58E59A1F61548F00505193 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2B58E59B1F61548F00505193 /* Build configuration list for PBXNativeTarget "GRichLabelExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B58E59C1F61548F00505193 /* Debug */,
+				2B58E59D1F61548F00505193 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2B58E5601F61548F00505193 /* Project object */;
+}
