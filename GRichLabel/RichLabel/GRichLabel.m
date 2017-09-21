@@ -1,6 +1,6 @@
 //
 //  GRichLabel.m
-//  GRichText
+//  GRichLabel
 //
 //  Created by GIKI on 2017/8/30.
 //  Copyright © 2017年 GIKI. All rights reserved.

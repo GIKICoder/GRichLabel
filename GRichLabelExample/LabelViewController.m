@@ -1,6 +1,6 @@
 //
 //  LabelViewController.m
-//  GRichText
+//  GRichLabel
 //
 //  Created by GIKI on 2017/8/29.
 //  Copyright © 2017年 GIKI. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  GAttributedStringFactory.m
-//  GRichTextExample
+//  GRichLabelExample
 //
 //  Created by GIKI on 2017/9/4.
 //  Copyright © 2017年 GIKI. All rights reserved.
