@@ -5,11 +5,12 @@ A rich Label that supports selection, copying.
 
 Features
 ==============
-### 1,支持选择/复制文本.
-### 2,支持自定义表情排版
-### 3,可自定义文本选择弹出menuView(暂未实现)
+### 1,基于coretext绘制文本.内部使用YYAsyncLayer提供异步绘制任务
+### 2,支持选择/复制文本.
+### 3,支持自定义表情排版
+### 4,可自定义文本选择弹出menuView(暂未实现)
+### 5,对于文本token 采用多模匹配算法. 详见[GACAutomaton](https://github.com/GIKICoder/GRichLabel/tree/master/GRichLabel/GACAutomaton).文本匹配效率比系统字符串匹配效率提高百倍.
 
-### 4,对于文本token 采用多模匹配算法. 详见[GACAutomaton](https://github.com/GIKICoder/GRichLabel/tree/master/GRichLabel/GACAutomaton).文本匹配效率比系统字符串匹配效率提高百倍.
 
 
 Usage
