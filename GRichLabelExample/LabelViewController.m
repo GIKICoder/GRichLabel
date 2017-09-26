@@ -78,7 +78,9 @@
     }];
     GAttributedToken *regex = [GAttributedToken new];
     regex.regexToken = Phone;
-    
+    regex.tokenClickBlock = ^(GAttributedToken *token) {
+
+    };
     GAttributedStringLayout *layout = [GAttributedStringLayout attributedLayout:string];
     layout.tokenPatternConfigs = tokens.copy;
     layout.regexPatternConifgs = @[regex];
@@ -86,14 +88,16 @@
     layout.linespace = 1;
     layout.lineIndent = 2;
     layout.font = [UIFont systemFontOfSize:14];
-    
+
     NSMutableAttributedString * truncation = [[NSMutableAttributedString alloc] initWithString:@"...全文"];
-    
+
     layout.truncationToken = truncation;
     GDrawTextBuilder * builder = [GAttributedStringFactory createDrawTextBuilderWithLayout:layout boundSize:self.richLabel.frame.size];
     self.richLabel.textBuilder = builder;
-
+    self.richLabel.text = string;
 }
+
+
 
 - (void)gotoVC:(NSString *)string
 {
