@@ -3,6 +3,14 @@ A rich Label that supports selection, copying.
 
 <img src="https://github.com/GIKICoder/GRichLabel/blob/master/screenshot/selectCopy.png" width="400">
 
+Features
+==============
+### 1,支持选择/复制文本.
+### 2,支持自定义表情排版
+### 3,可自定义文本选择弹出menuView(暂未实现)
+
+### 4,对于文本token 采用多模匹配算法. 详见[GACAutomaton](https://github.com/GIKICoder/GRichLabel/tree/master/GRichLabel/GACAutomaton).文本匹配效率比系统字符串匹配效率高处百倍.
+
 
 Usage
 ==============
@@ -56,6 +64,8 @@ richLabel.frame = CGRectMake(5, 0, self.view.frame.size.width-10, 500);
 }
   
 ```
+
+
 
 Thanks
 ==============
