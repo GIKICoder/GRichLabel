@@ -17,10 +17,6 @@
 
 @property (nonatomic, assign,readonly) CGRect bounds;
 
-@property (nonatomic, strong) NSDictionary *userInfo;
-
-
-
 - (CTRunDelegateRef)GetCTRunDelegate;
 
 @end

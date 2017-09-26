@@ -35,8 +35,18 @@ typedef void(^GAttributedTokenClick)(GAttributedToken *token);
 /// token 点击
 @property (nonatomic, copy) GAttributedTokenClick  tokenClickBlock;
 
-/// token 点击样式
+/**
+ token 点击样式
+ default: appearance.cornerRadius = 4;
+          appearance.fillColor = [UIColor colorWithRed:69/255.0 green:111/255.0 blue:238/255.0 alpha:0.6];
+ */
 @property (nonatomic, strong) GTokenAppearance * tokenAppearance;
 
++ (instancetype)attributedTextToken:(NSString*)textToken;
++ (instancetype)attributedTextToken:(NSString*)textToken color:(UIColor*)color;
++ (instancetype)attributedTextToken:(NSString*)textToken color:(UIColor*)color font:(UIFont*)font;
 
++ (instancetype)attributedRegexToken:(NSString*)textToken;
++ (instancetype)attributedRegexToken:(NSString*)textToken color:(UIColor*)color;
++ (instancetype)attributedRegexToken:(NSString*)textToken color:(UIColor*)color font:(UIFont*)font;
 @end

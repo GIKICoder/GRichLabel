@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GCursor.h"
-
+#import "GTokenAppearance.h"
 @interface GSelectionView : UIView
 
 @property (nonatomic, strong) GCursor  *  leftCursor;
@@ -25,7 +25,7 @@
 
 - (void)hideSelectionView;
 
-- (void)showHighlightViewWithRects:(NSArray*)hightLightRects;
+- (void)showHighlightViewWithRects:(NSArray*)hightLightRects withAppearance:(GTokenAppearance*)appearance;
 
 - (void)hideHighlightView;
 

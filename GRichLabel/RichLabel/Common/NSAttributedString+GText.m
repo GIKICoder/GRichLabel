@@ -12,6 +12,7 @@
 #import <objc/runtime.h>
 static NSString* const propertyKeyhasEmojiImage = @"propertyKeyhasEmojiImage";
 static NSString* const propertyKeytruncationToken = @"propertyKeytruncationToken";
+static NSString* const propertyKeytokenRanges = @"propertyKeytokenRanges";
 @implementation NSAttributedString (GText)
 
 
@@ -33,6 +34,16 @@ static NSString* const propertyKeytruncationToken = @"propertyKeytruncationToken
 - (void)setTruncationToken:(NSAttributedString *)truncationToken
 {
      objc_setAssociatedObject(self, &propertyKeytruncationToken, truncationToken, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (void)setTokenRangesDictionary:(NSDictionary<NSString *,GAttributedToken *> *)tokenRangesDictionary
+{
+   objc_setAssociatedObject(self, &propertyKeytokenRanges, tokenRangesDictionary, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (NSDictionary<NSString *,GAttributedToken *> *)tokenRangesDictionary
+{
+    return objc_getAssociatedObject(self, &propertyKeytokenRanges);
 }
 
 + (NSMutableAttributedString *)setAttachmentStringWithEmojiImageName:(NSString *)imageName

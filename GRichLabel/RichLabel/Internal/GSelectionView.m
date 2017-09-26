@@ -143,8 +143,11 @@
     [self.markViews removeAllObjects];
 }
 
-- (void)showHighlightViewWithRects:(NSArray*)hightLightRects
+- (void)showHighlightViewWithRects:(NSArray*)hightLightRects withAppearance:(GTokenAppearance*)appearance;
 {
+    if (!hightLightRects) return;
+    if (!appearance) return;
+    
     _highlightRects = hightLightRects;
     [self.highlightViews enumerateObjectsUsingBlock:^(UIView *highView, NSUInteger idx, BOOL * _Nonnull stop) {
         [highView removeFromSuperview];
@@ -167,10 +170,13 @@
         if (rect.size.width > 0 && rect.size.height > 0) {
             
             UIView *high = [[UIView alloc] initWithFrame:rect];
-            high.backgroundColor = self.highlightColor;
-            high.alpha = self.alphaValue;
-            high.layer.cornerRadius = 4;
+            high.backgroundColor = appearance.fillColor;
+            high.layer.cornerRadius = appearance.cornerRadius;
             high.layer.masksToBounds = YES;
+            if (appearance.strokeColor && appearance.strokeWidth) {
+                high.layer.borderWidth = appearance.strokeWidth;
+                high.layer.borderColor = appearance.strokeColor.CGColor;
+            }
             [self insertSubview:high atIndex:0];
             [self.highlightViews addObject:high];
         }

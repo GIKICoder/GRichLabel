@@ -14,11 +14,10 @@
 @interface GRichLabel : UIView
 
 @property (nonatomic, strong) NSString * text;
-
 @property (nonatomic, strong) NSAttributedString *attributedString;
-
 @property (nonatomic, strong) GAttributedStringLayout * attributedLayout;
 @property (nonatomic, strong) GDrawTextBuilder  *textBuilder;
+
 /**
  是否开启异步绘制
  

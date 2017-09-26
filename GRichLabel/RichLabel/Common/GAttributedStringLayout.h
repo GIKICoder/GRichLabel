@@ -90,6 +90,7 @@
  */
 @property (nonatomic, strong) NSArray<GAttributedToken*> * regexPatternConifgs;
 
-@property (nonatomic, strong) NSDictionary<NSString*,GAttributedToken*> * tokenRangesDictionary;
++ (instancetype)attributedLayout:(NSString*)text;
++ (instancetype)attributedLayout:(NSString*)text color:(UIColor*)color font:(UIFont*)font;
 
 @end

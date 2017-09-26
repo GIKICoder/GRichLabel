@@ -6,5 +6,5 @@ A rich Label that supports selection, copying.
 
 
 
-==============
-(thanks  [YYText](https://github.com/ibireme/YYText) )
+### Thanks
+ [YYText](https://github.com/ibireme/YYText)

@@ -16,6 +16,8 @@
 
 @property (nonatomic, strong) NSAttributedString * truncationToken;
 
+@property (nonatomic, strong) NSDictionary<NSString*,GAttributedToken*> * tokenRangesDictionary;
+
 + (NSMutableAttributedString *)setAttachmentStringWithEmojiImageName:(NSString *)imageName
                                                         font:(UIFont*)font;
 

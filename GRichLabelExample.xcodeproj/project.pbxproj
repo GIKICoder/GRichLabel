@@ -275,9 +275,9 @@
 		2B6383911F73E8DA001FF876 /* RichLabel */ = {
 			isa = PBXGroup;
 			children = (
-				2B6383921F73E8DA001FF876 /* Common */,
 				2B6383A11F73E8DA001FF876 /* GRichLabel.h */,
 				2B6383A21F73E8DA001FF876 /* GRichLabel.m */,
+				2B6383921F73E8DA001FF876 /* Common */,
 				2B6383A31F73E8DA001FF876 /* Internal */,
 			);
 			path = RichLabel;

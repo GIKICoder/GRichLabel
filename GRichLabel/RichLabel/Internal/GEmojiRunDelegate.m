@@ -64,7 +64,6 @@ static CGFloat WidthCallback(void *ref) {
 - (id)copyWithZone:(NSZone *)zone {
     
     typeof(self) one = [self.class new];
-    one.userInfo = self.userInfo;
     one.emojiImageName = self.emojiImageName;
     one.textFont = self.textFont;
     return one;

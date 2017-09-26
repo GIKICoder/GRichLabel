@@ -8,9 +8,21 @@
 
 #import "GAttributedStringLayout.h"
 
-
-
 @implementation GAttributedStringLayout
+
++ (instancetype)attributedLayout:(NSString*)text
+{
+    return [GAttributedStringLayout attributedLayout:text color:nil font:nil];
+}
+
++ (instancetype)attributedLayout:(NSString*)text color:(UIColor*)color font:(UIFont*)font
+{
+    GAttributedStringLayout *defalut = [[GAttributedStringLayout alloc] init];
+    if (text) defalut.text = text;
+    if (color) defalut.textColor = color;
+    if (font)  defalut.font = font;
+    return defalut;
+}
 
 - (instancetype)init
 {

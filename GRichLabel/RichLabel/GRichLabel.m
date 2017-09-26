@@ -146,13 +146,6 @@
     ((YYAsyncLayer *)self.layer).displaysAsynchronously = displaysAsynchronously;
 }
 
-- (void)setText:(NSString *)text
-{
-    _text = text;
-    self.attributedString = [[NSAttributedString alloc] initWithString:text];
-    [self contentNeedUpdate];
-}
-
 /**
  设置文本选择框颜色
 
@@ -176,6 +169,13 @@
     self.selectionView.rightCursor.color = cursorColor;
 }
 
+- (void)setText:(NSString *)text
+{
+    _text = text;
+    GAttributedStringLayout *layout = [GAttributedStringLayout attributedLayout:text color:[UIColor blackColor] font:[UIFont systemFontOfSize:12]];
+    self.attributedLayout = layout;
+}
+
 - (void)setAttributedString:(NSAttributedString *)attributedString
 {
     _attributedString = attributedString;
@@ -191,9 +191,8 @@
 - (void)setAttributedLayout:(GAttributedStringLayout *)attributedLayout
 {
     _attributedLayout = attributedLayout;
-    NSAttributedString * attributeStr = [GAttributedStringFactory createAttributedStringWithLayout:attributedLayout].copy;
-    //        NSAttributedString * attributeStr = [GAttributedStringFactory _textWithStatus:attributedLayout].copy;
-    self.attributedString = attributeStr;
+    GDrawTextBuilder * builder = [GAttributedStringFactory createDrawTextBuilderWithLayout:attributedLayout boundSize:self.frame.size];
+    self.textBuilder = builder;
 }
 
 #pragma mark - update draw layer
@@ -210,7 +209,7 @@
 {
     YYAsyncLayerDisplayTask * task = [[YYAsyncLayerDisplayTask alloc] init];
     
-//    __weak typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     
     task.willDisplay = ^(CALayer * _Nonnull layer) {
         /// must be set
@@ -220,10 +219,9 @@
     task.display = ^(CGContextRef  _Nonnull context, CGSize size, BOOL (^ _Nonnull isCancelled)(void)) {
         
         if (isCancelled()) return;
-        if (!_textBuilder) return;
+        if (!weakSelf.textBuilder) return;
         
-        [_textBuilder drawAttributedText:context cancel:isCancelled];
-//        [weakSelf drawAttributedTextWithContext:context size:size];
+        [weakSelf.textBuilder drawAttributedText:context cancel:isCancelled];
         
     };
     
@@ -748,24 +746,24 @@
         return;
     }
     
-    NSDictionary<NSString*,GAttributedToken*> * result = self.attributedLayout.tokenRangesDictionary;
+    NSDictionary<NSString*,GAttributedToken*> * result = self.textBuilder.tokenRangesDictionary;
     
     if (result.count > 0) {
         
         CFIndex index = [self convertTouchPointToSelectIndex:point];
-        //            NSLog(@"index --- %ld",index);
+        
         [result enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, GAttributedToken * _Nonnull obj, BOOL * _Nonnull stop) {
             NSRange range = NSRangeFromString(key);
             BOOL Contains = IndexContainingInRange(index, range);
             if (Contains) {
-                //                  NSLog(@"ContainsYES ");
+                
                 _isHighlightTouch = YES;
                 
                 self.highToken = obj;
                 
                 _selectedRange = range;
                 NSArray *path = [self calculateSelectRectPaths];
-                [self.selectionView showHighlightViewWithRects:path];
+                [self.selectionView showHighlightViewWithRects:path withAppearance:obj.tokenAppearance];
                 *stop = YES;
             }
             

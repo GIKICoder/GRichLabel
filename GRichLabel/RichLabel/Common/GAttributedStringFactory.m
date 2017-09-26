@@ -14,21 +14,22 @@
 #import "GEmojiRunDelegate.h"
 #import "NSAttributedString+GText.h"
 #import "GDrawTextBuilder.h"
-#define URLRegular @"((http|https)://([a-zA-Z]|[0-9])*(\\.([a-zA-Z]|[0-9])*)*(\\/([a-zA-Z]|[0-9]|[#?+=-]|[\\.&%_;])*)*)"
 
 @implementation GAttributedStringFactory
 
 + (GDrawTextBuilder*)createDrawTextBuilderWithLayout:(GAttributedStringLayout*)layout boundSize:(CGSize)size
 {
     NSAttributedString * string = [GAttributedStringFactory createAttributedStringWithLayout:layout];
-
-    return  [GDrawTextBuilder buildDrawTextSize:size attributedString:string];
+    GDrawTextBuilder *textBuilder = [GDrawTextBuilder buildDrawTextSize:size attributedString:string];
+    textBuilder.layout = layout;
+    return textBuilder;
 }
 
 + (NSMutableAttributedString*)createAttributedStringWithLayout:(GAttributedStringLayout*)layout
 {
     __block NSMutableAttributedString * attributed = [GAttributedStringFactory createBaseAttributedStringWithLayout:layout];
-    
+    if (attributed.string.length  <= 0) return nil;
+        
     __block NSMutableDictionary *tokenRangesDictM = [NSMutableDictionary dictionary];
     //替换表情
     {
@@ -110,7 +111,7 @@
         }
     }
     attributed.truncationToken = layout.truncationToken;
-    layout.tokenRangesDictionary = tokenRangesDictM.copy;
+    attributed.tokenRangesDictionary = tokenRangesDictM.copy;
 
     return attributed;
 }
@@ -135,7 +136,7 @@
     AlignmentStyleSetting.value=&textAlignment;
     
     CTParagraphStyleSetting LineSpacingStyleSetting;
-    LineSpacingStyleSetting.spec=kCTParagraphStyleSpecifierLineSpacing;//kCTParagraphStyleSpecifierLineSpacingAdjustment;// kCTParagraphStyleSpecifierLineSpacing;
+    LineSpacingStyleSetting.spec=kCTParagraphStyleSpecifierLineSpacingAdjustment;// kCTParagraphStyleSpecifierLineSpacing;
     LineSpacingStyleSetting.valueSize=sizeof(linespace);
     LineSpacingStyleSetting.value=&linespace;
     

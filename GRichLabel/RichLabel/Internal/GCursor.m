@@ -7,9 +7,10 @@
 //
 
 #import "GCursor.h"
-#define kCursorWidth 2
-#define kTouchTestExtend 14.0
-#define kTouchDotExtend 7.0
+
+#define kCursorW 2
+#define kGestureW 12
+#define kDotGestureW 6
 
 @interface GCursor()
 {
@@ -67,12 +68,12 @@
     CGRect dotRect = _dotView.frame;
     
     if (_direction == GCursorDirectionRight) {
-        self.frame = CGRectMake(point.x, point.y - _cursorHeight, kCursorWidth, _cursorHeight);
-        dotRect.origin.x = -(dotRect.size.width - kCursorWidth)/2;
+        self.frame = CGRectMake(point.x, point.y - _cursorHeight, kCursorW, _cursorHeight);
+        dotRect.origin.x = -(dotRect.size.width - kCursorW)/2;
         dotRect.origin.y =  _cursorHeight - dotRect.size.height*0.3 ;
     } else if (_direction == GCursorDirectionLeft) {
-        self.frame = CGRectMake(point.x - kCursorWidth, point.y - _cursorHeight, kCursorWidth, _cursorHeight);
-        dotRect.origin.x = -(dotRect.size.width - kCursorWidth)/2;
+        self.frame = CGRectMake(point.x - kCursorW, point.y - _cursorHeight, kCursorW, _cursorHeight);
+        dotRect.origin.x = -(dotRect.size.width - kCursorW)/2;
         dotRect.origin.y = - dotRect.size.height*0.7;
     } else {
         [_dotView removeFromSuperview];
@@ -82,12 +83,12 @@
 
 - (CGRect)enlargeTouchRect
 {
-    CGRect rect = CGRectInset(self.frame, -kTouchTestExtend, -kTouchTestExtend);
+    CGRect rect = CGRectInset(self.frame, -kGestureW, -kGestureW);
     UIEdgeInsets insets = {0};
     if (_direction == GCursorDirectionRight) {
-        insets.right = -kTouchDotExtend;
+        insets.right = -kDotGestureW;
     } else if (_direction == GCursorDirectionLeft) {
-        insets.left = -kTouchDotExtend;
+        insets.left = -kDotGestureW;
     }
     rect = UIEdgeInsetsInsetRect(rect, insets);
     return rect;
