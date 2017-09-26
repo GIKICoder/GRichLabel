@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
 #import "GAttributedStringLayout.h"
 #import "GDrawTextBuilder.h"
-
+#import "NSAttributedString+GText.h"
 @interface GRichLabel : UIView
 
 @property (nonatomic, strong) NSString * text;

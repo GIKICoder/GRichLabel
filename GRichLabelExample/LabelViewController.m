@@ -49,12 +49,13 @@
     })];
     
         self.richLabel = [GRichLabel new];
-        self.richLabel.frame = CGRectMake(5, 0, self.view.frame.size.width-10, 500);
+    
+        self.richLabel.frame = CGRectMake(5, 0, self.view.frame.size.width-10, self.scrollview.contentSize.height);
     
         self.richLabel.contentScrollView = self.scrollview;
         self.richLabel.displaysAsynchronously = YES;
         [self.scrollview addSubview:self.richLabel];
-        self.scrollview.scrollEnabled = NO;
+//        self.scrollview.scrollEnabled = NO;
         [self setRichText];
     if (self.type == 1) {
         self.richLabel.canCopy = NO;
@@ -90,11 +91,11 @@
     layout.font = [UIFont systemFontOfSize:14];
 
     NSMutableAttributedString * truncation = [[NSMutableAttributedString alloc] initWithString:@"...全文"];
-
+    [truncation setAttribute:(NSString*)kCTFontAttributeName value:(id)([UIFont systemFontOfSize:14]) range:NSMakeRange(0, truncation.length)];
+    [truncation setAttribute:(NSString *)kCTForegroundColorAttributeName value:(id)[UIColor blueColor] range:NSMakeRange(3, 2)];
     layout.truncationToken = truncation;
     GDrawTextBuilder * builder = [GAttributedStringFactory createDrawTextBuilderWithLayout:layout boundSize:self.richLabel.frame.size];
     self.richLabel.textBuilder = builder;
-    self.richLabel.text = string;
 }
 
 
