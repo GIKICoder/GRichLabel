@@ -69,5 +69,6 @@ richLabel.frame = CGRectMake(5, 0, self.view.frame.size.width-10, 500);
 
 Thanks
 ==============
- [YYText](https://github.com/ibireme/YYText)
- [GACAutomaton](https://github.com/heweizhou/ACAutomatic)
+ *[YYText](https://github.com/ibireme/YYText)
+ 
+ *[ACAutomaton](https://github.com/heweizhou/ACAutomatic)
