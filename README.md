@@ -12,6 +12,9 @@ Features
 ### 4,可自定义文本选择弹出menuView(暂未实现)
 ### 5,对于文本token 采用多模匹配算法. 详见[GACAutomaton](https://github.com/GIKICoder/GRichLabel/tree/master/GRichLabel/GACAutomaton).文本匹配效率比系统字符串匹配效率提高百倍.
 
+Warning
+==============
+### 工程在xcode 9上创建. 低版本xcode可能无法使用模拟器. 
 
 
 Usage
