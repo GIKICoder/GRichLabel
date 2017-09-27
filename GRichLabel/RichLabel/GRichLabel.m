@@ -20,7 +20,7 @@
 #import "UIView+GText.h"
 #import "GEmojiRunDelegate.h"
 #import "GEmojiConfigManager.h"
-
+#import "GTextMenuConfiguration.h"
 #define kLeftCursorTag 100
 #define kRightCursorTag 200
 
@@ -51,6 +51,7 @@
 
 @property (nonatomic, strong) GAttributedToken * highToken;
 
+@property (nonatomic, strong,readwrite) GTextMenuConfiguration * menuConfiguration;
 @end
 
 @implementation GRichLabel
@@ -126,7 +127,9 @@
         _longRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(LongRecognizerMethod:)];
         _longRecognizer.enabled = YES;
         [self addGestureRecognizer:_longRecognizer];
-        
+        if (!self.menuConfiguration) {
+            self.menuConfiguration = [GTextMenuConfiguration textMenuConfig:self];
+        }
     } else {
         
         if (_longRecognizer) {
@@ -509,106 +512,20 @@
     _longRecognizer.enabled = NO;
     if ([self becomeFirstResponder]) {
         CGRect selectedRect =CGRectFromString([self.selectionView.selectionRects firstObject]);
-        
-        UIMenuController *menuController = [UIMenuController sharedMenuController];
-        
-        UIMenuItem *copyItem = [[UIMenuItem alloc] initWithTitle:@"拷贝" action:@selector(copyItem:)];
-        UIMenuItem *selectAllItem = [[UIMenuItem alloc] initWithTitle:@"全选" action:@selector(selectAllItem:)];
-        UIMenuItem *shareItem = [[UIMenuItem alloc] initWithTitle:@"共享" action:@selector(shareItem:)];
-        NSArray *items = [NSArray arrayWithObjects:copyItem,selectAllItem,shareItem,nil];
-        [menuController setMenuItems:items];
-        
         CGAffineTransform transform =  CGAffineTransformMakeTranslation(0, self.bounds.size.height);
         transform = CGAffineTransformScale(transform, 1.0, -1.0);
         selectedRect = CGRectApplyAffineTransform(selectedRect, transform);
-        
-        [menuController setTargetRect:selectedRect inView:self];
-        [menuController setMenuVisible:YES animated:YES];
+        [self.menuConfiguration showMenuWithTargetRect:selectedRect selectRange:_selectedRange];
     }
 }
 
-/**
- 显示全部选择后的menu
- */
-- (void)showAfterSelectAllMenu
-{
-    _longRecognizer.enabled = NO;
-    if ([self becomeFirstResponder]) {
-        CGRect selectedRect =CGRectFromString([self.selectionView.selectionRects firstObject]);
-        
-        UIMenuController *menuController = [UIMenuController sharedMenuController];
-        
-        UIMenuItem *copyItem = [[UIMenuItem alloc] initWithTitle:@"拷贝" action:@selector(copyItem:)];
-        UIMenuItem *shareItem = [[UIMenuItem alloc] initWithTitle:@"共享" action:@selector(shareItem:)];
-        NSArray *items = [NSArray arrayWithObjects:copyItem,shareItem,nil];
-        [menuController setMenuItems:items];
-        
-        CGAffineTransform transform =  CGAffineTransformMakeTranslation(0, self.bounds.size.height);
-        transform = CGAffineTransformScale(transform, 1.0, -1.0);
-        selectedRect = CGRectApplyAffineTransform(selectedRect, transform);
-        
-        if (self.contentScrollView) {
-            CGPoint offset = self.contentScrollView.contentOffset;
-            
-            if (offset.y > 0) {
-                selectedRect.origin.y += offset.y + 64;
-            }
-        }
-        [menuController setTargetRect:selectedRect inView:self];
-        [menuController setMenuVisible:YES animated:YES];
-    }
-    
-}
-
-/**
- copy Method
-
- @param sender sender
- */
-- (void)copyItem:(id)sender
-{
-    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-    [pasteboard setString:[NSString stringWithFormat:@"%@",[self.attributedString.string substringWithRange:NSMakeRange(_selectedRange.location, _selectedRange.length)]]];
-    
-    NSLog(@"copyString == %@",[NSString stringWithFormat:@"%@",[self.attributedString.string substringWithRange:NSMakeRange(_selectedRange.location, _selectedRange.length)]]);
-    [self releaseSelectionRanges];
-}
-/**
- select All Method
- 
- @param sender sender
- */
-- (void)selectAllItem:(id)sender
+- (void)selectAllRange
 {
     if (!_textBuilder.lineLayouts || _textBuilder.lineLayouts.count == 0) return;
     
     GLineLayout *lineLayout = [_textBuilder.lineLayouts lastObject];
     CFRange lastLineRange = CTLineGetStringRange((__bridge CTLineRef)lineLayout.line);
     _selectedRange = NSMakeRange(0, lastLineRange.location + lastLineRange.length);
-    [self showSelectionViewWithCursor:YES];
-    [self showAfterSelectAllMenu];
-}
-
-/**
- share Method
- 
- @param sender sender
- */
-- (void)shareItem:(id)sender
-{
-    NSString *textToShare = [NSString stringWithFormat:@"%@",[self.attributedString.string substringWithRange:NSMakeRange(_selectedRange.location, _selectedRange.length)]];
-    
-    NSArray *activityItems = @[textToShare];
-    
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:activityItems applicationActivities:nil];
-    __weak typeof(self) weakSelf = self;
-    if (!self.currentController) {
-        self.currentController = [self getViewController];
-    }
-    [self.currentController presentViewController:activityVC animated:YES completion:^{
-        [weakSelf releaseSelectionRanges];
-    }];
-    
 }
 
 /**
@@ -947,5 +864,53 @@
     }
     return nil;
 }
+
+#pragma mark - public Method
+
+/**
+ 选中全部文本区域
+ */
+- (void)setSelectAllRange
+{
+    [self selectAllRange];
+}
+
+/**
+ 重置文本选择区域
+ */
+- (void)resetSelection
+{
+    [self releaseSelectionRanges];
+}
+
+/**
+ 展示SelectionView
+ */
+- (void)showSelectionView
+{
+    [self showSelectionViewWithCursor:YES];
+}
+
+/**
+ 展示menu
+ */
+- (void)showTextMenu
+{
+    [self showMenu];
+}
+
+- (NSString *)getSelectText
+{
+    return [self.attributedString.string substringWithRange:NSMakeRange(_selectedRange.location, _selectedRange.length)];
+}
+
+- (UIViewController*)getCurrentViewController
+{
+    if (!self.currentController) {
+        self.currentController = [self getViewController];
+    }
+    return self.currentController;
+}
+
 
 @end

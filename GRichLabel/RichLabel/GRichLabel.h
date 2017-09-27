@@ -10,6 +10,7 @@
 #import "GAttributedStringLayout.h"
 #import "GDrawTextBuilder.h"
 #import "NSAttributedString+GText.h"
+@class GTextMenuConfiguration;
 @interface GRichLabel : UIView
 
 @property (nonatomic, strong) NSString * text;
@@ -17,6 +18,7 @@
 @property (nonatomic, strong) GAttributedStringLayout * attributedLayout;
 @property (nonatomic, strong) GDrawTextBuilder  *textBuilder;
 
+@property (nonatomic, strong,readonly) GTextMenuConfiguration * menuConfiguration;
 /**
  是否开启异步绘制
  
@@ -61,4 +63,33 @@
 @property (nonatomic, strong) UIColor * cursorColor;
 
 
+#pragma mark - public Method
+
+/**
+ 选中全部文本区域
+ */
+- (void)setSelectAllRange;
+/**
+ 重置文本选择区域
+ */
+- (void)resetSelection;
+
+/**
+ 展示SelectionView
+ */
+- (void)showSelectionView;
+
+/**
+ 展示menu
+ */
+- (void)showTextMenu;
+
+/**
+ 获取当前选中文本
+ 
+ @return NSString
+ */
+- (NSString*)getSelectText;
+
+- (UIViewController*)getCurrentViewController;
 @end
