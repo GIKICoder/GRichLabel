@@ -11,7 +11,7 @@ Features
 ### 3,支持自定义表情排版
 ### 4,可自定义文本选择弹出menuView(暂未实现)
 ### 5,对于文本token 采用多模匹配算法. 详见[GACAutomaton](https://github.com/GIKICoder/GRichLabel/tree/master/GRichLabel/GACAutomaton).文本匹配效率比系统字符串匹配效率提高百倍.
-### 6,功能以及代码还在更新完善中. 
+### 6,功能以及代码还在更新完善中. 后期会支持更多功能.欢迎star.
 
 Warning
 ==============
