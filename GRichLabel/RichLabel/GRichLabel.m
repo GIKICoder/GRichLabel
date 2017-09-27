@@ -121,9 +121,7 @@
     
     _canCopy = canCopy;
     if (canCopy) {
-        
         self.minSelectRange = 1;
-        
         _longRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(LongRecognizerMethod:)];
         _longRecognizer.enabled = YES;
         [self addGestureRecognizer:_longRecognizer];
@@ -131,7 +129,6 @@
             self.menuConfiguration = [GTextMenuConfiguration textMenuConfig:self];
         }
     } else {
-        
         if (_longRecognizer) {
             _longRecognizer.enabled = NO;
         }
@@ -626,26 +623,19 @@
         BOOL isSelectCursor = NO;
         /// 计算相应区域 未左还是右
         if ([self.selectionView isLeftCursorContainsPoint:point]) {
-            
             isSelectCursor = YES;
             self.selectionView.tag = kLeftCursorTag;
-            
         } else if ([self.selectionView isRightCursorContainsPoint:point]) {
-            
             isSelectCursor = YES;
             self.selectionView.tag = kRightCursorTag;
-            
         } else { /// 未选中
-            
             [self scrollerEnable];
             isSelectCursor = NO;
             _isLongPressTouch = NO;
-            
             [self releaseSelectionRanges];
         }
         
         if (isSelectCursor) {
-            
             if (!self.magnifierRanged) {
                 self.magnifierRanged = [GMagnifiter magnifierWithType:GTextMagnifierTypeRanged];
                 self.magnifierRanged.hostView = self;
