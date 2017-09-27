@@ -112,7 +112,7 @@
 
 /**
  设置rich label 是否支持copy/select
-
+ 
  @param canCopy YES/NO
  */
 - (void)setCanCopy:(BOOL)canCopy
@@ -140,7 +140,7 @@
 
 /**
  是否开启异步绘制
-
+ 
  @param displaysAsynchronously YES/NO
  */
 - (void)setDisplaysAsynchronously:(BOOL)displaysAsynchronously
@@ -151,7 +151,7 @@
 
 /**
  设置文本选择框颜色
-
+ 
  @param selectionColor UIColor
  */
 - (void)setSelectionColor:(UIColor *)selectionColor
@@ -162,7 +162,7 @@
 
 /**
  设置光标颜色
-
+ 
  @param cursorColor UIColor
  */
 - (void)setCursorColor:(UIColor *)cursorColor
@@ -295,7 +295,7 @@
 
 /**
  手指移动过程中,所在文字的区域
-
+ 
  @param point 点击区域
  @param isLeft 是否是左边光标
  @return 文字index
@@ -327,7 +327,7 @@
 
 /**
  长按手势在当前区域的范围
-
+ 
  @param point 点击区域
  @return 选择范围
  */
@@ -407,7 +407,7 @@
                     if (range.length > 1) {
                         
                         NSRange newRange = NSMakeRange(range.location, range.length + cfRange_Next.length);
-                          __block BOOL byWords = NO;
+                        __block BOOL byWords = NO;
                         [self.attributedString.string enumerateSubstringsInRange:newRange options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *subString, NSRange subStringRange, NSRange enclosingRange, BOOL *stop){
                             
                             if (index - subStringRange.location <= subStringRange.length&&index - subStringRange.location!=0) {
@@ -479,10 +479,10 @@
  */
 - (void)hideMenu
 {
-//    if ([self resignFirstResponder]) {
-        UIMenuController *menu = [UIMenuController sharedMenuController];
-        [menu setMenuVisible:NO animated:YES];
-//    }
+    //    if ([self resignFirstResponder]) {
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    [menu setMenuVisible:NO animated:YES];
+    //    }
 }
 
 /**
@@ -626,12 +626,12 @@
         BOOL isSelectCursor = NO;
         /// 计算相应区域 未左还是右
         if ([self.selectionView isLeftCursorContainsPoint:point]) {
-            NSLog(@"isLeftCursorContainsPoint");
+            
             isSelectCursor = YES;
             self.selectionView.tag = kLeftCursorTag;
             
         } else if ([self.selectionView isRightCursorContainsPoint:point]) {
-            NSLog(@"isRightCursorContainsPoint");
+            
             isSelectCursor = YES;
             self.selectionView.tag = kRightCursorTag;
             
@@ -713,7 +713,7 @@
         } else {
             isMoveCursor = NO;
         }
-
+        
         CFIndex index = [self moveConvertTouchPointToSelectIndex:point isLeft:isLeftCursor];
         if (index == kCFNotFound) {
             return;
@@ -851,7 +851,7 @@
 
 /**
  获取当前richLabel 所在的控制器
-
+ 
  @return currentViewController
  */
 - (UIViewController *)getViewController
