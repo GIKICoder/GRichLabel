@@ -67,7 +67,7 @@
 		2B6383F01F73E9CD001FF876 /* daku@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6383EC1F73E94B001FF876 /* daku@2x.png */; };
 		2B6383F11F73E9CD001FF876 /* expression.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B6383ED1F73E94B001FF876 /* expression.plist */; };
 		2BC22DBE1F7B4C3A00A46E47 /* novelReadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC22DBC1F7B4C3A00A46E47 /* novelReadViewController.m */; };
-		2BC22DC51F7B7B0100A46E47 /* GTextMenuConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC22DC41F7B7B0100A46E47 /* GTextMenuConfiguration.m */; };
+		2BC22E151F7BB36000A46E47 /* GTextMenuConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC22E141F7BB36000A46E47 /* GTextMenuConfiguration.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,8 +160,8 @@
 		2BC22DBC1F7B4C3A00A46E47 /* novelReadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = novelReadViewController.m; sourceTree = "<group>"; };
 		2BC22DBD1F7B4C3A00A46E47 /* novelabcd@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "novelabcd@2x.jpg"; sourceTree = "<group>"; };
 		2BC22DBF1F7B4CE000A46E47 /* novelabcd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = novelabcd.jpg; sourceTree = "<group>"; };
-		2BC22DC31F7B7B0000A46E47 /* GTextMenuConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GTextMenuConfiguration.h; path = ../../../../GTextMenuConfiguration.h; sourceTree = "<group>"; };
-		2BC22DC41F7B7B0100A46E47 /* GTextMenuConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GTextMenuConfiguration.m; path = ../../../../GTextMenuConfiguration.m; sourceTree = "<group>"; };
+		2BC22E131F7BB36000A46E47 /* GTextMenuConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTextMenuConfiguration.h; sourceTree = "<group>"; };
+		2BC22E141F7BB36000A46E47 /* GTextMenuConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTextMenuConfiguration.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,8 +310,8 @@
 				2B63839C1F73E8DA001FF876 /* GEmojiConfigManager.m */,
 				2B63839D1F73E8DA001FF876 /* GTokenAppearance.h */,
 				2B63839E1F73E8DA001FF876 /* GTokenAppearance.m */,
-				2BC22DC31F7B7B0000A46E47 /* GTextMenuConfiguration.h */,
-				2BC22DC41F7B7B0100A46E47 /* GTextMenuConfiguration.m */,
+				2BC22E131F7BB36000A46E47 /* GTextMenuConfiguration.h */,
+				2BC22E141F7BB36000A46E47 /* GTextMenuConfiguration.m */,
 				2B63839F1F73E8DA001FF876 /* NSAttributedString+GText.h */,
 				2B6383A01F73E8DA001FF876 /* NSAttributedString+GText.m */,
 			);
@@ -533,9 +533,9 @@
 				2B6383D41F73E8F4001FF876 /* GCursor.m in Sources */,
 				2B6383D51F73E8F4001FF876 /* GEmojiRunDelegate.h in Sources */,
 				2B6383D61F73E8F4001FF876 /* GEmojiRunDelegate.m in Sources */,
-				2BC22DC51F7B7B0100A46E47 /* GTextMenuConfiguration.m in Sources */,
 				2B6383D71F73E8F4001FF876 /* GLineLayout.h in Sources */,
 				2B6383D81F73E8F4001FF876 /* GLineLayout.m in Sources */,
+				2BC22E151F7BB36000A46E47 /* GTextMenuConfiguration.m in Sources */,
 				2B6383D91F73E8F4001FF876 /* GMagnifiter.h in Sources */,
 				2BC22DBE1F7B4C3A00A46E47 /* novelReadViewController.m in Sources */,
 				2B6383DA1F73E8F4001FF876 /* GMagnifiter.m in Sources */,
