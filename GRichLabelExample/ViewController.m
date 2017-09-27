@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "LabelViewController.h"
+#import "novelReadViewController.h"
 @interface ViewController ()
 
 @end
@@ -31,6 +32,10 @@
 - (void)gotoViewController:(int)type
 {
     LabelViewController *vc = [[LabelViewController alloc] initLabel:type];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+- (IBAction)novelReader:(id)sender {
+    novelReadViewController *vc = [[novelReadViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
