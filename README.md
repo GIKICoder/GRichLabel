@@ -13,9 +13,6 @@ Features
 ### 5,对于文本token 采用多模匹配算法. 详见[GACAutomaton](https://github.com/GIKICoder/GRichLabel/tree/master/GRichLabel/GACAutomaton).文本匹配效率比系统字符串匹配效率提高百倍.
 ### 6,功能以及代码还在更新完善中. 后期会支持更多功能.欢迎star.
 
-Warning
-==============
-### 工程在xcode 9上创建. 低版本xcode可能无法使用模拟器. 
 
 
 Usage
