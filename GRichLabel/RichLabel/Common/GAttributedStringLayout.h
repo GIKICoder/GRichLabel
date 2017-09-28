@@ -64,7 +64,7 @@
  @Default value is 1.
  0 means no limit.
  */
-@property (nonatomic, assign) NSUInteger numberOfLines;
+//@property (nonatomic, assign) NSUInteger numberOfLines;  //// 暂未实现
 
 /**
  文本对齐方式
