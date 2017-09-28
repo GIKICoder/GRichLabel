@@ -34,7 +34,7 @@
         self.linespace = 0;
         self.lineBreakMode = kCTLineBreakByWordWrapping;
         self.textAlignment = kCTLineBreakByWordWrapping;
-        self.numberOfLines = 1;
+//        self.numberOfLines = 1;
         self.lineIndent = 0;
     }
     return self;
