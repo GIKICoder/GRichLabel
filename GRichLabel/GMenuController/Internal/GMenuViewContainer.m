@@ -37,12 +37,12 @@ static inline CGPoint GMenuGetXCenter(CGRect rect) {
         _cornerRadius = 6;
         _arrowDirection = GMenuControllerArrowDefault;
         _arrowSize = CGSizeMake(17, 9.7);
-        _arrowMargin = 4;
+        _arrowMargin = 5.5;
         _menuEdgeInset = UIEdgeInsetsMake(10, 10, 10, 10);
-        _menuViewHeight = 45;
+        _menuViewHeight = 45.34;
         _maxMenuViewWidth = GMenuScreenWidth;
         self.contentLayer = [CAShapeLayer layer];
-        self.contentLayer.fillColor = [UIColor blackColor].CGColor;
+        self.contentLayer.fillColor = [UIColor colorWithRed:26/255 green:26/288 blue:27/255 alpha:1].CGColor;
         [self.layer addSublayer:self.contentLayer];
     }
     return self;
