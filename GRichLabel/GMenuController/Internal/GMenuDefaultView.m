@@ -55,7 +55,7 @@
 
 + (UIImage *)createBackgroundImageWithSize:(CGRect)rect tintColor:(UIColor *)tintColor
 {
-
+    
     UIImage *resultImage = nil;
     tintColor = tintColor ? tintColor : [UIColor lightGrayColor];
     
@@ -87,7 +87,7 @@
 @property (nonatomic, assign) NSUInteger  totalCount;
 @property (nonatomic, strong) NSMutableArray * pageCounts;
 @property (nonatomic, strong) NSMutableArray * lines;
-@property (nonatomic, strong) NSMutableArray * itemViews;
+
 @end
 
 static inline BOOL GMenuHasContainingInRange(CGFloat index,NSRange range) {
@@ -171,7 +171,7 @@ static inline BOOL GMenuHasContainingInRange(CGFloat index,NSRange range) {
 - (void)layoutMenuViews:(BOOL)needResetLayout
 {
     [self.lines removeAllObjects];
-    [self.itemViews removeAllObjects];
+    
     __block CGFloat totalWidth = 0;
     __block NSUInteger index = 0;
     __weak typeof(self) ws = self;
@@ -180,7 +180,7 @@ static inline BOOL GMenuHasContainingInRange(CGFloat index,NSRange range) {
     
     NSUInteger itemsCount = array.count;
     [array enumerateObjectsUsingBlock:^(GMenuItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        CGFloat maxWidth = self.maxSize.width;
+        CGFloat maxWidth = ((idx+1)==itemsCount)? self.maxSize.width : self.maxSize.width-kMoreWidth;
         CGFloat itemW = [ws calculateTextSize:obj.title maxWidth:maxWidth].width + kTitleMargin*2;
         totalWidth += itemW;
         if ((totalWidth > maxWidth) && (totalWidth - maxWidth) > kTitleMargin) {
@@ -194,7 +194,7 @@ static inline BOOL GMenuHasContainingInRange(CGFloat index,NSRange range) {
                 UIImage *image = [[self class] createTriangleImageWithSize:CGSizeMake(kTriangleWidth, kTriangleHeight) tintColor:nil isRight:YES];
                 [more setImage:image forState:UIControlStateNormal];
                 [self.contentView addSubview:more];
-                [self.itemViews addObject:more];
+                
                 
                 if (idx != 0) {
                     UIView *line = [UIView new];
@@ -218,7 +218,7 @@ static inline BOOL GMenuHasContainingInRange(CGFloat index,NSRange range) {
             item.titleLabel.font = [UIFont systemFontOfSize:14];
             [item setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             [self.contentView addSubview:item];
-            [self.itemViews addObject:item];
+            
             
             if (idx != 0) {
                 UIView *line = [UIView new];
@@ -241,7 +241,7 @@ static inline BOOL GMenuHasContainingInRange(CGFloat index,NSRange range) {
 - (void)layoutMoreMenuViews
 {
     [self.lines removeAllObjects];
-    [self.itemViews removeAllObjects];
+    
     __block NSUInteger index = 0;
     __weak typeof(self) ws = self;
     
@@ -259,11 +259,11 @@ static inline BOOL GMenuHasContainingInRange(CGFloat index,NSRange range) {
     {
         GMenuItemDefaultView *moreleft = [GMenuItemDefaultView buttonWithType:UIButtonTypeCustom];
         [moreleft addTarget:self action:@selector(forward:) forControlEvents:UIControlEventTouchUpInside];
-        moreleft.frame = CGRectMake(0, 0, kMoreWidth, self.maxSize.height);
+        moreleft.frame = CGRectMake(0, 0, kMoreWidth, self.maxSize.height-_arrowSize.height);
         UIImage *image = [[self class] createTriangleImageWithSize:CGSizeMake(kTriangleWidth, kTriangleHeight) tintColor:nil isRight:NO];
         [moreleft setImage:image forState:UIControlStateNormal];
         [self.contentView addSubview:moreleft];
-        [self.itemViews addObject:moreleft];
+        
         
         UIView *line = [UIView new];
         line.backgroundColor = [UIColor whiteColor];
@@ -306,7 +306,7 @@ static inline BOOL GMenuHasContainingInRange(CGFloat index,NSRange range) {
         item.titleLabel.font = [UIFont systemFontOfSize:14];
         [item setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self.contentView addSubview:item];
-        [self.itemViews addObject:item];
+        
         
         lastWidth += itemW;
         
@@ -325,7 +325,7 @@ static inline BOOL GMenuHasContainingInRange(CGFloat index,NSRange range) {
     {
         GMenuItemDefaultView *moreRight = [GMenuItemDefaultView buttonWithType:UIButtonTypeCustom];
         [moreRight addTarget:self action:@selector(more:) forControlEvents:UIControlEventTouchUpInside];
-        moreRight.frame = CGRectMake(self.frame.size.width-kMoreWidth, 0, kMoreWidth, self.maxSize.height);
+        moreRight.frame = CGRectMake(self.frame.size.width-kMoreWidth, 0, kMoreWidth, self.maxSize.height-_arrowSize.height);
         
         
         if (self.totalCount ==  self.menuItems.count) {
@@ -336,7 +336,7 @@ static inline BOOL GMenuHasContainingInRange(CGFloat index,NSRange range) {
         UIImage *image = [[self class] createTriangleImageWithSize:CGSizeMake(8.7, 11) tintColor:nil isRight:YES];
         [moreRight setImage:image forState:UIControlStateNormal];
         [self.contentView addSubview:moreRight];
-        [self.itemViews addObject:moreRight];
+        
         
         UIView *line = [UIView new];
         line.backgroundColor = [UIColor whiteColor];
@@ -344,6 +344,7 @@ static inline BOOL GMenuHasContainingInRange(CGFloat index,NSRange range) {
         line.frame = CGRectMake(self.frame.size.width-kMoreWidth, 0, 1/[UIScreen mainScreen].scale,self.maxSize.height-_arrowSize.height);
         [self.lines addObject:line];
     }
+    [self setCorrectDirection:_CorrectDirection];
 }
 
 - (CGSize)calculateTextSize:(NSString*)text maxWidth:(CGFloat)maxWidth
@@ -357,7 +358,10 @@ static inline BOOL GMenuHasContainingInRange(CGFloat index,NSRange range) {
 
 - (void)more:(UIButton*)btn
 {
-    [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.contentView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj removeFromSuperview];
+    }];
+    [self.lines enumerateObjectsUsingBlock:^(UIView* obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj removeFromSuperview];
     }];
     [self layoutMoreMenuViews];
@@ -365,10 +369,12 @@ static inline BOOL GMenuHasContainingInRange(CGFloat index,NSRange range) {
 
 - (void)forward:(UIButton*)btn
 {
-    [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.contentView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj removeFromSuperview];
     }];
-    
+    [self.lines enumerateObjectsUsingBlock:^(UIView* obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj removeFromSuperview];
+    }];
     if (self.pageCounts.count <= 2) {
         [self.pageCounts removeAllObjects];
         self.totalCount = 0;
@@ -430,12 +436,6 @@ static inline BOOL GMenuHasContainingInRange(CGFloat index,NSRange range) {
     return _lines;
 }
 
-- (NSMutableArray *)itemViews
-{
-    if (!_itemViews) {
-        _itemViews = [NSMutableArray array];
-    }
-    return _itemViews;
-}
+
 
 @end
