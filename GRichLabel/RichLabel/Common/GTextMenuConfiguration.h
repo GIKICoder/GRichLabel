@@ -11,7 +11,8 @@
 @class GRichLabel;
 @interface GTextMenuConfiguration : NSObject
 
-@property (nonatomic, strong) NSArray<UIMenuItem*> * menuItems;
+@property (nonatomic, assign) BOOL  useGMenuController;
+@property (nonatomic, strong) NSArray * menuItems;
 
 + (instancetype)textMenuConfig:(GRichLabel*)richLabel;
 - (void)showMenuWithTargetRect:(CGRect)targetRect selectRange:(NSRange)selectRange;

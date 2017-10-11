@@ -476,10 +476,7 @@
  */
 - (void)hideMenu
 {
-    //    if ([self resignFirstResponder]) {
-    UIMenuController *menu = [UIMenuController sharedMenuController];
-    [menu setMenuVisible:NO animated:YES];
-    //    }
+    [self.menuConfiguration hideTextMenu];
 }
 
 /**

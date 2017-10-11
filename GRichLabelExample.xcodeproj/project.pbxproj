@@ -66,6 +66,10 @@
 		2B6383EF1F73E9CD001FF876 /* dabian@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6383EB1F73E94B001FF876 /* dabian@2x.png */; };
 		2B6383F01F73E9CD001FF876 /* daku@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6383EC1F73E94B001FF876 /* daku@2x.png */; };
 		2B6383F11F73E9CD001FF876 /* expression.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B6383ED1F73E94B001FF876 /* expression.plist */; };
+		2BABF7E01F8E2ACC00890143 /* GMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF7D81F8E2AC100890143 /* GMenuController.m */; };
+		2BABF7E21F8E2AD300890143 /* GMenuDefaultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF7DD1F8E2AC100890143 /* GMenuDefaultView.m */; };
+		2BABF7E31F8E2AD600890143 /* GMenuEffectsWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF7DF1F8E2AC100890143 /* GMenuEffectsWindow.m */; };
+		2BABF7E61F8E2BAF00890143 /* GMenuViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF7E51F8E2BAF00890143 /* GMenuViewContainer.m */; };
 		2BC22DBE1F7B4C3A00A46E47 /* novelReadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC22DBC1F7B4C3A00A46E47 /* novelReadViewController.m */; };
 		2BC22E151F7BB36000A46E47 /* GTextMenuConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC22E141F7BB36000A46E47 /* GTextMenuConfiguration.m */; };
 /* End PBXBuildFile section */
@@ -156,6 +160,14 @@
 		2B6383EB1F73E94B001FF876 /* dabian@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dabian@2x.png"; sourceTree = "<group>"; };
 		2B6383EC1F73E94B001FF876 /* daku@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "daku@2x.png"; sourceTree = "<group>"; };
 		2B6383ED1F73E94B001FF876 /* expression.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = expression.plist; sourceTree = "<group>"; };
+		2BABF7D71F8E2AC100890143 /* GMenuController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMenuController.h; sourceTree = "<group>"; };
+		2BABF7D81F8E2AC100890143 /* GMenuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMenuController.m; sourceTree = "<group>"; };
+		2BABF7DC1F8E2AC100890143 /* GMenuDefaultView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMenuDefaultView.h; sourceTree = "<group>"; };
+		2BABF7DD1F8E2AC100890143 /* GMenuDefaultView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMenuDefaultView.m; sourceTree = "<group>"; };
+		2BABF7DE1F8E2AC100890143 /* GMenuEffectsWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMenuEffectsWindow.h; sourceTree = "<group>"; };
+		2BABF7DF1F8E2AC100890143 /* GMenuEffectsWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMenuEffectsWindow.m; sourceTree = "<group>"; };
+		2BABF7E41F8E2BAF00890143 /* GMenuViewContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMenuViewContainer.h; sourceTree = "<group>"; };
+		2BABF7E51F8E2BAF00890143 /* GMenuViewContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMenuViewContainer.m; sourceTree = "<group>"; };
 		2BC22DBB1F7B4C3A00A46E47 /* novelReadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = novelReadViewController.h; sourceTree = "<group>"; };
 		2BC22DBC1F7B4C3A00A46E47 /* novelReadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = novelReadViewController.m; sourceTree = "<group>"; };
 		2BC22DBD1F7B4C3A00A46E47 /* novelabcd@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "novelabcd@2x.jpg"; sourceTree = "<group>"; };
@@ -262,6 +274,7 @@
 		2B6383871F73E8DA001FF876 /* GRichLabel */ = {
 			isa = PBXGroup;
 			children = (
+				2BABF7D61F8E2AC100890143 /* GMenuController */,
 				2B6383881F73E8DA001FF876 /* GACAutomaton */,
 				2B6383911F73E8DA001FF876 /* RichLabel */,
 				2B6383B41F73E8DA001FF876 /* YYAsyncLayer */,
@@ -363,6 +376,29 @@
 				2B6383ED1F73E94B001FF876 /* expression.plist */,
 			);
 			path = emoji;
+			sourceTree = "<group>";
+		};
+		2BABF7D61F8E2AC100890143 /* GMenuController */ = {
+			isa = PBXGroup;
+			children = (
+				2BABF7D71F8E2AC100890143 /* GMenuController.h */,
+				2BABF7D81F8E2AC100890143 /* GMenuController.m */,
+				2BABF7D91F8E2AC100890143 /* Internal */,
+			);
+			path = GMenuController;
+			sourceTree = "<group>";
+		};
+		2BABF7D91F8E2AC100890143 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				2BABF7E41F8E2BAF00890143 /* GMenuViewContainer.h */,
+				2BABF7E51F8E2BAF00890143 /* GMenuViewContainer.m */,
+				2BABF7DC1F8E2AC100890143 /* GMenuDefaultView.h */,
+				2BABF7DD1F8E2AC100890143 /* GMenuDefaultView.m */,
+				2BABF7DE1F8E2AC100890143 /* GMenuEffectsWindow.h */,
+				2BABF7DF1F8E2AC100890143 /* GMenuEffectsWindow.m */,
+			);
+			path = Internal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -506,12 +542,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B6383BB1F73E8F4001FF876 /* GACAutomaton.h in Sources */,
+				2BABF7E61F8E2BAF00890143 /* GMenuViewContainer.m in Sources */,
 				2B6383BC1F73E8F4001FF876 /* GACAutomaton.m in Sources */,
+				2BABF7E01F8E2ACC00890143 /* GMenuController.m in Sources */,
+				2BABF7E31F8E2AD600890143 /* GMenuEffectsWindow.m in Sources */,
 				2B6383BD1F73E8F4001FF876 /* GACNode.h in Sources */,
 				2B6383BE1F73E8F4001FF876 /* GACNode.m in Sources */,
 				2B6383BF1F73E8F4001FF876 /* GACQueue.h in Sources */,
 				2B6383C01F73E8F4001FF876 /* GACQueue.m in Sources */,
 				2B6383C11F73E8F4001FF876 /* GACResult.h in Sources */,
+				2BABF7E21F8E2AD300890143 /* GMenuDefaultView.m in Sources */,
 				2B6383C21F73E8F4001FF876 /* GACResult.m in Sources */,
 				2B6383C31F73E8F4001FF876 /* GAttributedStringFactory.h in Sources */,
 				2B6383C41F73E8F4001FF876 /* GAttributedStringFactory.m in Sources */,
