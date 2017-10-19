@@ -56,7 +56,7 @@
 
 + (UIImage *)createBackgroundImageWithSize:(CGRect)rect tintColor:(UIColor *)tintColor
 {
-
+    
     UIImage *resultImage = nil;
     tintColor = tintColor ? tintColor : [UIColor lightGrayColor];
     
