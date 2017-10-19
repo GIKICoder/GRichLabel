@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GMenuController.h"
 #import "GMenuDefaultView.h"
+#import "GAdjustButton.h"
+
 @interface GMenuViewContainer : UIView
 
 /**
@@ -28,12 +29,22 @@
 
 /**
  箭头指向
- GMenuControllerArrowDefault: 会自动计算合适的箭头方向
+ GMenuControllerArrow Default: 会自动计算合适的箭头方向
  */
 @property(nonatomic, assign) GMenuControllerArrowDirection arrowDirection ;
 
 /**
- menu高度
+ 如果menuItem 有图片. 指定图片与文字的排列. Default:GAdjustButtonIMGPositionLeft
+ */
+@property (nonatomic, assign) GAdjustButtonIMGPosition  imagePosition;
+
+/**
+ menuItemFont Default:14
+ */
+@property (nonatomic, strong) UIFont * menuItemFont;
+
+/**
+ menu高度 Defalut:45.34f
  */
 @property (nonatomic, assign) CGFloat  menuViewHeight;
 
@@ -60,4 +71,5 @@
 
 - (void)processMenuFrame;
 
+- (void)initConfigs;
 @end

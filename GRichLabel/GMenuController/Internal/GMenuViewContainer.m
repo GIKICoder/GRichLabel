@@ -8,7 +8,7 @@
 
 #import "GMenuViewContainer.h"
 #import "GMenuEffectsWindow.h"
-
+#import "GMenuController.h"
 #define GMenuStatusBarHeight  [UIApplication sharedApplication].statusBarFrame.size.height
 #define GMenuScreenHeight [UIScreen mainScreen].bounds.size.height
 #define GMenuScreenWidth [UIScreen mainScreen].bounds.size.width
@@ -34,18 +34,25 @@ static inline CGPoint GMenuGetXCenter(CGRect rect) {
 {
     self = [super init];
     if (self) {
-        _cornerRadius = 6;
-        _arrowDirection = GMenuControllerArrowDefault;
-        _arrowSize = CGSizeMake(17, 9.7);
-        _arrowMargin = 5.5;
-        _menuEdgeInset = UIEdgeInsetsMake(10, 10, 10, 10);
-        _menuViewHeight = 45.34;
-        _maxMenuViewWidth = GMenuScreenWidth;
+        [self initConfigs];
         self.contentLayer = [CAShapeLayer layer];
         self.contentLayer.fillColor = [UIColor colorWithRed:26/255 green:26/288 blue:27/255 alpha:1].CGColor;
         [self.layer addSublayer:self.contentLayer];
     }
     return self;
+}
+
+- (void)initConfigs
+{
+    _cornerRadius = 6;
+    _arrowDirection = GMenuControllerArrowDefault;
+    _arrowSize = CGSizeMake(17, 9.7);
+    _menuItemFont = [UIFont systemFontOfSize:14];
+    _imagePosition = GAdjustButtonIMGPositionLeft;
+    _arrowMargin = 5.5;
+    _menuEdgeInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    _menuViewHeight = 45.34;
+    _maxMenuViewWidth = GMenuScreenWidth;
 }
 
 - (void)layoutSubviews
@@ -157,6 +164,18 @@ static inline CGPoint GMenuGetXCenter(CGRect rect) {
 - (void)setMenuItems:(NSArray<GMenuItem *> *)menuItems
 {
     _menuItems = menuItems;
+    [self processMenuFrame];
+}
+
+- (void)setImagePosition:(GAdjustButtonIMGPosition)imagePosition
+{
+    _imagePosition = imagePosition;
+    [self processMenuFrame];
+}
+
+- (void)setMenuItemFont:(UIFont *)menuItemFont
+{
+    _menuItemFont = menuItemFont;
     [self processMenuFrame];
 }
 

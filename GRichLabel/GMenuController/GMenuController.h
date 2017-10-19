@@ -8,16 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "GMenuControllerHeader.h"
+#import "GMenuViewContainer.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSUInteger, GMenuControllerArrowDirection) {
-    GMenuControllerArrowDefault, // up or down based on screen location
-    GMenuControllerArrowUp ,       // Forced upward. If the screen is not displayed,  Will do anchor displacement
-    GMenuControllerArrowDown ,     // Forced down
-};
 
-@class GMenuItem;
+@class GMenuItem,GMenuViewContainer;
 
 @interface GMenuController : NSObject
 
@@ -35,23 +32,22 @@ typedef NS_ENUM(NSUInteger, GMenuControllerArrowDirection) {
 
 - (void)update;
 
+- (void)reset; /// reset menuViewContrainer configs 
+
 @property(nonatomic,readonly) CGRect menuFrame;
 
-@end
+@property(nonatomic,readonly) GMenuViewContainer * menuViewContainer;
 
-UIKIT_EXTERN NSNotificationName const GMenuControllerWillShowMenuNotification;
-UIKIT_EXTERN NSNotificationName const GMenuControllerDidShowMenuNotification;
-UIKIT_EXTERN NSNotificationName const GMenuControllerWillHideMenuNotification;
-UIKIT_EXTERN NSNotificationName const GMenuControllerDidHideMenuNotification;
-UIKIT_EXTERN NSNotificationName const GMenuControllerMenuFrameDidChangeNotification;
+@end
 
 NS_ASSUME_NONNULL_END
 
 NS_ASSUME_NONNULL_BEGIN
 @interface GMenuItem : NSObject
 - (instancetype)initWithTitle:(NSString *)title target:(id)target action:(SEL)action;
-
+- (instancetype)initWithTitle:(NSString *)title image:(UIImage*)image target:(id)target action:(SEL)action;
 @property(nonatomic,copy) NSString *title;
+@property (nonatomic, strong) UIImage * image;
 @property (nonatomic, strong) id target;
 @property(nonatomic)      SEL       action;
 @end

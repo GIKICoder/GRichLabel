@@ -7,9 +7,8 @@
 //
 
 #import "GMenuController.h"
-#import "GMenuViewContainer.h"
 #import "GMenuEffectsWindow.h"
-
+#import "GMenuViewContainer.h"
 NSNotificationName  const GMenuControllerWillShowMenuNotification = @"GMenuControllerWillShowMenuNotification_private";
 NSNotificationName  const GMenuControllerDidShowMenuNotification= @"GMenuControllerDidShowMenuNotification_private";
 NSNotificationName  const GMenuControllerWillHideMenuNotification= @"GMenuControllerWillHideMenuNotification_private";
@@ -20,7 +19,7 @@ NSNotificationName  const GMenuControllerMenuFrameDidChangeNotification= @"GMenu
 {
     BOOL _showMenu;
 }
-@property (nonatomic, strong) GMenuViewContainer * menuContainer;
+@property (nonatomic, strong,readwrite) GMenuViewContainer * menuViewContainer;
 @property (nonatomic, weak) UIView * targetView;
 @end
 
@@ -32,8 +31,7 @@ NSNotificationName  const GMenuControllerMenuFrameDidChangeNotification= @"GMenu
 {
     self = [super init];
     if (self) {
-        GMenuViewContainer *container = [GMenuViewContainer new];
-        self.menuContainer = container;
+
     }
     return self;
 }
@@ -69,50 +67,56 @@ NSNotificationName  const GMenuControllerMenuFrameDidChangeNotification= @"GMenu
         [self showMenuWithAnimated:animated];
     } else {
         [[NSNotificationCenter defaultCenter] postNotificationName:GMenuControllerWillHideMenuNotification object:nil];
-        [[GMenuEffectsWindow sharedWindow] hideMenu:self.menuContainer];
+        [[GMenuEffectsWindow sharedWindow] hideMenu:self.menuViewContainer];
+        [[GMenuController sharedMenuController] reset];
     }
 }
 
 - (void)showMenuWithAnimated:(BOOL)animated
 {
-   [[GMenuEffectsWindow sharedWindow] showMenu:self.menuContainer animation:YES];
+   [[GMenuEffectsWindow sharedWindow] showMenu:self.menuViewContainer animation:YES];
 }
 
 - (void)setTargetRect:(CGRect)targetRect inView:(UIView *)targetView
 {
-    if (!self.menuContainer) return;
+    if (!self.menuViewContainer) return;
     self.targetView = targetView;
-    [self.menuContainer setTargetRect:targetRect inView:targetView];
+    [self.menuViewContainer setTargetRect:targetRect inView:targetView];
 }
 
 - (void)setMenuItems:(NSArray<GMenuItem *> *)menuItems
 {
     _menuItems = menuItems;
-    self.menuContainer.menuItems = menuItems;
+    self.menuViewContainer.menuItems = menuItems;
 }
 
 - (void)update
 {
-    [self.menuContainer processMenuFrame];
+    [self.menuViewContainer processMenuFrame];
+}
+
+- (void)reset
+{
+    [self.menuViewContainer initConfigs];
 }
 
 - (CGRect)menuFrame
 {
-    return self.menuContainer ? self.menuContainer.frame :CGRectZero;
+    return self.menuViewContainer ? self.menuViewContainer.frame :CGRectZero;
 }
 
 - (void)setArrowDirection:(GMenuControllerArrowDirection)arrowDirection
 {
     _arrowDirection = arrowDirection;
-    self.menuContainer.arrowDirection = arrowDirection;
+    self.menuViewContainer.arrowDirection = arrowDirection;
 }
 
-- (GMenuViewContainer *)menuContainer
+- (GMenuViewContainer *)menuViewContainer
 {
-    if (!_menuContainer) {
-        _menuContainer = [GMenuViewContainer new];
+    if (!_menuViewContainer) {
+        _menuViewContainer = [GMenuViewContainer new];
     }
-    return _menuContainer;
+    return _menuViewContainer;
 }
 @end
 
@@ -125,6 +129,18 @@ NSNotificationName  const GMenuControllerMenuFrameDidChangeNotification= @"GMenu
         self.title = title;
         self.target = target;
         self.action = action;
+    }
+    return self;
+}
+
+- (instancetype)initWithTitle:(NSString *)title image:(UIImage*)image target:(id)target action:(SEL)action
+{
+    self = [super init];
+    if (self) {
+        self.title = title;
+        self.target = target;
+        self.action = action;
+        self.image = image;
     }
     return self;
 }

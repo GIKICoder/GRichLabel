@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GMenuController.h"
-@class GMenuController,GMenuItem,GMenuViewContainer;
+#import "GMenuControllerHeader.h"
+@class GMenuItem,GMenuViewContainer;
 @interface GMenuDefaultView : UIView
 @property (nonatomic, strong) NSArray<GMenuItem*>* menuItems;
 @property (nonatomic, assign) CGSize  maxSize;

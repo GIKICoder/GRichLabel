@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B0893431F98ABF90073946D /* GMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0893381F98ABF40073946D /* GMenuController.m */; };
+		2B0893441F98ABFE0073946D /* GAdjustButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B08933C1F98ABF40073946D /* GAdjustButton.m */; };
+		2B0893451F98AC010073946D /* GMenuDefaultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B08933E1F98ABF40073946D /* GMenuDefaultView.m */; };
+		2B0893461F98AC030073946D /* GMenuEffectsWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0893401F98ABF40073946D /* GMenuEffectsWindow.m */; };
+		2B0893471F98AC050073946D /* GMenuViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0893421F98ABF40073946D /* GMenuViewContainer.m */; };
 		2B58E56D1F61548F00505193 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B58E56C1F61548F00505193 /* main.m */; };
 		2B58E5701F61548F00505193 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B58E56F1F61548F00505193 /* AppDelegate.m */; };
 		2B58E5731F61548F00505193 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B58E5721F61548F00505193 /* ViewController.m */; };
@@ -66,10 +71,6 @@
 		2B6383EF1F73E9CD001FF876 /* dabian@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6383EB1F73E94B001FF876 /* dabian@2x.png */; };
 		2B6383F01F73E9CD001FF876 /* daku@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6383EC1F73E94B001FF876 /* daku@2x.png */; };
 		2B6383F11F73E9CD001FF876 /* expression.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B6383ED1F73E94B001FF876 /* expression.plist */; };
-		2BABF7E01F8E2ACC00890143 /* GMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF7D81F8E2AC100890143 /* GMenuController.m */; };
-		2BABF7E21F8E2AD300890143 /* GMenuDefaultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF7DD1F8E2AC100890143 /* GMenuDefaultView.m */; };
-		2BABF7E31F8E2AD600890143 /* GMenuEffectsWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF7DF1F8E2AC100890143 /* GMenuEffectsWindow.m */; };
-		2BABF7E61F8E2BAF00890143 /* GMenuViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BABF7E51F8E2BAF00890143 /* GMenuViewContainer.m */; };
 		2BC22DBE1F7B4C3A00A46E47 /* novelReadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC22DBC1F7B4C3A00A46E47 /* novelReadViewController.m */; };
 		2BC22E151F7BB36000A46E47 /* GTextMenuConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC22E141F7BB36000A46E47 /* GTextMenuConfiguration.m */; };
 /* End PBXBuildFile section */
@@ -92,6 +93,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B0893371F98ABF40073946D /* GMenuController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMenuController.h; sourceTree = "<group>"; };
+		2B0893381F98ABF40073946D /* GMenuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMenuController.m; sourceTree = "<group>"; };
+		2B0893391F98ABF40073946D /* GMenuControllerHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMenuControllerHeader.h; sourceTree = "<group>"; };
+		2B08933B1F98ABF40073946D /* GAdjustButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAdjustButton.h; sourceTree = "<group>"; };
+		2B08933C1F98ABF40073946D /* GAdjustButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GAdjustButton.m; sourceTree = "<group>"; };
+		2B08933D1F98ABF40073946D /* GMenuDefaultView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMenuDefaultView.h; sourceTree = "<group>"; };
+		2B08933E1F98ABF40073946D /* GMenuDefaultView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMenuDefaultView.m; sourceTree = "<group>"; };
+		2B08933F1F98ABF40073946D /* GMenuEffectsWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMenuEffectsWindow.h; sourceTree = "<group>"; };
+		2B0893401F98ABF40073946D /* GMenuEffectsWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMenuEffectsWindow.m; sourceTree = "<group>"; };
+		2B0893411F98ABF40073946D /* GMenuViewContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMenuViewContainer.h; sourceTree = "<group>"; };
+		2B0893421F98ABF40073946D /* GMenuViewContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMenuViewContainer.m; sourceTree = "<group>"; };
 		2B58E5681F61548F00505193 /* GRichLabelExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GRichLabelExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B58E56C1F61548F00505193 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2B58E56E1F61548F00505193 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -160,14 +172,6 @@
 		2B6383EB1F73E94B001FF876 /* dabian@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dabian@2x.png"; sourceTree = "<group>"; };
 		2B6383EC1F73E94B001FF876 /* daku@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "daku@2x.png"; sourceTree = "<group>"; };
 		2B6383ED1F73E94B001FF876 /* expression.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = expression.plist; sourceTree = "<group>"; };
-		2BABF7D71F8E2AC100890143 /* GMenuController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMenuController.h; sourceTree = "<group>"; };
-		2BABF7D81F8E2AC100890143 /* GMenuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMenuController.m; sourceTree = "<group>"; };
-		2BABF7DC1F8E2AC100890143 /* GMenuDefaultView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMenuDefaultView.h; sourceTree = "<group>"; };
-		2BABF7DD1F8E2AC100890143 /* GMenuDefaultView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMenuDefaultView.m; sourceTree = "<group>"; };
-		2BABF7DE1F8E2AC100890143 /* GMenuEffectsWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMenuEffectsWindow.h; sourceTree = "<group>"; };
-		2BABF7DF1F8E2AC100890143 /* GMenuEffectsWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMenuEffectsWindow.m; sourceTree = "<group>"; };
-		2BABF7E41F8E2BAF00890143 /* GMenuViewContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMenuViewContainer.h; sourceTree = "<group>"; };
-		2BABF7E51F8E2BAF00890143 /* GMenuViewContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMenuViewContainer.m; sourceTree = "<group>"; };
 		2BC22DBB1F7B4C3A00A46E47 /* novelReadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = novelReadViewController.h; sourceTree = "<group>"; };
 		2BC22DBC1F7B4C3A00A46E47 /* novelReadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = novelReadViewController.m; sourceTree = "<group>"; };
 		2BC22DBD1F7B4C3A00A46E47 /* novelabcd@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "novelabcd@2x.jpg"; sourceTree = "<group>"; };
@@ -201,6 +205,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B0893361F98ABF40073946D /* GMenuController */ = {
+			isa = PBXGroup;
+			children = (
+				2B0893371F98ABF40073946D /* GMenuController.h */,
+				2B0893381F98ABF40073946D /* GMenuController.m */,
+				2B0893391F98ABF40073946D /* GMenuControllerHeader.h */,
+				2B08933A1F98ABF40073946D /* Internal */,
+			);
+			path = GMenuController;
+			sourceTree = "<group>";
+		};
+		2B08933A1F98ABF40073946D /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				2B08933B1F98ABF40073946D /* GAdjustButton.h */,
+				2B08933C1F98ABF40073946D /* GAdjustButton.m */,
+				2B08933D1F98ABF40073946D /* GMenuDefaultView.h */,
+				2B08933E1F98ABF40073946D /* GMenuDefaultView.m */,
+				2B08933F1F98ABF40073946D /* GMenuEffectsWindow.h */,
+				2B0893401F98ABF40073946D /* GMenuEffectsWindow.m */,
+				2B0893411F98ABF40073946D /* GMenuViewContainer.h */,
+				2B0893421F98ABF40073946D /* GMenuViewContainer.m */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
 		2B58E55F1F61548F00505193 = {
 			isa = PBXGroup;
 			children = (
@@ -274,7 +304,7 @@
 		2B6383871F73E8DA001FF876 /* GRichLabel */ = {
 			isa = PBXGroup;
 			children = (
-				2BABF7D61F8E2AC100890143 /* GMenuController */,
+				2B0893361F98ABF40073946D /* GMenuController */,
 				2B6383881F73E8DA001FF876 /* GACAutomaton */,
 				2B6383911F73E8DA001FF876 /* RichLabel */,
 				2B6383B41F73E8DA001FF876 /* YYAsyncLayer */,
@@ -376,29 +406,6 @@
 				2B6383ED1F73E94B001FF876 /* expression.plist */,
 			);
 			path = emoji;
-			sourceTree = "<group>";
-		};
-		2BABF7D61F8E2AC100890143 /* GMenuController */ = {
-			isa = PBXGroup;
-			children = (
-				2BABF7D71F8E2AC100890143 /* GMenuController.h */,
-				2BABF7D81F8E2AC100890143 /* GMenuController.m */,
-				2BABF7D91F8E2AC100890143 /* Internal */,
-			);
-			path = GMenuController;
-			sourceTree = "<group>";
-		};
-		2BABF7D91F8E2AC100890143 /* Internal */ = {
-			isa = PBXGroup;
-			children = (
-				2BABF7E41F8E2BAF00890143 /* GMenuViewContainer.h */,
-				2BABF7E51F8E2BAF00890143 /* GMenuViewContainer.m */,
-				2BABF7DC1F8E2AC100890143 /* GMenuDefaultView.h */,
-				2BABF7DD1F8E2AC100890143 /* GMenuDefaultView.m */,
-				2BABF7DE1F8E2AC100890143 /* GMenuEffectsWindow.h */,
-				2BABF7DF1F8E2AC100890143 /* GMenuEffectsWindow.m */,
-			);
-			path = Internal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -542,16 +549,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B6383BB1F73E8F4001FF876 /* GACAutomaton.h in Sources */,
-				2BABF7E61F8E2BAF00890143 /* GMenuViewContainer.m in Sources */,
 				2B6383BC1F73E8F4001FF876 /* GACAutomaton.m in Sources */,
-				2BABF7E01F8E2ACC00890143 /* GMenuController.m in Sources */,
-				2BABF7E31F8E2AD600890143 /* GMenuEffectsWindow.m in Sources */,
+				2B0893431F98ABF90073946D /* GMenuController.m in Sources */,
+				2B0893461F98AC030073946D /* GMenuEffectsWindow.m in Sources */,
 				2B6383BD1F73E8F4001FF876 /* GACNode.h in Sources */,
 				2B6383BE1F73E8F4001FF876 /* GACNode.m in Sources */,
 				2B6383BF1F73E8F4001FF876 /* GACQueue.h in Sources */,
 				2B6383C01F73E8F4001FF876 /* GACQueue.m in Sources */,
 				2B6383C11F73E8F4001FF876 /* GACResult.h in Sources */,
-				2BABF7E21F8E2AD300890143 /* GMenuDefaultView.m in Sources */,
+				2B0893451F98AC010073946D /* GMenuDefaultView.m in Sources */,
 				2B6383C21F73E8F4001FF876 /* GACResult.m in Sources */,
 				2B6383C31F73E8F4001FF876 /* GAttributedStringFactory.h in Sources */,
 				2B6383C41F73E8F4001FF876 /* GAttributedStringFactory.m in Sources */,
@@ -560,6 +566,7 @@
 				2B6383C71F73E8F4001FF876 /* GAttributedToken.h in Sources */,
 				2B6383C81F73E8F4001FF876 /* GAttributedToken.m in Sources */,
 				2B6383C91F73E8F4001FF876 /* GDrawTextBuilder.h in Sources */,
+				2B0893441F98ABFE0073946D /* GAdjustButton.m in Sources */,
 				2B6383CA1F73E8F4001FF876 /* GDrawTextBuilder.m in Sources */,
 				2B6383CB1F73E8F4001FF876 /* GEmojiConfigManager.h in Sources */,
 				2B6383CC1F73E8F4001FF876 /* GEmojiConfigManager.m in Sources */,
@@ -590,6 +597,7 @@
 				2B6383E31F73E8F4001FF876 /* YYAsyncLayer.h in Sources */,
 				2B6383E41F73E8F4001FF876 /* YYAsyncLayer.m in Sources */,
 				2B6383E51F73E8F4001FF876 /* YYSentinel.h in Sources */,
+				2B0893471F98AC050073946D /* GMenuViewContainer.m in Sources */,
 				2B6383E61F73E8F4001FF876 /* YYSentinel.m in Sources */,
 				2B6383E71F73E8F4001FF876 /* YYTransaction.h in Sources */,
 				2B6383E81F73E8F4001FF876 /* YYTransaction.m in Sources */,
