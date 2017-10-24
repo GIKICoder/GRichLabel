@@ -68,7 +68,7 @@ richLabel.frame = CGRectMake(5, 0, self.view.frame.size.width-10, 500);
   
 ```
 
-安装
+Installation
 ==============
 
 ### 手动添加
