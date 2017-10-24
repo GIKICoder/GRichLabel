@@ -68,6 +68,13 @@ richLabel.frame = CGRectMake(5, 0, self.view.frame.size.width-10, 500);
   
 ```
 
+安装
+==============
+
+### 手动添加
+1. ` git clone  https://github.com/GIKICoder/GRichLabel.git `
+2. 选择`GRichLabel`文件夹.拖入项目中.
+3. `GRichLabel` 依赖 `GMenuController https://github.com/GIKICoder/GMenuController`,  `YYAsyncLayer https://github.com/ibireme/YYAsyncLayer` 这2个库. 可以使用pod添加. 也可下载手动添加到项目
 
 
 Thanks
