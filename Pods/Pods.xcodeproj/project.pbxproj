@@ -1,0 +1,1092 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		098749210838BA5468DA3DC799DD7A7E /* GBigbang.h in Headers */ = {isa = PBXBuildFile; fileRef = D99A05E136EAD74228BB2933F52C0A80 /* GBigbang.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0EC94A7007BB6465A45A4CE6BE82651D /* GMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2FF3486DAC255D648CB959426B2056 /* GMenuController.m */; };
+		10D0363B5F791306374951B39FF92045 /* YYAsyncLayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC5826D10B930E4F38051EFC2593A14 /* YYAsyncLayer-dummy.m */; };
+		1A8E7C6C423FB9BAC518D6D7FCB190B0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF675A168132FD52AED630F977FE906 /* UIKit.framework */; };
+		2230C5AE49236663B5A4473707D7983D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC32878090C4B2B93381956161EC0930 /* Foundation.framework */; };
+		24F9B1EE48F6C08355445DB0A945ED43 /* GBigbangBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 08755340F2E84E116C7A967E34D9C879 /* GBigbangBox.m */; };
+		264B7890FEB580CE44B008E180A78C20 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC32878090C4B2B93381956161EC0930 /* Foundation.framework */; };
+		2740AFA0042CC306F16A8A4FE91F163E /* GTagFlowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A13BBBE554220456F004B2CEDF7ECB0A /* GTagFlowCell.m */; };
+		2AEB64F0D650BB6EB9F0B53761C0E922 /* GMenuController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E4CE45E70C5BC7ED3333B550E570D168 /* GMenuController-dummy.m */; };
+		359DF4BB27ADB9B309D530DD920E232A /* YYSentinel.m in Sources */ = {isa = PBXBuildFile; fileRef = 775D62688521C2632AB8561D3047B0D1 /* YYSentinel.m */; };
+		5932AB71312759A65F6AA4CCAA980F4F /* GMenuViewContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DE50A2D4CCCD12C687C910135114E8C /* GMenuViewContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		61568E2C458D9CFC85476078CD1D5306 /* Pods-GRichLabelExampleTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 53343173BF1F5E3B53841E6DBD85FF3B /* Pods-GRichLabelExampleTests-dummy.m */; };
+		6205872486B5C886D33D552064022E63 /* GTagFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A60444654671D41561C4FBECD1B7F69 /* GTagFlowView.m */; };
+		67D18FABF7ADA65A89E813B44FD1FF7B /* GBigbangBox.h in Headers */ = {isa = PBXBuildFile; fileRef = 73AEC373B5600610D70533573FF0520C /* GBigbangBox.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68130B6C0A08E6A82C3DA913FA2EFA21 /* GTagFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 59445C53B16ABE682D84A9CC2FB86D29 /* GTagFlowLayout.m */; };
+		6FE565AD28A0317390CBB9CF78E13D0C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF675A168132FD52AED630F977FE906 /* UIKit.framework */; };
+		715D83DC822D703916064A10A981F0FB /* Pods-GRichLabelExampleUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F65EA01B4C00B1EFF3662C4A27731 /* Pods-GRichLabelExampleUITests-dummy.m */; };
+		7FA4D019C5BA9E5DD23A83A367BC40B7 /* GMenuDefaultView.m in Sources */ = {isa = PBXBuildFile; fileRef = F99DFD208FBD6D4BE52215F86A529244 /* GMenuDefaultView.m */; };
+		8AB64A69465F071304E9D3AE1AC8A4AF /* GTagFlowContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8BE891468569EDF01ED6ADF2EB0779 /* GTagFlowContainer.m */; };
+		8B73A7E41F19E5F17F70CCB654665E6B /* GTagFlowView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D9C8E17E03A79920F94EBFE95122F1C /* GTagFlowView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		938AF07ED68B8D4AE8FDF3F8230CB4A2 /* GAdjustButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D26B5FF04EE533368766CF0247469F4 /* GAdjustButton.m */; };
+		9916EC51A10EA8421EF37A5E1228F3FA /* YYAsyncLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = B1EF9717C3369A0F677659B6BB87898C /* YYAsyncLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A95863071065925D383904EB42E14558 /* YYTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F06FDDA8856FEE5FBAA6C060EF84E0F /* YYTransaction.m */; };
+		A9816EF376C2B75A5F07E4D619D77F03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC32878090C4B2B93381956161EC0930 /* Foundation.framework */; };
+		AA3D9736F727F167478B43553958718A /* GBigbang-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AC6AEB15831CB03EBF3F7B33D0937984 /* GBigbang-dummy.m */; };
+		B7E48D601D6286D06F86BA6563444FDC /* GMenuController.h in Headers */ = {isa = PBXBuildFile; fileRef = 72082631FBEFBC2B3D9654D6D8EAC4AC /* GMenuController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8B3EED62613F7C33FDFC5DDFB6BB62B /* GTagFlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = D2C11114B5D04E3876BBF980524AB875 /* GTagFlowLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C1A188439D151E6E463B4AA3E226FF87 /* YYAsyncLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9CBD55D6D2D291CE31E765074326DE /* YYAsyncLayer.m */; };
+		C40C4E0B76BCED9E13A89FFC80EC462D /* Pods-GRichLabelExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E20A3B96743B6318A7EBD9D04EB46A /* Pods-GRichLabelExample-dummy.m */; };
+		C73B099836424D840D66CC211302F6D8 /* GMenuEffectsWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = EB6C57D6EF9E773880457BFA04F5B63A /* GMenuEffectsWindow.m */; };
+		CC075AEC92074170465AF15C2B25FC94 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0203FCF2E38F9E0B8C4E69853543A3E /* QuartzCore.framework */; };
+		CCEA5B8164971A50847F478103173B7F /* GMenuEffectsWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 36F7256E80F318908A4CAD8A5B730105 /* GMenuEffectsWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D02D2358B0B00A618DB24343ABDBD07A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF675A168132FD52AED630F977FE906 /* UIKit.framework */; };
+		D1CFD77FE32C7EB790D533799BEC4CC2 /* YYSentinel.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB6D790A65D4D053E2A30DDC5ACD240 /* YYSentinel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DBCB6CDF71070D95D50C09E45F837BC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC32878090C4B2B93381956161EC0930 /* Foundation.framework */; };
+		DCE9523DB901E056ADB25D06B4A8E0DE /* GTagFlowContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = C069D5CEA09F309D59288AAD421166CB /* GTagFlowContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DD024643F88466F5566852A5145FA5CE /* GMenuControllerHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C72F8330D624C2D19906AD30568CD01 /* GMenuControllerHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5AF2CF07493A8007E2AAA9D2A9E883E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC32878090C4B2B93381956161EC0930 /* Foundation.framework */; };
+		E9DA51637E952E1F60FA923B8E905218 /* GMenuViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCCE63253463FB565D4A9F0294D59D1 /* GMenuViewContainer.m */; };
+		EBF8D34759507540167BD92DEF90FEDC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC32878090C4B2B93381956161EC0930 /* Foundation.framework */; };
+		EC07FC15A9AEAEE6B64E256FB486079E /* GAdjustButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 553DA42669332251D217E2B9829DA19D /* GAdjustButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6FF8D569B4450E0FFA873A068F1DD29 /* GTagFlowCell.h in Headers */ = {isa = PBXBuildFile; fileRef = BFBB4555C1736439B3ABB38695CD171B /* GTagFlowCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F7F9761AB9028D5307F7AE6D63FFAECE /* YYTransaction.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ECCF53D218B25A09FB7A5EC66B86785 /* YYTransaction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD2F7DA912C17EF88736BFE1C9916F48 /* GMenuDefaultView.h in Headers */ = {isa = PBXBuildFile; fileRef = F16160E9A77B715269838012C8E263CD /* GMenuDefaultView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		684771C4ADA214FAC06E3F1CDBD7242F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 41C6A0671346CF9F560330857514A87F;
+			remoteInfo = GMenuController;
+		};
+		7BBBD9F1E5D0E5D9D144F737CCDB1D62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7AA53645BAD7E96E71B93651FD0D4B99;
+			remoteInfo = YYAsyncLayer;
+		};
+		DCE9F381DD1003E767312A588E8C9F67 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE1B8751E0A9CFFCFE8810E1BCD6C83B;
+			remoteInfo = GBigbang;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0499FFE5CEC990F4D1C08B946FF2A20E /* Pods-GRichLabelExampleTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GRichLabelExampleTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		08755340F2E84E116C7A967E34D9C879 /* GBigbangBox.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GBigbangBox.m; path = GBigbang/GBigbangBox.m; sourceTree = "<group>"; };
+		0DE50A2D4CCCD12C687C910135114E8C /* GMenuViewContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMenuViewContainer.h; path = GMenuController/Internal/GMenuViewContainer.h; sourceTree = "<group>"; };
+		1060153CEC100BC6A2E034307A450E74 /* Pods-GRichLabelExample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GRichLabelExample-frameworks.sh"; sourceTree = "<group>"; };
+		1B8BE891468569EDF01ED6ADF2EB0779 /* GTagFlowContainer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTagFlowContainer.m; path = GBigbang/GTagFlowContainer.m; sourceTree = "<group>"; };
+		1B8BFD8B2C17CE794671BA33ABCCA45A /* Pods-GRichLabelExampleTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GRichLabelExampleTests-resources.sh"; sourceTree = "<group>"; };
+		1DB5145773960A2F154AC0FE800F4CE9 /* Pods-GRichLabelExampleUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GRichLabelExampleUITests-frameworks.sh"; sourceTree = "<group>"; };
+		1ECCF53D218B25A09FB7A5EC66B86785 /* YYTransaction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTransaction.h; path = YYAsyncLayer/YYTransaction.h; sourceTree = "<group>"; };
+		2108FA070980ABE459815271AC3C3151 /* YYAsyncLayer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YYAsyncLayer.xcconfig; sourceTree = "<group>"; };
+		23F11CE48A34910AB56230DE3F1A9ACE /* Pods-GRichLabelExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GRichLabelExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2B9CBD55D6D2D291CE31E765074326DE /* YYAsyncLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYAsyncLayer.m; path = YYAsyncLayer/YYAsyncLayer.m; sourceTree = "<group>"; };
+		2F06FDDA8856FEE5FBAA6C060EF84E0F /* YYTransaction.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTransaction.m; path = YYAsyncLayer/YYTransaction.m; sourceTree = "<group>"; };
+		32BCD60DB72232EEEED7698673B95532 /* Pods-GRichLabelExampleTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GRichLabelExampleTests-frameworks.sh"; sourceTree = "<group>"; };
+		36F7256E80F318908A4CAD8A5B730105 /* GMenuEffectsWindow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMenuEffectsWindow.h; path = GMenuController/Internal/GMenuEffectsWindow.h; sourceTree = "<group>"; };
+		385E2B9BA71F63E7CD8D724B8164BA7F /* YYAsyncLayer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YYAsyncLayer-prefix.pch"; sourceTree = "<group>"; };
+		389755BA408CF7F9E21F90E2DB6B5011 /* libPods-GRichLabelExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-GRichLabelExampleTests.a"; path = "libPods-GRichLabelExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D9C8E17E03A79920F94EBFE95122F1C /* GTagFlowView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTagFlowView.h; path = GBigbang/GTagFlowView.h; sourceTree = "<group>"; };
+		3F8F65EA01B4C00B1EFF3662C4A27731 /* Pods-GRichLabelExampleUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GRichLabelExampleUITests-dummy.m"; sourceTree = "<group>"; };
+		4778E7D2B7E08C1B8402E97FFF11C381 /* GBigbang-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GBigbang-prefix.pch"; sourceTree = "<group>"; };
+		4F7D8DD5AEA50C7F669AF62C8EBD43F6 /* Pods-GRichLabelExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GRichLabelExample.release.xcconfig"; sourceTree = "<group>"; };
+		50E20A3B96743B6318A7EBD9D04EB46A /* Pods-GRichLabelExample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GRichLabelExample-dummy.m"; sourceTree = "<group>"; };
+		53343173BF1F5E3B53841E6DBD85FF3B /* Pods-GRichLabelExampleTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GRichLabelExampleTests-dummy.m"; sourceTree = "<group>"; };
+		553DA42669332251D217E2B9829DA19D /* GAdjustButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAdjustButton.h; path = GMenuController/Internal/GAdjustButton.h; sourceTree = "<group>"; };
+		59445C53B16ABE682D84A9CC2FB86D29 /* GTagFlowLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTagFlowLayout.m; path = GBigbang/GTagFlowLayout.m; sourceTree = "<group>"; };
+		5BF675A168132FD52AED630F977FE906 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		5CA1EBA63D7DFB442C7CCF2F5DC1AA51 /* Pods-GRichLabelExampleUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GRichLabelExampleUITests-resources.sh"; sourceTree = "<group>"; };
+		5D26B5FF04EE533368766CF0247469F4 /* GAdjustButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GAdjustButton.m; path = GMenuController/Internal/GAdjustButton.m; sourceTree = "<group>"; };
+		6A60444654671D41561C4FBECD1B7F69 /* GTagFlowView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTagFlowView.m; path = GBigbang/GTagFlowView.m; sourceTree = "<group>"; };
+		6C72F8330D624C2D19906AD30568CD01 /* GMenuControllerHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMenuControllerHeader.h; path = GMenuController/GMenuControllerHeader.h; sourceTree = "<group>"; };
+		72082631FBEFBC2B3D9654D6D8EAC4AC /* GMenuController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMenuController.h; path = GMenuController/GMenuController.h; sourceTree = "<group>"; };
+		732D8FA5D99E42906F003D648A265605 /* libPods-GRichLabelExampleUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-GRichLabelExampleUITests.a"; path = "libPods-GRichLabelExampleUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		73AEC373B5600610D70533573FF0520C /* GBigbangBox.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GBigbangBox.h; path = GBigbang/GBigbangBox.h; sourceTree = "<group>"; };
+		775D62688521C2632AB8561D3047B0D1 /* YYSentinel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYSentinel.m; path = YYAsyncLayer/YYSentinel.m; sourceTree = "<group>"; };
+		793DD6FFD3C79A1ABDDCA8BC745C3BD3 /* Pods-GRichLabelExampleUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GRichLabelExampleUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7C53791A3F7B71F89475B93085F945E2 /* Pods-GRichLabelExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GRichLabelExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7F004A5E70ADC2CBC9D9C33F04D27F99 /* Pods-GRichLabelExample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GRichLabelExample-resources.sh"; sourceTree = "<group>"; };
+		83812A459E4AECBBC9588C1BBDB4E4F9 /* libGBigbang.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libGBigbang.a; path = libGBigbang.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		933BF40E77CE92C9621F4A486B40429C /* libGMenuController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libGMenuController.a; path = libGMenuController.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		965B25668C9C6E08D73718C61CF4DBBD /* GMenuController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GMenuController.xcconfig; sourceTree = "<group>"; };
+		9B03E48A38528BF53CDCC4E0B997BE32 /* libPods-GRichLabelExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-GRichLabelExample.a"; path = "libPods-GRichLabelExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B84EDEED1432817F46F9E2B380B6E63 /* libYYAsyncLayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libYYAsyncLayer.a; path = libYYAsyncLayer.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A13BBBE554220456F004B2CEDF7ECB0A /* GTagFlowCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTagFlowCell.m; path = GBigbang/GTagFlowCell.m; sourceTree = "<group>"; };
+		A545AF3C352A62AFA667F0F593FAFEAA /* GMenuController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GMenuController-prefix.pch"; sourceTree = "<group>"; };
+		A87B035E8A895AADFCD79CA036654843 /* Pods-GRichLabelExample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GRichLabelExample-acknowledgements.markdown"; sourceTree = "<group>"; };
+		ABC5826D10B930E4F38051EFC2593A14 /* YYAsyncLayer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YYAsyncLayer-dummy.m"; sourceTree = "<group>"; };
+		AC2FF3486DAC255D648CB959426B2056 /* GMenuController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMenuController.m; path = GMenuController/GMenuController.m; sourceTree = "<group>"; };
+		AC6AEB15831CB03EBF3F7B33D0937984 /* GBigbang-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GBigbang-dummy.m"; sourceTree = "<group>"; };
+		AD7DDCD77B013227932FFDF993EDBFC4 /* Pods-GRichLabelExampleUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GRichLabelExampleUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		B1EF9717C3369A0F677659B6BB87898C /* YYAsyncLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYAsyncLayer.h; path = YYAsyncLayer/YYAsyncLayer.h; sourceTree = "<group>"; };
+		BB9E007FF8155049F50C130A945EAA59 /* Pods-GRichLabelExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GRichLabelExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		BFBB4555C1736439B3ABB38695CD171B /* GTagFlowCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTagFlowCell.h; path = GBigbang/GTagFlowCell.h; sourceTree = "<group>"; };
+		C069D5CEA09F309D59288AAD421166CB /* GTagFlowContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTagFlowContainer.h; path = GBigbang/GTagFlowContainer.h; sourceTree = "<group>"; };
+		C091269AA8C6A7F2AE66A0D3A066B472 /* Pods-GRichLabelExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GRichLabelExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C85CB836263F295F38B6ADDBB52BA284 /* Pods-GRichLabelExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GRichLabelExample.debug.xcconfig"; sourceTree = "<group>"; };
+		D2C11114B5D04E3876BBF980524AB875 /* GTagFlowLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTagFlowLayout.h; path = GBigbang/GTagFlowLayout.h; sourceTree = "<group>"; };
+		D66DB7D07E6F80749A2427C86B60D03B /* Pods-GRichLabelExampleTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GRichLabelExampleTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		D88BC0C6DED964FA300A15C80E4E8F43 /* GBigbang.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GBigbang.xcconfig; sourceTree = "<group>"; };
+		D99A05E136EAD74228BB2933F52C0A80 /* GBigbang.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GBigbang.h; path = GBigbang/GBigbang.h; sourceTree = "<group>"; };
+		DAB6D790A65D4D053E2A30DDC5ACD240 /* YYSentinel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYSentinel.h; path = YYAsyncLayer/YYSentinel.h; sourceTree = "<group>"; };
+		E0203FCF2E38F9E0B8C4E69853543A3E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		E4CE45E70C5BC7ED3333B550E570D168 /* GMenuController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GMenuController-dummy.m"; sourceTree = "<group>"; };
+		E7B58D5E3736EFB0FD5D48418A304D21 /* Pods-GRichLabelExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GRichLabelExample-acknowledgements.plist"; sourceTree = "<group>"; };
+		EB6C57D6EF9E773880457BFA04F5B63A /* GMenuEffectsWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMenuEffectsWindow.m; path = GMenuController/Internal/GMenuEffectsWindow.m; sourceTree = "<group>"; };
+		EC32878090C4B2B93381956161EC0930 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		F16160E9A77B715269838012C8E263CD /* GMenuDefaultView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMenuDefaultView.h; path = GMenuController/Internal/GMenuDefaultView.h; sourceTree = "<group>"; };
+		F99DFD208FBD6D4BE52215F86A529244 /* GMenuDefaultView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMenuDefaultView.m; path = GMenuController/Internal/GMenuDefaultView.m; sourceTree = "<group>"; };
+		FFCCE63253463FB565D4A9F0294D59D1 /* GMenuViewContainer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMenuViewContainer.m; path = GMenuController/Internal/GMenuViewContainer.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		07460789F96185BC26797301760344E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9816EF376C2B75A5F07E4D619D77F03 /* Foundation.framework in Frameworks */,
+				CC075AEC92074170465AF15C2B25FC94 /* QuartzCore.framework in Frameworks */,
+				D02D2358B0B00A618DB24343ABDBD07A /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3864EF9EF85B477C2536FBEF070B6039 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5AF2CF07493A8007E2AAA9D2A9E883E /* Foundation.framework in Frameworks */,
+				1A8E7C6C423FB9BAC518D6D7FCB190B0 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62F041E5BA2C09962A2D3BF75D7F0F65 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				264B7890FEB580CE44B008E180A78C20 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87B293776B349EAF1BAF6FF4D5116CEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBCB6CDF71070D95D50C09E45F837BC7 /* Foundation.framework in Frameworks */,
+				6FE565AD28A0317390CBB9CF78E13D0C /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB8BB5275511BBB7BA1D24D0A16CF860 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBF8D34759507540167BD92DEF90FEDC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0BC5E9AB0D666A0E87A4F92487903A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2230C5AE49236663B5A4473707D7983D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0F4F322FEB09F537B3B23CC1808ACD6C /* Pods-GRichLabelExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				0499FFE5CEC990F4D1C08B946FF2A20E /* Pods-GRichLabelExampleTests-acknowledgements.markdown */,
+				D66DB7D07E6F80749A2427C86B60D03B /* Pods-GRichLabelExampleTests-acknowledgements.plist */,
+				53343173BF1F5E3B53841E6DBD85FF3B /* Pods-GRichLabelExampleTests-dummy.m */,
+				32BCD60DB72232EEEED7698673B95532 /* Pods-GRichLabelExampleTests-frameworks.sh */,
+				1B8BFD8B2C17CE794671BA33ABCCA45A /* Pods-GRichLabelExampleTests-resources.sh */,
+				C091269AA8C6A7F2AE66A0D3A066B472 /* Pods-GRichLabelExampleTests.debug.xcconfig */,
+				BB9E007FF8155049F50C130A945EAA59 /* Pods-GRichLabelExampleTests.release.xcconfig */,
+			);
+			name = "Pods-GRichLabelExampleTests";
+			path = "Target Support Files/Pods-GRichLabelExampleTests";
+			sourceTree = "<group>";
+		};
+		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E5E9260013FA223D81B907D9285F6EA1 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2FB28B3E70E9960BC1C603672481B739 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2108FA070980ABE459815271AC3C3151 /* YYAsyncLayer.xcconfig */,
+				ABC5826D10B930E4F38051EFC2593A14 /* YYAsyncLayer-dummy.m */,
+				385E2B9BA71F63E7CD8D724B8164BA7F /* YYAsyncLayer-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/YYAsyncLayer";
+			sourceTree = "<group>";
+		};
+		35AE151EE9CCCECF0D872FC991CD63C8 /* Pods-GRichLabelExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				793DD6FFD3C79A1ABDDCA8BC745C3BD3 /* Pods-GRichLabelExampleUITests-acknowledgements.markdown */,
+				AD7DDCD77B013227932FFDF993EDBFC4 /* Pods-GRichLabelExampleUITests-acknowledgements.plist */,
+				3F8F65EA01B4C00B1EFF3662C4A27731 /* Pods-GRichLabelExampleUITests-dummy.m */,
+				1DB5145773960A2F154AC0FE800F4CE9 /* Pods-GRichLabelExampleUITests-frameworks.sh */,
+				5CA1EBA63D7DFB442C7CCF2F5DC1AA51 /* Pods-GRichLabelExampleUITests-resources.sh */,
+				7C53791A3F7B71F89475B93085F945E2 /* Pods-GRichLabelExampleUITests.debug.xcconfig */,
+				23F11CE48A34910AB56230DE3F1A9ACE /* Pods-GRichLabelExampleUITests.release.xcconfig */,
+			);
+			name = "Pods-GRichLabelExampleUITests";
+			path = "Target Support Files/Pods-GRichLabelExampleUITests";
+			sourceTree = "<group>";
+		};
+		5A55E5DC58CB45406A3593766B96F0CD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C7EE34AD2649F7B54AFB98345637AD7C /* GBigbang */,
+				F1D0A1AF2102B5E6706B9B8CA8846947 /* GMenuController */,
+				A3A85DA0A9F55BBAA847B7A656835CEF /* YYAsyncLayer */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
+				5A55E5DC58CB45406A3593766B96F0CD /* Pods */,
+				F1F83A26150FAFAFC2AA1F49DA60437B /* Products */,
+				B46C76F81421ECBEC1EC56685AF820CD /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		A133FE1C1FC8ACB0EED3A01788D95EA7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				965B25668C9C6E08D73718C61CF4DBBD /* GMenuController.xcconfig */,
+				E4CE45E70C5BC7ED3333B550E570D168 /* GMenuController-dummy.m */,
+				A545AF3C352A62AFA667F0F593FAFEAA /* GMenuController-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/GMenuController";
+			sourceTree = "<group>";
+		};
+		A3A85DA0A9F55BBAA847B7A656835CEF /* YYAsyncLayer */ = {
+			isa = PBXGroup;
+			children = (
+				B1EF9717C3369A0F677659B6BB87898C /* YYAsyncLayer.h */,
+				2B9CBD55D6D2D291CE31E765074326DE /* YYAsyncLayer.m */,
+				DAB6D790A65D4D053E2A30DDC5ACD240 /* YYSentinel.h */,
+				775D62688521C2632AB8561D3047B0D1 /* YYSentinel.m */,
+				1ECCF53D218B25A09FB7A5EC66B86785 /* YYTransaction.h */,
+				2F06FDDA8856FEE5FBAA6C060EF84E0F /* YYTransaction.m */,
+				2FB28B3E70E9960BC1C603672481B739 /* Support Files */,
+			);
+			name = YYAsyncLayer;
+			path = YYAsyncLayer;
+			sourceTree = "<group>";
+		};
+		B46C76F81421ECBEC1EC56685AF820CD /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BD362AB1B4049E49FFDE8DF560F72EA3 /* Pods-GRichLabelExample */,
+				0F4F322FEB09F537B3B23CC1808ACD6C /* Pods-GRichLabelExampleTests */,
+				35AE151EE9CCCECF0D872FC991CD63C8 /* Pods-GRichLabelExampleUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		BD362AB1B4049E49FFDE8DF560F72EA3 /* Pods-GRichLabelExample */ = {
+			isa = PBXGroup;
+			children = (
+				A87B035E8A895AADFCD79CA036654843 /* Pods-GRichLabelExample-acknowledgements.markdown */,
+				E7B58D5E3736EFB0FD5D48418A304D21 /* Pods-GRichLabelExample-acknowledgements.plist */,
+				50E20A3B96743B6318A7EBD9D04EB46A /* Pods-GRichLabelExample-dummy.m */,
+				1060153CEC100BC6A2E034307A450E74 /* Pods-GRichLabelExample-frameworks.sh */,
+				7F004A5E70ADC2CBC9D9C33F04D27F99 /* Pods-GRichLabelExample-resources.sh */,
+				C85CB836263F295F38B6ADDBB52BA284 /* Pods-GRichLabelExample.debug.xcconfig */,
+				4F7D8DD5AEA50C7F669AF62C8EBD43F6 /* Pods-GRichLabelExample.release.xcconfig */,
+			);
+			name = "Pods-GRichLabelExample";
+			path = "Target Support Files/Pods-GRichLabelExample";
+			sourceTree = "<group>";
+		};
+		C7EE34AD2649F7B54AFB98345637AD7C /* GBigbang */ = {
+			isa = PBXGroup;
+			children = (
+				D99A05E136EAD74228BB2933F52C0A80 /* GBigbang.h */,
+				73AEC373B5600610D70533573FF0520C /* GBigbangBox.h */,
+				08755340F2E84E116C7A967E34D9C879 /* GBigbangBox.m */,
+				BFBB4555C1736439B3ABB38695CD171B /* GTagFlowCell.h */,
+				A13BBBE554220456F004B2CEDF7ECB0A /* GTagFlowCell.m */,
+				C069D5CEA09F309D59288AAD421166CB /* GTagFlowContainer.h */,
+				1B8BE891468569EDF01ED6ADF2EB0779 /* GTagFlowContainer.m */,
+				D2C11114B5D04E3876BBF980524AB875 /* GTagFlowLayout.h */,
+				59445C53B16ABE682D84A9CC2FB86D29 /* GTagFlowLayout.m */,
+				3D9C8E17E03A79920F94EBFE95122F1C /* GTagFlowView.h */,
+				6A60444654671D41561C4FBECD1B7F69 /* GTagFlowView.m */,
+				E30AFD270DBAC9793F4E05CFCCB8F694 /* Support Files */,
+			);
+			name = GBigbang;
+			path = GBigbang;
+			sourceTree = "<group>";
+		};
+		E30AFD270DBAC9793F4E05CFCCB8F694 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D88BC0C6DED964FA300A15C80E4E8F43 /* GBigbang.xcconfig */,
+				AC6AEB15831CB03EBF3F7B33D0937984 /* GBigbang-dummy.m */,
+				4778E7D2B7E08C1B8402E97FFF11C381 /* GBigbang-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/GBigbang";
+			sourceTree = "<group>";
+		};
+		E5E9260013FA223D81B907D9285F6EA1 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				EC32878090C4B2B93381956161EC0930 /* Foundation.framework */,
+				E0203FCF2E38F9E0B8C4E69853543A3E /* QuartzCore.framework */,
+				5BF675A168132FD52AED630F977FE906 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		F1D0A1AF2102B5E6706B9B8CA8846947 /* GMenuController */ = {
+			isa = PBXGroup;
+			children = (
+				553DA42669332251D217E2B9829DA19D /* GAdjustButton.h */,
+				5D26B5FF04EE533368766CF0247469F4 /* GAdjustButton.m */,
+				72082631FBEFBC2B3D9654D6D8EAC4AC /* GMenuController.h */,
+				AC2FF3486DAC255D648CB959426B2056 /* GMenuController.m */,
+				6C72F8330D624C2D19906AD30568CD01 /* GMenuControllerHeader.h */,
+				F16160E9A77B715269838012C8E263CD /* GMenuDefaultView.h */,
+				F99DFD208FBD6D4BE52215F86A529244 /* GMenuDefaultView.m */,
+				36F7256E80F318908A4CAD8A5B730105 /* GMenuEffectsWindow.h */,
+				EB6C57D6EF9E773880457BFA04F5B63A /* GMenuEffectsWindow.m */,
+				0DE50A2D4CCCD12C687C910135114E8C /* GMenuViewContainer.h */,
+				FFCCE63253463FB565D4A9F0294D59D1 /* GMenuViewContainer.m */,
+				A133FE1C1FC8ACB0EED3A01788D95EA7 /* Support Files */,
+			);
+			name = GMenuController;
+			path = GMenuController;
+			sourceTree = "<group>";
+		};
+		F1F83A26150FAFAFC2AA1F49DA60437B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83812A459E4AECBBC9588C1BBDB4E4F9 /* libGBigbang.a */,
+				933BF40E77CE92C9621F4A486B40429C /* libGMenuController.a */,
+				9B03E48A38528BF53CDCC4E0B997BE32 /* libPods-GRichLabelExample.a */,
+				389755BA408CF7F9E21F90E2DB6B5011 /* libPods-GRichLabelExampleTests.a */,
+				732D8FA5D99E42906F003D648A265605 /* libPods-GRichLabelExampleUITests.a */,
+				9B84EDEED1432817F46F9E2B380B6E63 /* libYYAsyncLayer.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		00A665B75A3B7578CC0E737586F934C2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC07FC15A9AEAEE6B64E256FB486079E /* GAdjustButton.h in Headers */,
+				B7E48D601D6286D06F86BA6563444FDC /* GMenuController.h in Headers */,
+				DD024643F88466F5566852A5145FA5CE /* GMenuControllerHeader.h in Headers */,
+				FD2F7DA912C17EF88736BFE1C9916F48 /* GMenuDefaultView.h in Headers */,
+				CCEA5B8164971A50847F478103173B7F /* GMenuEffectsWindow.h in Headers */,
+				5932AB71312759A65F6AA4CCAA980F4F /* GMenuViewContainer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4DB1A1437BB519C3E797870F081F363 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				098749210838BA5468DA3DC799DD7A7E /* GBigbang.h in Headers */,
+				67D18FABF7ADA65A89E813B44FD1FF7B /* GBigbangBox.h in Headers */,
+				F6FF8D569B4450E0FFA873A068F1DD29 /* GTagFlowCell.h in Headers */,
+				DCE9523DB901E056ADB25D06B4A8E0DE /* GTagFlowContainer.h in Headers */,
+				B8B3EED62613F7C33FDFC5DDFB6BB62B /* GTagFlowLayout.h in Headers */,
+				8B73A7E41F19E5F17F70CCB654665E6B /* GTagFlowView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB8C433250DAE8C8137345D8C130380E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9916EC51A10EA8421EF37A5E1228F3FA /* YYAsyncLayer.h in Headers */,
+				D1CFD77FE32C7EB790D533799BEC4CC2 /* YYSentinel.h in Headers */,
+				F7F9761AB9028D5307F7AE6D63FFAECE /* YYTransaction.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		33BFD5FE7EBE1C42AA997412485217F9 /* Pods-GRichLabelExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9348F95B4D26F192966C52C03F5017F /* Build configuration list for PBXNativeTarget "Pods-GRichLabelExampleTests" */;
+			buildPhases = (
+				2992DE6A538B40B5EE1D361DF28411DA /* Sources */,
+				DB8BB5275511BBB7BA1D24D0A16CF860 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-GRichLabelExampleTests";
+			productName = "Pods-GRichLabelExampleTests";
+			productReference = 389755BA408CF7F9E21F90E2DB6B5011 /* libPods-GRichLabelExampleTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		41C6A0671346CF9F560330857514A87F /* GMenuController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D693485BD0A5EDF8BC6033E17BD4EA47 /* Build configuration list for PBXNativeTarget "GMenuController" */;
+			buildPhases = (
+				03052995BBD2E18B4C917B9416276A65 /* Sources */,
+				87B293776B349EAF1BAF6FF4D5116CEC /* Frameworks */,
+				00A665B75A3B7578CC0E737586F934C2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GMenuController;
+			productName = GMenuController;
+			productReference = 933BF40E77CE92C9621F4A486B40429C /* libGMenuController.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		7AA53645BAD7E96E71B93651FD0D4B99 /* YYAsyncLayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F6E381C83E5C832931A93F286B6B785 /* Build configuration list for PBXNativeTarget "YYAsyncLayer" */;
+			buildPhases = (
+				D52CF90EB88F2484237CF037A54ADB18 /* Sources */,
+				07460789F96185BC26797301760344E4 /* Frameworks */,
+				DB8C433250DAE8C8137345D8C130380E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YYAsyncLayer;
+			productName = YYAsyncLayer;
+			productReference = 9B84EDEED1432817F46F9E2B380B6E63 /* libYYAsyncLayer.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		B2C13FFAFA3DF5A1EAC18DA24AD0E2FC /* Pods-GRichLabelExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BAA1F67B1CED9D5B4316B3EB9A4C9C27 /* Build configuration list for PBXNativeTarget "Pods-GRichLabelExample" */;
+			buildPhases = (
+				E79ECD810D02A442FC0D99E821F5E64B /* Sources */,
+				E0BC5E9AB0D666A0E87A4F92487903A6 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D154E6E2223749E77DE1C070A7526AF5 /* PBXTargetDependency */,
+				892927A1AAD3320BF0CA294F7A694643 /* PBXTargetDependency */,
+				274F364277A1EF7E4847DA7325D1E238 /* PBXTargetDependency */,
+			);
+			name = "Pods-GRichLabelExample";
+			productName = "Pods-GRichLabelExample";
+			productReference = 9B03E48A38528BF53CDCC4E0B997BE32 /* libPods-GRichLabelExample.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		BE1B8751E0A9CFFCFE8810E1BCD6C83B /* GBigbang */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8198E9FC2A13CC6D8B8D8A1414CF63D /* Build configuration list for PBXNativeTarget "GBigbang" */;
+			buildPhases = (
+				DF818E623C9025063A34EE5058AE63AC /* Sources */,
+				3864EF9EF85B477C2536FBEF070B6039 /* Frameworks */,
+				B4DB1A1437BB519C3E797870F081F363 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GBigbang;
+			productName = GBigbang;
+			productReference = 83812A459E4AECBBC9588C1BBDB4E4F9 /* libGBigbang.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		F26448BC32C8012F0F948CB8AF84F8B1 /* Pods-GRichLabelExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D00592556FAB4EC3E49869C60739564D /* Build configuration list for PBXNativeTarget "Pods-GRichLabelExampleUITests" */;
+			buildPhases = (
+				1ACECE9F74A990E227ECB16A8E5C5F63 /* Sources */,
+				62F041E5BA2C09962A2D3BF75D7F0F65 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-GRichLabelExampleUITests";
+			productName = "Pods-GRichLabelExampleUITests";
+			productReference = 732D8FA5D99E42906F003D648A265605 /* libPods-GRichLabelExampleUITests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = F1F83A26150FAFAFC2AA1F49DA60437B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BE1B8751E0A9CFFCFE8810E1BCD6C83B /* GBigbang */,
+				41C6A0671346CF9F560330857514A87F /* GMenuController */,
+				B2C13FFAFA3DF5A1EAC18DA24AD0E2FC /* Pods-GRichLabelExample */,
+				33BFD5FE7EBE1C42AA997412485217F9 /* Pods-GRichLabelExampleTests */,
+				F26448BC32C8012F0F948CB8AF84F8B1 /* Pods-GRichLabelExampleUITests */,
+				7AA53645BAD7E96E71B93651FD0D4B99 /* YYAsyncLayer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		03052995BBD2E18B4C917B9416276A65 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				938AF07ED68B8D4AE8FDF3F8230CB4A2 /* GAdjustButton.m in Sources */,
+				2AEB64F0D650BB6EB9F0B53761C0E922 /* GMenuController-dummy.m in Sources */,
+				0EC94A7007BB6465A45A4CE6BE82651D /* GMenuController.m in Sources */,
+				7FA4D019C5BA9E5DD23A83A367BC40B7 /* GMenuDefaultView.m in Sources */,
+				C73B099836424D840D66CC211302F6D8 /* GMenuEffectsWindow.m in Sources */,
+				E9DA51637E952E1F60FA923B8E905218 /* GMenuViewContainer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1ACECE9F74A990E227ECB16A8E5C5F63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				715D83DC822D703916064A10A981F0FB /* Pods-GRichLabelExampleUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2992DE6A538B40B5EE1D361DF28411DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61568E2C458D9CFC85476078CD1D5306 /* Pods-GRichLabelExampleTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D52CF90EB88F2484237CF037A54ADB18 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10D0363B5F791306374951B39FF92045 /* YYAsyncLayer-dummy.m in Sources */,
+				C1A188439D151E6E463B4AA3E226FF87 /* YYAsyncLayer.m in Sources */,
+				359DF4BB27ADB9B309D530DD920E232A /* YYSentinel.m in Sources */,
+				A95863071065925D383904EB42E14558 /* YYTransaction.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF818E623C9025063A34EE5058AE63AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA3D9736F727F167478B43553958718A /* GBigbang-dummy.m in Sources */,
+				24F9B1EE48F6C08355445DB0A945ED43 /* GBigbangBox.m in Sources */,
+				2740AFA0042CC306F16A8A4FE91F163E /* GTagFlowCell.m in Sources */,
+				8AB64A69465F071304E9D3AE1AC8A4AF /* GTagFlowContainer.m in Sources */,
+				68130B6C0A08E6A82C3DA913FA2EFA21 /* GTagFlowLayout.m in Sources */,
+				6205872486B5C886D33D552064022E63 /* GTagFlowView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E79ECD810D02A442FC0D99E821F5E64B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C40C4E0B76BCED9E13A89FFC80EC462D /* Pods-GRichLabelExample-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		274F364277A1EF7E4847DA7325D1E238 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = YYAsyncLayer;
+			target = 7AA53645BAD7E96E71B93651FD0D4B99 /* YYAsyncLayer */;
+			targetProxy = 7BBBD9F1E5D0E5D9D144F737CCDB1D62 /* PBXContainerItemProxy */;
+		};
+		892927A1AAD3320BF0CA294F7A694643 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GMenuController;
+			target = 41C6A0671346CF9F560330857514A87F /* GMenuController */;
+			targetProxy = 684771C4ADA214FAC06E3F1CDBD7242F /* PBXContainerItemProxy */;
+		};
+		D154E6E2223749E77DE1C070A7526AF5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GBigbang;
+			target = BE1B8751E0A9CFFCFE8810E1BCD6C83B /* GBigbang */;
+			targetProxy = DCE9F381DD1003E767312A588E8C9F67 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		015A368F878AC3E2CEAE21DDE8026304 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		0E38DF4735F86E3DB81AF530E195A16A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2108FA070980ABE459815271AC3C3151 /* YYAsyncLayer.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/YYAsyncLayer/YYAsyncLayer-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		44CDBB6D11DE06DB64D6268622BDC47E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4EF63A5748D72163CD62E5B4676598D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D88BC0C6DED964FA300A15C80E4E8F43 /* GBigbang.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/GBigbang/GBigbang-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9C75857DB47872BA051FD8E10B9628F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 965B25668C9C6E08D73718C61CF4DBBD /* GMenuController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/GMenuController/GMenuController-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A05853B87CA38626027CE896BAB2B7C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23F11CE48A34910AB56230DE3F1A9ACE /* Pods-GRichLabelExampleUITests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		BD9F8BABA511661B65C05D9AFFDB0FFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D88BC0C6DED964FA300A15C80E4E8F43 /* GBigbang.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/GBigbang/GBigbang-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		C49FE6B687841BC2A6D86D15999BB5F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2108FA070980ABE459815271AC3C3151 /* YYAsyncLayer.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/YYAsyncLayer/YYAsyncLayer-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		CA0273C260329AB70299F0B9634BC01D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C53791A3F7B71F89475B93085F945E2 /* Pods-GRichLabelExampleUITests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CF42A96ADE20933B63608D701549CB30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F7D8DD5AEA50C7F669AF62C8EBD43F6 /* Pods-GRichLabelExample.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		D383033010F8325B48FFBFA0CE231D15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C85CB836263F295F38B6ADDBB52BA284 /* Pods-GRichLabelExample.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		E73820F1285F8E53CB2E26173554B8A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB9E007FF8155049F50C130A945EAA59 /* Pods-GRichLabelExampleTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		E7F90952D75D4810A6CEB8D43D6371A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C091269AA8C6A7F2AE66A0D3A066B472 /* Pods-GRichLabelExampleTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		FCF4A0B405826330DE173792C62DC69F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 965B25668C9C6E08D73718C61CF4DBBD /* GMenuController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/GMenuController/GMenuController-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				015A368F878AC3E2CEAE21DDE8026304 /* Debug */,
+				44CDBB6D11DE06DB64D6268622BDC47E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6F6E381C83E5C832931A93F286B6B785 /* Build configuration list for PBXNativeTarget "YYAsyncLayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E38DF4735F86E3DB81AF530E195A16A /* Debug */,
+				C49FE6B687841BC2A6D86D15999BB5F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BAA1F67B1CED9D5B4316B3EB9A4C9C27 /* Build configuration list for PBXNativeTarget "Pods-GRichLabelExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D383033010F8325B48FFBFA0CE231D15 /* Debug */,
+				CF42A96ADE20933B63608D701549CB30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D00592556FAB4EC3E49869C60739564D /* Build configuration list for PBXNativeTarget "Pods-GRichLabelExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA0273C260329AB70299F0B9634BC01D /* Debug */,
+				A05853B87CA38626027CE896BAB2B7C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D693485BD0A5EDF8BC6033E17BD4EA47 /* Build configuration list for PBXNativeTarget "GMenuController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C75857DB47872BA051FD8E10B9628F7 /* Debug */,
+				FCF4A0B405826330DE173792C62DC69F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8198E9FC2A13CC6D8B8D8A1414CF63D /* Build configuration list for PBXNativeTarget "GBigbang" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4EF63A5748D72163CD62E5B4676598D9 /* Debug */,
+				BD9F8BABA511661B65C05D9AFFDB0FFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F9348F95B4D26F192966C52C03F5017F /* Build configuration list for PBXNativeTarget "Pods-GRichLabelExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7F90952D75D4810A6CEB8D43D6371A3 /* Debug */,
+				E73820F1285F8E53CB2E26173554B8A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

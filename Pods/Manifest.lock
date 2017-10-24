@@ -1,0 +1,18 @@
+PODS:
+  - GBigbang (0.0.1)
+  - GMenuController (0.0.4)
+  - YYAsyncLayer (1.0)
+
+DEPENDENCIES:
+  - GBigbang
+  - GMenuController
+  - YYAsyncLayer
+
+SPEC CHECKSUMS:
+  GBigbang: 1b89811891ec0f84b1def9ca031fa5baffcfc4f0
+  GMenuController: 8302091036cba6a60a5129530f6e86b52884179d
+  YYAsyncLayer: df6b01ebc695c5f6b4c15dd5c23fa3e081eb25c0
+
+PODFILE CHECKSUM: b8e2c421cf398ce3825533aaf48074aeb9911975
+
+COCOAPODS: 1.2.1.beta.1
