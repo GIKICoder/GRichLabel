@@ -14,7 +14,9 @@
 @interface GRichLabel : UIView
 
 @property (nonatomic, strong) NSString * text;
+
 @property (nonatomic, strong) NSAttributedString *attributedString;
+
 /// A quick attribute configuration class
 /// Don't need to deal with complex NSAttributedString
 @property (nonatomic, strong) GAttributedConfiguration * attributedConfig;
@@ -23,6 +25,7 @@
 @property (nonatomic, strong) GDrawTextBuilder  *textBuilder;
 
 @property (nonatomic, strong,readonly) GTextMenuConfiguration * menuConfiguration;
+
 /**
  是否开启异步绘制
  
@@ -66,7 +69,13 @@
  */
 @property (nonatomic, strong) UIColor * cursorColor;
 
-
+/**
+ rich label 最大行数
+ 
+ @Default value is 1.
+ 0 means no limit.
+ */
+//@property (nonatomic, assign) NSUInteger numberOfLines;  //// 暂未实现
 #pragma mark - public Method
 
 /**

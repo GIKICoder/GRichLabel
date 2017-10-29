@@ -91,7 +91,7 @@
     self = [super init];
     if (self) {
         
-        self.useGMenuController = YES;
+        self.useGMenuController = NO;
         if (self.useGMenuController) {
             GMenuItem *copyItem = [[GMenuItem alloc] initWithTitle:@"拷贝" target:self action:@selector(copyItem:)];
            GMenuItem *selectAllItem = [[GMenuItem alloc] initWithTitle:@"全选" target:self action:@selector(selectAllItem:)];

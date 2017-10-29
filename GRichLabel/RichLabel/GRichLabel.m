@@ -47,7 +47,7 @@
 /// 是否触发了长按手势
 @property (nonatomic, assign) BOOL  isLongPressTouch;
 /// richlabel所在控制器是否开启侧滑
-@property (nonatomic, assign) BOOL  isPopEnabled;
+@property (nonatomic, assign) BOOL  isPopPanGestureEnabled;
 /// richlabel 父view 是否可滑动
 @property (nonatomic, assign) BOOL  canScroller;
 
@@ -736,8 +736,8 @@
         [self showSelectionViewWithCursor:YES];
         [self scrollerEnable];
         
-        if (_isPopEnabled) {
-            _isPopEnabled = NO;
+        if (_isPopPanGestureEnabled) {
+            _isPopPanGestureEnabled = NO;
             if ([self.currentController.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
                 self.currentController.navigationController.interactivePopGestureRecognizer.enabled = YES;
             }
@@ -771,8 +771,8 @@
         }
         [self showSelectionViewWithCursor:YES];
         [self scrollerEnable];
-        if (_isPopEnabled) {
-            _isPopEnabled = NO;
+        if (_isPopPanGestureEnabled) {
+            _isPopPanGestureEnabled = NO;
             if ([self.currentController.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
                 self.currentController.navigationController.interactivePopGestureRecognizer.enabled = YES;
             }
@@ -821,7 +821,7 @@
                 if ([self.currentController.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
                     if (self.currentController.navigationController.interactivePopGestureRecognizer.enabled == YES) {
                         self.currentController.navigationController.interactivePopGestureRecognizer.enabled = NO;
-                        _isPopEnabled = YES;
+                        _isPopPanGestureEnabled = YES;
                     }
                 }
             }

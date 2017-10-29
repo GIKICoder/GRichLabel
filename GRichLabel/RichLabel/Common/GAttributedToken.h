@@ -21,6 +21,7 @@ UIKIT_EXTERN NSString *const kGAttributeTokenTruncationName;
 @class GAttributedToken;
 typedef void(^GAttributedTokenClick)(GAttributedToken *token);
 
+
 @interface GAttributedToken : NSObject
 ///文本token
 @property (nonatomic, strong) NSString * textToken;

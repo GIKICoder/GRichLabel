@@ -63,14 +63,6 @@
 @property (nonatomic, copy) NSAttributedString *truncationToken;
 
 /**
- rich label 最大行数
- 
- @Default value is 1.
- 0 means no limit.
- */
-//@property (nonatomic, assign) NSUInteger numberOfLines;  //// 暂未实现
-
-/**
  文本对齐方式
  
  @default:kCTLineBreakByWordWrapping,如果想要文本排版左右对齐,请使用kCTTextAlignmentJustified

@@ -60,6 +60,8 @@
 		2B6383EF1F73E9CD001FF876 /* dabian@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6383EB1F73E94B001FF876 /* dabian@2x.png */; };
 		2B6383F01F73E9CD001FF876 /* daku@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6383EC1F73E94B001FF876 /* daku@2x.png */; };
 		2B6383F11F73E9CD001FF876 /* expression.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B6383ED1F73E94B001FF876 /* expression.plist */; };
+		2B9F6F6D1FA5E41F0094FC6E /* NSParagraphStyle+GRichLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9F6F6C1FA5E41F0094FC6E /* NSParagraphStyle+GRichLabel.m */; };
+		2B9F6F701FA5E4380094FC6E /* NSAttributedString+GRichLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9F6F6F1FA5E4380094FC6E /* NSAttributedString+GRichLabel.m */; };
 		2BC22DBE1F7B4C3A00A46E47 /* novelReadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC22DBC1F7B4C3A00A46E47 /* novelReadViewController.m */; };
 		2BC22E151F7BB36000A46E47 /* GTextMenuConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC22E141F7BB36000A46E47 /* GTextMenuConfiguration.m */; };
 		72927A414C6F9ED8D8CC4098 /* libPods-GRichLabelExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 026AFA84B24C1CE9393D15B6 /* libPods-GRichLabelExampleTests.a */; };
@@ -148,6 +150,10 @@
 		2B6383EB1F73E94B001FF876 /* dabian@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dabian@2x.png"; sourceTree = "<group>"; };
 		2B6383EC1F73E94B001FF876 /* daku@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "daku@2x.png"; sourceTree = "<group>"; };
 		2B6383ED1F73E94B001FF876 /* expression.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = expression.plist; sourceTree = "<group>"; };
+		2B9F6F6B1FA5E41F0094FC6E /* NSParagraphStyle+GRichLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSParagraphStyle+GRichLabel.h"; sourceTree = "<group>"; };
+		2B9F6F6C1FA5E41F0094FC6E /* NSParagraphStyle+GRichLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSParagraphStyle+GRichLabel.m"; sourceTree = "<group>"; };
+		2B9F6F6E1FA5E4380094FC6E /* NSAttributedString+GRichLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+GRichLabel.h"; sourceTree = "<group>"; };
+		2B9F6F6F1FA5E4380094FC6E /* NSAttributedString+GRichLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+GRichLabel.m"; sourceTree = "<group>"; };
 		2BC22DBB1F7B4C3A00A46E47 /* novelReadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = novelReadViewController.h; sourceTree = "<group>"; };
 		2BC22DBC1F7B4C3A00A46E47 /* novelReadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = novelReadViewController.m; sourceTree = "<group>"; };
 		2BC22DBD1F7B4C3A00A46E47 /* novelabcd@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "novelabcd@2x.jpg"; sourceTree = "<group>"; };
@@ -318,6 +324,10 @@
 				2BC22E141F7BB36000A46E47 /* GTextMenuConfiguration.m */,
 				2B63839F1F73E8DA001FF876 /* NSAttributedString+GText.h */,
 				2B6383A01F73E8DA001FF876 /* NSAttributedString+GText.m */,
+				2B9F6F6B1FA5E41F0094FC6E /* NSParagraphStyle+GRichLabel.h */,
+				2B9F6F6C1FA5E41F0094FC6E /* NSParagraphStyle+GRichLabel.m */,
+				2B9F6F6E1FA5E4380094FC6E /* NSAttributedString+GRichLabel.h */,
+				2B9F6F6F1FA5E4380094FC6E /* NSAttributedString+GRichLabel.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -684,6 +694,7 @@
 				2B6383CA1F73E8F4001FF876 /* GDrawTextBuilder.m in Sources */,
 				2B6383CB1F73E8F4001FF876 /* GEmojiConfigManager.h in Sources */,
 				2B6383CC1F73E8F4001FF876 /* GEmojiConfigManager.m in Sources */,
+				2B9F6F701FA5E4380094FC6E /* NSAttributedString+GRichLabel.m in Sources */,
 				2B6383CD1F73E8F4001FF876 /* GTokenAppearance.h in Sources */,
 				2B6383CE1F73E8F4001FF876 /* GTokenAppearance.m in Sources */,
 				2B6383CF1F73E8F4001FF876 /* NSAttributedString+GText.h in Sources */,
@@ -706,6 +717,7 @@
 				2B6383DE1F73E8F4001FF876 /* GSelectionView.m in Sources */,
 				2B6383DF1F73E8F4001FF876 /* GTextUtils.h in Sources */,
 				2B6383E01F73E8F4001FF876 /* GTextUtils.m in Sources */,
+				2B9F6F6D1FA5E41F0094FC6E /* NSParagraphStyle+GRichLabel.m in Sources */,
 				2B6383E11F73E8F4001FF876 /* UIView+GText.h in Sources */,
 				2B6383E21F73E8F4001FF876 /* UIView+GText.m in Sources */,
 				2B58E5731F61548F00505193 /* ViewController.m in Sources */,

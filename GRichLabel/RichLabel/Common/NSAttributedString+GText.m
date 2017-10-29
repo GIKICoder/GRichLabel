@@ -76,8 +76,8 @@ static NSString* const propertyKeytokenRanges = @"propertyKeytokenRanges";
     }
     [string setAttribute:(NSString*)kCTFontAttributeName value:(id)tokenFont range:NSMakeRange(0, string.length)];
     [string setAttribute:(NSString *)kGAttributeTokenHighlightName value:token range:NSMakeRange(0, string.length)];
-    
-//    [string setAttribute:(NSString*)kCTUnderlineStyleAttributeName value:(id)[NSNumber numberWithInt:kCTUnderlineStyleDouble] range:NSMakeRange(0, string.length)];
+    [string addAttribute:kCTUnderlineColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, string.length)];
+    [string setAttribute:(NSString*)kCTUnderlineStyleAttributeName value:(id)[NSNumber numberWithInt:kCTUnderlineStyleSingle] range:NSMakeRange(0, string.length)];
     return string;
 }
 
