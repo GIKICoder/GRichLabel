@@ -58,9 +58,9 @@
 //        self.scrollview.scrollEnabled = NO;
         [self setRichText];
     if (self.type == 1) {
-        self.richLabel.canCopy = NO;
+        self.richLabel.canSelect = NO;
     } else {
-        self.richLabel.canCopy = YES;
+        self.richLabel.canSelect = YES;
     }
 }
 

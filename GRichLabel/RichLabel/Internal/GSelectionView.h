@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GCursor.h"
 #import "GTokenAppearance.h"
+
 @interface GSelectionView : UIView
 
 @property (nonatomic, strong) GCursor  *  leftCursor;
@@ -21,6 +22,7 @@
 @property (nonatomic, strong) UIColor * highlightColor;
 
 @property (nonatomic, assign) CGFloat  linespace;
+
 - (void)showSelectionView:(NSArray*)selectionRects showCursor:(BOOL)isShowCursor;
 
 - (void)hideSelectionView;

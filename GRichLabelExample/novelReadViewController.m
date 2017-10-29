@@ -29,7 +29,7 @@
     
     [self.view addSubview:({
         _richLabel = [[GRichLabel alloc] init];
-        _richLabel.canCopy = YES;
+        _richLabel.canSelect = YES;
         _richLabel.backgroundColor = [UIColor clearColor];
         _richLabel;
     })];

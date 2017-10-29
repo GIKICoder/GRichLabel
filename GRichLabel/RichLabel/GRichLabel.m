@@ -8,19 +8,21 @@
 
 #import "GRichLabel.h"
 #import <CoreText/CoreText.h>
+#import <objc/runtime.h>
+
 #import "YYAsyncLayer.h"
 #import "GCursor.h"
 #import "GMagnifiter.h"
 #import "GSelectionView.h"
 #import "GTextUtils.h"
 #import "GMagnifiterWindow.h"
-#import <objc/runtime.h>
 #import "GLineLayout.h"
 #import "GACAutomaton.h"
 #import "UIView+GText.h"
 #import "GEmojiRunDelegate.h"
 #import "GEmojiConfigManager.h"
 #import "GTextMenuConfiguration.h"
+
 #define kLeftCursorTag 100
 #define kRightCursorTag 200
 
@@ -37,7 +39,7 @@
 @property (strong, nonatomic) GMagnifiter *magnifierRanged;
 @property (nonatomic, strong) GSelectionView * selectionView;
 
-/// richlabel所在控制器是
+/// container ViewController
 @property (nonatomic, weak  ) UIViewController  * currentController;
 
 /// 是否点击了高亮token文字
@@ -108,19 +110,19 @@
     }
 }
 
-#pragma mark - public Method
+#pragma mark - setter Method
 
 /**
  设置rich label 是否支持copy/select
  
- @param canCopy YES/NO
+ @param canSelect YES/NO
  */
-- (void)setCanCopy:(BOOL)canCopy
+- (void)setCanSelect:(BOOL)canSelect
 {
-    if (_canCopy == canCopy) return;
+    if (_canSelect == canSelect) return;
     
-    _canCopy = canCopy;
-    if (canCopy) {
+    _canSelect = canSelect;
+    if (canSelect) {
         self.minSelectRange = 1;
         _longRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(LongRecognizerMethod:)];
         _longRecognizer.enabled = YES;
@@ -569,12 +571,12 @@
         Recognizer.state == UIGestureRecognizerStateChanged){
         
         CFIndex index = [self convertTouchPointToSelectIndex:point];
-        NSLog(@"Recognizerindex-- %ld",index);
+        
         if (index != kCFNotFound && index <= self.attributedString.length) {
             /// 智能选择
             NSRange range = [self getCharacterRangeAtpoint:point];
             _selectedRange = NSMakeRange(range.location, range.length);
-            NSLog(@"LongRecognizerMethod");
+            
             [self showSelectionViewWithCursor:NO];
             
             if (!self.magnifierCaret) {
@@ -757,7 +759,6 @@
         
         if (self.highToken.tokenClickBlock) {
             self.highToken.tokenClickBlock(self.highToken);
-            NSLog(@"%@",self.highToken.textToken);
         }
         if (self.highToken) {
             self.highToken = nil;
@@ -807,7 +808,7 @@
     if (point.x > 30) {
         return self;
     }
-    NSLog(@"hitTest");
+    
     if (_isLongPressTouch) {
         BOOL isHitCursor = NO;
         

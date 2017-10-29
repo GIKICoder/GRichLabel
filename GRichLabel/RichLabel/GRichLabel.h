@@ -28,23 +28,23 @@
 @property (nonatomic, assign) BOOL  displaysAsynchronously;
 
 /**
- 是否可拷贝
+ 是否开启文本选择操作
  
  @default: NO
  */
-@property (nonatomic, assign) BOOL  canCopy;
+@property (nonatomic, assign) BOOL  canSelect;
 
 /**
  最小的选择范围
  
- @brief: 开启canCopy 生效
+ @brief: 开启canSelect 生效
  @default: 1
  */
 @property (nonatomic, assign) CGFloat  minSelectRange;
 
 /**
  richlabel的容器view
- 如果开启canCopy,并且richLabel在scrollview等具有滚动功能的view上.
+ 如果开启canSelect,并且richLabel在scrollview等具有滚动功能的view上.
  滚动会和select文字选择冲突.
  需要把scrollview 传入来处理滚动事件
  */
@@ -52,13 +52,13 @@
 
 /**
  选择框颜色
- @defalut: 219,226,250
+ @default: 219,226,250
  */
 @property (nonatomic, strong) UIColor * selectionColor;
 
 /**
  光标颜色
- @defalut: blueColor
+ @default: blueColor
  */
 @property (nonatomic, strong) UIColor * cursorColor;
 
@@ -69,6 +69,7 @@
  选中全部文本区域
  */
 - (void)setSelectAllRange;
+
 /**
  重置文本选择区域
  */
@@ -91,5 +92,10 @@
  */
 - (NSString*)getSelectText;
 
+/**
+ 获取当前richLabel所在的控制器
+
+ @return UIViewController
+ */
 - (UIViewController*)getCurrentViewController;
 @end
