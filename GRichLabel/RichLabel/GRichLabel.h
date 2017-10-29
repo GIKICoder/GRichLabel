@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GAttributedStringLayout.h"
+#import "GAttributedConfiguration.h"
 #import "GDrawTextBuilder.h"
 #import "NSAttributedString+GText.h"
 @class GTextMenuConfiguration;
@@ -15,7 +15,11 @@
 
 @property (nonatomic, strong) NSString * text;
 @property (nonatomic, strong) NSAttributedString *attributedString;
-@property (nonatomic, strong) GAttributedStringLayout * attributedLayout;
+/// A quick attribute configuration class
+/// Don't need to deal with complex NSAttributedString
+@property (nonatomic, strong) GAttributedConfiguration * attributedConfig;
+
+///GDrawTextBuilder class is a readonly class stores text layout result.
 @property (nonatomic, strong) GDrawTextBuilder  *textBuilder;
 
 @property (nonatomic, strong,readonly) GTextMenuConfiguration * menuConfiguration;

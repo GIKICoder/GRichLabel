@@ -1,23 +1,23 @@
 //
-//  GAttributedStringLayout.m
+//  GAttributedConfiguration.m
 //  GRichLabelExample
 //
 //  Created by GIKI on 2017/9/4.
 //  Copyright © 2017年 GIKI. All rights reserved.
 //
 
-#import "GAttributedStringLayout.h"
+#import "GAttributedConfiguration.h"
 
-@implementation GAttributedStringLayout
+@implementation GAttributedConfiguration
 
-+ (instancetype)attributedLayout:(NSString*)text
++ (instancetype)attributedConfig:(NSString*)text
 {
-    return [GAttributedStringLayout attributedLayout:text color:nil font:nil];
+    return [GAttributedConfiguration attributedConfig:text color:nil font:nil];
 }
 
-+ (instancetype)attributedLayout:(NSString*)text color:(UIColor*)color font:(UIFont*)font
++ (instancetype)attributedConfig:(NSString*)text color:(UIColor*)color font:(UIFont*)font
 {
-    GAttributedStringLayout *defalut = [[GAttributedStringLayout alloc] init];
+    GAttributedConfiguration *defalut = [[GAttributedConfiguration alloc] init];
     if (text) defalut.text = text;
     if (color) defalut.textColor = color;
     if (font)  defalut.font = font;

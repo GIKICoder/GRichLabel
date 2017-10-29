@@ -26,8 +26,8 @@
 		2B6383C21F73E8F4001FF876 /* GACResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383901F73E8DA001FF876 /* GACResult.m */; };
 		2B6383C31F73E8F4001FF876 /* GAttributedStringFactory.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383931F73E8DA001FF876 /* GAttributedStringFactory.h */; };
 		2B6383C41F73E8F4001FF876 /* GAttributedStringFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383941F73E8DA001FF876 /* GAttributedStringFactory.m */; };
-		2B6383C51F73E8F4001FF876 /* GAttributedStringLayout.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383951F73E8DA001FF876 /* GAttributedStringLayout.h */; };
-		2B6383C61F73E8F4001FF876 /* GAttributedStringLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383961F73E8DA001FF876 /* GAttributedStringLayout.m */; };
+		2B6383C51F73E8F4001FF876 /* GAttributedConfiguration.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383951F73E8DA001FF876 /* GAttributedConfiguration.h */; };
+		2B6383C61F73E8F4001FF876 /* GAttributedConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383961F73E8DA001FF876 /* GAttributedConfiguration.m */; };
 		2B6383C71F73E8F4001FF876 /* GAttributedToken.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383971F73E8DA001FF876 /* GAttributedToken.h */; };
 		2B6383C81F73E8F4001FF876 /* GAttributedToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383981F73E8DA001FF876 /* GAttributedToken.m */; };
 		2B6383C91F73E8F4001FF876 /* GDrawTextBuilder.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383991F73E8DA001FF876 /* GDrawTextBuilder.h */; };
@@ -114,8 +114,8 @@
 		2B6383901F73E8DA001FF876 /* GACResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GACResult.m; sourceTree = "<group>"; };
 		2B6383931F73E8DA001FF876 /* GAttributedStringFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAttributedStringFactory.h; sourceTree = "<group>"; };
 		2B6383941F73E8DA001FF876 /* GAttributedStringFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GAttributedStringFactory.m; sourceTree = "<group>"; };
-		2B6383951F73E8DA001FF876 /* GAttributedStringLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAttributedStringLayout.h; sourceTree = "<group>"; };
-		2B6383961F73E8DA001FF876 /* GAttributedStringLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GAttributedStringLayout.m; sourceTree = "<group>"; };
+		2B6383951F73E8DA001FF876 /* GAttributedConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAttributedConfiguration.h; sourceTree = "<group>"; };
+		2B6383961F73E8DA001FF876 /* GAttributedConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GAttributedConfiguration.m; sourceTree = "<group>"; };
 		2B6383971F73E8DA001FF876 /* GAttributedToken.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAttributedToken.h; sourceTree = "<group>"; };
 		2B6383981F73E8DA001FF876 /* GAttributedToken.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GAttributedToken.m; sourceTree = "<group>"; };
 		2B6383991F73E8DA001FF876 /* GDrawTextBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDrawTextBuilder.h; sourceTree = "<group>"; };
@@ -304,8 +304,8 @@
 			children = (
 				2B6383931F73E8DA001FF876 /* GAttributedStringFactory.h */,
 				2B6383941F73E8DA001FF876 /* GAttributedStringFactory.m */,
-				2B6383951F73E8DA001FF876 /* GAttributedStringLayout.h */,
-				2B6383961F73E8DA001FF876 /* GAttributedStringLayout.m */,
+				2B6383951F73E8DA001FF876 /* GAttributedConfiguration.h */,
+				2B6383961F73E8DA001FF876 /* GAttributedConfiguration.m */,
 				2B6383971F73E8DA001FF876 /* GAttributedToken.h */,
 				2B6383981F73E8DA001FF876 /* GAttributedToken.m */,
 				2B6383991F73E8DA001FF876 /* GDrawTextBuilder.h */,
@@ -676,8 +676,8 @@
 				2B6383C21F73E8F4001FF876 /* GACResult.m in Sources */,
 				2B6383C31F73E8F4001FF876 /* GAttributedStringFactory.h in Sources */,
 				2B6383C41F73E8F4001FF876 /* GAttributedStringFactory.m in Sources */,
-				2B6383C51F73E8F4001FF876 /* GAttributedStringLayout.h in Sources */,
-				2B6383C61F73E8F4001FF876 /* GAttributedStringLayout.m in Sources */,
+				2B6383C51F73E8F4001FF876 /* GAttributedConfiguration.h in Sources */,
+				2B6383C61F73E8F4001FF876 /* GAttributedConfiguration.m in Sources */,
 				2B6383C71F73E8F4001FF876 /* GAttributedToken.h in Sources */,
 				2B6383C81F73E8F4001FF876 /* GAttributedToken.m in Sources */,
 				2B6383C91F73E8F4001FF876 /* GDrawTextBuilder.h in Sources */,

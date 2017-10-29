@@ -28,10 +28,10 @@ typedef void(^GAttributedTokenClick)(GAttributedToken *token);
 ///正则token 与textToken同时存在时不生效.
 @property (nonatomic, strong) NSString * regexToken;
 
-///tokenColor 不传默认使用GAttributedStringLayout中的tokenTextColor
+///tokenColor 不传默认使用GAttributedConfiguration中的tokenTextColor
 @property (nonatomic, strong) UIColor * tokenColor;
 
-///tokenFont 不传默认使用GAttributedStringLayout中的font
+///tokenFont 不传默认使用GAttributedConfiguration中的font
 @property (nonatomic, strong) UIFont  *tokenFont;
 
 /// token Range

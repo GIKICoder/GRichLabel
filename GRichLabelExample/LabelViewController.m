@@ -82,19 +82,19 @@
     regex.tokenClickBlock = ^(GAttributedToken *token) {
 
     };
-    GAttributedStringLayout *layout = [GAttributedStringLayout attributedLayout:string];
-    layout.tokenPatternConfigs = tokens.copy;
-    layout.regexPatternConifgs = @[regex];
-    layout.textAlignment = kCTTextAlignmentJustified;
-    layout.linespace = 1;
-    layout.lineIndent = 2;
-    layout.font = [UIFont systemFontOfSize:14];
+    GAttributedConfiguration *attributedConfig = [GAttributedConfiguration attributedConfig:string];
+    attributedConfig.tokenPatternConfigs = tokens.copy;
+    attributedConfig.regexPatternConifgs = @[regex];
+    attributedConfig.textAlignment = kCTTextAlignmentJustified;
+    attributedConfig.linespace = 1;
+    attributedConfig.lineIndent = 2;
+    attributedConfig.font = [UIFont systemFontOfSize:14];
 
     NSMutableAttributedString * truncation = [[NSMutableAttributedString alloc] initWithString:@"...全文"];
     [truncation setAttribute:(NSString*)kCTFontAttributeName value:(id)([UIFont systemFontOfSize:14]) range:NSMakeRange(0, truncation.length)];
     [truncation setAttribute:(NSString *)kCTForegroundColorAttributeName value:(id)[UIColor blueColor] range:NSMakeRange(3, 2)];
-    layout.truncationToken = truncation;
-    GDrawTextBuilder * builder = [GAttributedStringFactory createDrawTextBuilderWithLayout:layout boundSize:self.richLabel.frame.size];
+    attributedConfig.truncationToken = truncation;
+    GDrawTextBuilder * builder = [GAttributedStringFactory createDrawTextBuilderWithAttributedConfig:attributedConfig boundSize:self.richLabel.frame.size];
     self.richLabel.textBuilder = builder;
 }
 

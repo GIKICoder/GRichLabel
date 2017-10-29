@@ -174,8 +174,8 @@
 - (void)setText:(NSString *)text
 {
     _text = text;
-    GAttributedStringLayout *layout = [GAttributedStringLayout attributedLayout:text color:[UIColor blackColor] font:[UIFont systemFontOfSize:12]];
-    self.attributedLayout = layout;
+    GAttributedConfiguration *layout = [GAttributedConfiguration attributedConfig:text color:[UIColor blackColor] font:[UIFont systemFontOfSize:12]];
+    self.attributedConfig = layout;
 }
 
 - (void)setAttributedString:(NSAttributedString *)attributedString
@@ -190,10 +190,10 @@
     self.attributedString = textBuilder.attributedString;
 }
 
-- (void)setAttributedLayout:(GAttributedStringLayout *)attributedLayout
+- (void)setattributedConfig:(GAttributedConfiguration *)attributedConfig
 {
-    _attributedLayout = attributedLayout;
-    GDrawTextBuilder * builder = [GAttributedStringFactory createDrawTextBuilderWithLayout:attributedLayout boundSize:self.frame.size];
+    _attributedConfig = attributedConfig;
+    GDrawTextBuilder * builder = [GAttributedStringFactory createDrawTextBuilderWithAttributedConfig:attributedConfig boundSize:self.frame.size];
     self.textBuilder = builder;
 }
 

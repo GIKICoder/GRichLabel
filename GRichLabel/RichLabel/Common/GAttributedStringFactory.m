@@ -8,7 +8,7 @@
 
 #import "GAttributedStringFactory.h"
 #import <CoreText/CoreText.h>
-#import "GAttributedStringLayout.h"
+#import "GAttributedConfiguration.h"
 #import "GACAutomaton.h"
 #import "GEmojiConfigManager.h"
 #import "GEmojiRunDelegate.h"
@@ -17,17 +17,17 @@
 
 @implementation GAttributedStringFactory
 
-+ (GDrawTextBuilder*)createDrawTextBuilderWithLayout:(GAttributedStringLayout*)layout boundSize:(CGSize)size
++ (GDrawTextBuilder*)createDrawTextBuilderWithAttributedConfig:(GAttributedConfiguration*)config boundSize:(CGSize)size
 {
-    NSAttributedString * string = [GAttributedStringFactory createAttributedStringWithLayout:layout];
+    NSAttributedString * string = [GAttributedStringFactory createAttributedStringWithAttributedConfig:config];
     GDrawTextBuilder *textBuilder = [GDrawTextBuilder buildDrawTextSize:size attributedString:string];
-    textBuilder.layout = layout;
+
     return textBuilder;
 }
 
-+ (NSMutableAttributedString*)createAttributedStringWithLayout:(GAttributedStringLayout*)layout
++ (NSMutableAttributedString*)createAttributedStringWithAttributedConfig:(GAttributedConfiguration*)config
 {
-    __block NSMutableAttributedString * attributed = [GAttributedStringFactory createBaseAttributedStringWithLayout:layout];
+    __block NSMutableAttributedString * attributed = [GAttributedStringFactory createBaseAttributedStringWithAttributedConfig:config];
     if (attributed.string.length  <= 0) return nil;
         
     __block NSMutableDictionary *tokenRangesDictM = [NSMutableDictionary dictionary];
@@ -47,7 +47,7 @@
             NSString* emojiName = [[GEmojiConfigManager sharedInstance] getEmojiImageName:emoString];
             if (!emojiName) continue;
             attributed.hasEmojiImage = YES;
-            NSMutableAttributedString * attr = [NSAttributedString setAttachmentStringWithEmojiImageName:emojiName font:layout.font];
+            NSMutableAttributedString * attr = [NSAttributedString setAttachmentStringWithEmojiImageName:emojiName font:config.font];
             [attributed replaceCharactersInRange:range withAttributedString:attr];
             clipLength += range.length - 1;
         }
@@ -55,7 +55,7 @@
     
     /// 字符串匹配
     {
-        NSArray * tokens = layout.tokenPatternConfigs;
+        NSArray * tokens = config.tokenPatternConfigs;
         if (tokens.count > 0) {
             GACAutomaton *automaton = [[GACAutomaton alloc] init];
             
@@ -70,7 +70,7 @@
                 if ([attributed attribute:(NSString*)kCTForegroundColorAttributeName atIndex:obj.range.location]) *stop = NO;
                 
                 // 替换的内容
-                NSMutableAttributedString *replace = [NSMutableAttributedString setTokenStringWithAttributedToken:obj.info attributedLayout:layout];
+                NSMutableAttributedString *replace = [NSMutableAttributedString setTokenStringWithAttributedToken:obj.info attributedConfig:config];
                 if (!replace) *stop = NO;
                 
                 // 替换
@@ -82,7 +82,7 @@
     
     /// 正则匹配
     {
-        NSArray * regexs = layout.regexPatternConifgs;
+        NSArray * regexs = config.regexPatternConifgs;
         if (regexs.count > 0) {
             NSRange regexRange = NSMakeRange(0,attributed.string.length);
             [regexs enumerateObjectsUsingBlock:^(GAttributedToken* obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -97,7 +97,7 @@
                         
                         obj.textToken = matchString;
                         // 替换的内容
-                        NSMutableAttributedString *replace = [NSMutableAttributedString setTokenStringWithAttributedToken:obj attributedLayout:layout];
+                        NSMutableAttributedString *replace = [NSMutableAttributedString setTokenStringWithAttributedToken:obj attributedConfig:config];
                         if (!replace) continue;
                         
                         // 替换
@@ -110,20 +110,20 @@
             
         }
     }
-    attributed.truncationToken = layout.truncationToken;
+    attributed.truncationToken = config.truncationToken;
     return attributed;
 }
 
-+ (NSMutableAttributedString*)createBaseAttributedStringWithLayout:(GAttributedStringLayout*)layout
++ (NSMutableAttributedString*)createBaseAttributedStringWithAttributedConfig:(GAttributedConfiguration*)config
 {
-    NSMutableString * stringM = layout.text.mutableCopy;
+    NSMutableString * stringM = config.text.mutableCopy;
     if (!stringM || stringM.length == 0) return nil;
-    UIColor *normalColor = layout.textColor;
-    UIFont *normalFont = layout.font;
+    UIColor *normalColor = config.textColor;
+    UIFont *normalFont = config.font;
     
-    CTLineBreakMode lineBreakModel = layout.lineBreakMode;
-    CTTextAlignment textAlignment = layout.textAlignment;
-    CGFloat linespace = layout.linespace;
+    CTLineBreakMode lineBreakModel = config.lineBreakMode;
+    CTTextAlignment textAlignment = config.textAlignment;
+    CGFloat linespace = config.linespace;
     
     CTFontRef fontRef = CTFontCreateWithName((__bridge CFStringRef)normalFont.fontName,
                                              normalFont.pointSize,
@@ -144,7 +144,7 @@
     LineBreakStyleSetting.value=&lineBreakModel;
     
     //首行缩进
-    CGFloat fristlineindent = layout.font.pointSize*layout.lineIndent;
+    CGFloat fristlineindent = config.font.pointSize*config.lineIndent;
     CTParagraphStyleSetting fristline;
     fristline.spec = kCTParagraphStyleSpecifierFirstLineHeadIndent;
     fristline.value = &fristlineindent;

@@ -9,25 +9,25 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@class GAttributedStringLayout ,GDrawTextBuilder;
+@class GAttributedConfiguration ,GDrawTextBuilder;
 
 @interface GAttributedStringFactory : NSObject
 
 /**
  create DrawTextBuilder
  DrawTextBuilder  is a used to draw the rich text library class.
- @param layout GAttributedStringLayout
+ @param layout GAttributedConfiguration
  @return DrawTextBuilder
  */
-+ (GDrawTextBuilder*)createDrawTextBuilderWithLayout:(GAttributedStringLayout*)layout boundSize:(CGSize)size;
++ (GDrawTextBuilder*)createDrawTextBuilderWithAttributedConfig:(GAttributedConfiguration*)config boundSize:(CGSize)size;
 
 /**
  create AttributedString
 
- @param layout GAttributedStringLayout
+ @param layout GAttributedConfiguration
  @return NSMutableAttributedString
  */
-+ (NSMutableAttributedString*)createAttributedStringWithLayout:(GAttributedStringLayout*)layout;
++ (NSMutableAttributedString*)createAttributedStringWithAttributedConfig:(GAttributedConfiguration*)config;
 
 /**
  calculate rich Text Height

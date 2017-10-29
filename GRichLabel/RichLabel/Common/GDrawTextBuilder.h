@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreText/CoreText.h>
 #import "GLineLayout.h"
-@class GAttributedStringLayout,GAttributedToken;
+@class GAttributedToken;
 @interface GDrawTextBuilder : NSObject
 
 @property (nonatomic, strong,readonly) NSAttributedString  *attributedString;
@@ -20,7 +20,6 @@
 @property (nonatomic, assign,readonly) BOOL  hasEmojiImage;
 @property (nonatomic, strong,readonly) NSAttributedString *truncationToken;
 
-@property (nonatomic, strong) GAttributedStringLayout * layout;
 
 + (instancetype)buildDrawTextSize:(CGSize)size attributedString:(NSAttributedString*)string;
 

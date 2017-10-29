@@ -56,23 +56,23 @@ static NSString* const propertyKeytokenRanges = @"propertyKeytokenRanges";
     return string;
 }
 
-+ (NSMutableAttributedString*)setTokenStringWithAttributedToken:(GAttributedToken*)token attributedLayout:(GAttributedStringLayout*)layout
++ (NSMutableAttributedString*)setTokenStringWithAttributedToken:(GAttributedToken*)token attributedConfig:(GAttributedConfiguration*)config
 {
     if (!token || (token.textToken.length == 0)) return nil;
    
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:token.textToken];
-    UIColor * tokenColor= layout.tokenTextColor;
+    UIColor * tokenColor= config.tokenTextColor;i
     if (token.tokenColor) {
         tokenColor = tokenColor;
     }
     if (!tokenColor) {
-        tokenColor = layout.textColor;
+        tokenColor = config.textColor;
     }
     [string setAttribute:(NSString*)kCTForegroundColorAttributeName value:(id)tokenColor.CGColor range:NSMakeRange(0, string.length)];
     
     UIFont *tokenFont = token.tokenFont;
     if (!tokenFont) {
-        tokenFont = layout.font;
+        tokenFont = config.font;
     }
     [string setAttribute:(NSString*)kCTFontAttributeName value:(id)tokenFont range:NSMakeRange(0, string.length)];
     [string setAttribute:(NSString *)kGAttributeTokenHighlightName value:token range:NSMakeRange(0, string.length)];

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "GAttributedToken.h"
-#import "GAttributedStringLayout.h"
+#import "GAttributedConfiguration.h"
 @interface NSAttributedString (GText)
 
 @property (nonatomic, assign) BOOL  hasEmojiImage;
@@ -20,7 +20,7 @@
 + (NSMutableAttributedString *)setAttachmentStringWithEmojiImageName:(NSString *)imageName
                                                         font:(UIFont*)font;
 
-+ (NSMutableAttributedString*)setTokenStringWithAttributedToken:(GAttributedToken*)token attributedLayout:(GAttributedStringLayout*)layout;
++ (NSMutableAttributedString*)setTokenStringWithAttributedToken:(GAttributedToken*)token attributedConfig:(GAttributedConfiguration*)config;
 
 @end
 

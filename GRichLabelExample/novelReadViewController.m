@@ -47,14 +47,14 @@
 
 - (void)setrichContent
 {
-    GAttributedStringLayout *layout = [GAttributedStringLayout new];
+    GAttributedConfiguration *layout = [GAttributedConfiguration new];
     layout.text = [self content];
     layout.linespace = 3;
     layout.textAlignment = kCTTextAlignmentJustified;
     layout.font = [UIFont systemFontOfSize:16];
     layout.textColor = [UIColor blackColor];
     layout.lineIndent = 2;
-    self.richLabel.textBuilder = [GAttributedStringFactory createDrawTextBuilderWithLayout:layout boundSize:CGSizeMake(self.richLabel.frame.size.width, self.richLabel.frame.size.height)];
+    self.richLabel.textBuilder = [GAttributedStringFactory createDrawTextBuilderWithAttributedConfig:layout boundSize:CGSizeMake(self.richLabel.frame.size.width, self.richLabel.frame.size.height)];
 }
 
 - (NSString*)content {

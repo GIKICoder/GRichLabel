@@ -1,5 +1,5 @@
 //
-//  GAttributedStringLayout.h
+//  GAttributedConfiguration.h
 //  GRichLabelExample
 //
 //  Created by GIKI on 2017/9/4.
@@ -10,8 +10,12 @@
 #import <UIKit/UIKit.h>
 #import "GAttributedStringFactory.h"
 #import "GAttributedToken.h"
+/**
+ A quick attribute configuration class
+ Don't need to deal with complex NSAttributedString
+ */
 
-@interface GAttributedStringLayout : NSObject
+@interface GAttributedConfiguration : NSObject
 
 @property (nonatomic, strong) NSString * text;
 
@@ -90,7 +94,7 @@
  */
 @property (nonatomic, strong) NSArray<GAttributedToken*> * regexPatternConifgs;
 
-+ (instancetype)attributedLayout:(NSString*)text;
-+ (instancetype)attributedLayout:(NSString*)text color:(UIColor*)color font:(UIFont*)font;
++ (instancetype)attributedConfig:(NSString*)text;
++ (instancetype)attributedConfig:(NSString*)text color:(UIColor*)color font:(UIFont*)font;
 
 @end
