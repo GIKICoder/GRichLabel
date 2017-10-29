@@ -18,10 +18,10 @@
  
  @return a new NSParagraphStyle
  */
-+ (NSParagraphStyle *)styleWithCTStyle:(CTParagraphStyleRef)CTStyle;
++ (NSParagraphStyle *)g_styleWithCTStyle:(CTParagraphStyleRef)CTStyle;
 
 /**
  Creates and returns a CoreText Paragraph Style. (need call CFRelease() after used)
  */
-- (CTParagraphStyleRef)CTStyle CF_RETURNS_RETAINED;
+- (CTParagraphStyleRef)g_CTStyle CF_RETURNS_RETAINED;
 @end

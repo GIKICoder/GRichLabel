@@ -11,7 +11,7 @@
 
 @implementation NSParagraphStyle (GRichLabel)
 
-+ (NSParagraphStyle *)styleWithCTStyle:(CTParagraphStyleRef)CTStyle {
++ (NSParagraphStyle *)g_styleWithCTStyle:(CTParagraphStyleRef)CTStyle {
     if (CTStyle == NULL) return nil;
     
     NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
@@ -104,7 +104,7 @@
     return style;
 }
 
-- (CTParagraphStyleRef)CTStyle CF_RETURNS_RETAINED {
+- (CTParagraphStyleRef)g_CTStyle CF_RETURNS_RETAINED {
     CTParagraphStyleSetting set[kCTParagraphStyleSpecifierCount] = { 0 };
     int count = 0;
     
