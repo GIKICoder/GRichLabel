@@ -9,6 +9,7 @@
 #import "GTextMenuConfiguration.h"
 #import "GRichLabel.h"
 #import "GMenuController.h"
+#import "GBigbang.h"
 @interface GRichLabel(TextMenuDefault)
 
 @end
@@ -73,7 +74,7 @@
 @interface GTextMenuConfiguration ()
 @property (nonatomic, weak) GRichLabel * richLabel;
 @property (nonatomic, strong) NSString * selectText;
-
+@property (nonatomic, strong) GTagFlowContainer *container;
 @end
 
 @implementation GTextMenuConfiguration
@@ -91,13 +92,22 @@
     self = [super init];
     if (self) {
         
-        self.useGMenuController = NO;
+        self.useGMenuController = YES;
         if (self.useGMenuController) {
             GMenuItem *copyItem = [[GMenuItem alloc] initWithTitle:@"拷贝" target:self action:@selector(copyItem:)];
            GMenuItem *selectAllItem = [[GMenuItem alloc] initWithTitle:@"全选" target:self action:@selector(selectAllItem:)];
            GMenuItem *shareItem = [[GMenuItem alloc] initWithTitle:@"共享" target:self action:@selector(shareItem:)];
-            NSArray *items = [NSArray arrayWithObjects:copyItem,selectAllItem,shareItem,nil];
+            GMenuItem *bigbangItem = [[GMenuItem alloc] initWithTitle:@"bigbang" target:self action:@selector(bigbang:)];
+            NSArray *items = [NSArray arrayWithObjects:copyItem,selectAllItem,shareItem,bigbangItem,nil];
             self.menuItems = items;
+            
+            GTagFlowContainer *container = [GTagFlowContainer new];
+            self.container = container;
+            
+            self.container.actionBlock = ^(NSString *actionTitle, NSString *newText) {
+                
+            };
+            
         } else {
             UIMenuItem *copyItem = [[UIMenuItem alloc] initWithTitle:@"拷贝" action:@selector(copyItem:)];
             UIMenuItem *selectAllItem = [[UIMenuItem alloc] initWithTitle:@"全选" action:@selector(selectAllItem:)];
@@ -166,6 +176,23 @@
     [self.richLabel setSelectAllRange];
     [self.richLabel showSelectionView];
     [self showAfterSelectAllMenu];
+}
+
+- (void)bigbang:(id)sender
+{
+    NSArray * array = [GBigbangBox bigBang:[self.richLabel getSelectText]];
+    __block NSMutableArray *flows = [NSMutableArray array];
+    [array enumerateObjectsUsingBlock:^(GBigbangItem  * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        GTagFlowLayout *layout = [GTagFlowLayout tagFlowLayoutWithText:obj.text];
+        [flows addObject:layout];
+        if (obj.isSymbolOrEmoji) {
+            layout.appearance.backgroundColor = [UIColor grayColor];
+            layout.appearance.textColor = [UIColor blackColor];
+        }
+    }];
+    [self.container configDatas:flows.copy];
+    [self.container show];
+    [self.richLabel resetSelection];
 }
 
 /**
