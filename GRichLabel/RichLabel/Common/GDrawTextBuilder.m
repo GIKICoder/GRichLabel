@@ -35,7 +35,6 @@
         self.attributedString = string.copy;
         self.hasEmojiImage = string.hasEmojiImage;
         self.truncationToken = string.truncationToken;
-        self.tokenRangesDictionary = string.tokenRangesDictionary;
         [self initializeMethod];
     }
     return self;
@@ -182,7 +181,6 @@
             CTLineDraw(truncatedLine, context);
             CFRelease(truncatedLine);
         } else {
-            
             CTLineDraw(line, context);
         }
 

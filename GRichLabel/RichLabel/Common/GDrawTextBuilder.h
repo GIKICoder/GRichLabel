@@ -19,7 +19,7 @@
 @property (nonatomic, assign,readonly) CTFrameRef ctFrame;
 @property (nonatomic, assign,readonly) BOOL  hasEmojiImage;
 @property (nonatomic, strong,readonly) NSAttributedString *truncationToken;
-@property (nonatomic, strong) NSDictionary<NSString*,GAttributedToken*> * tokenRangesDictionary;
+
 @property (nonatomic, strong) GAttributedStringLayout * layout;
 
 + (instancetype)buildDrawTextSize:(CGSize)size attributedString:(NSAttributedString*)string;

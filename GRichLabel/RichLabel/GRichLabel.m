@@ -648,35 +648,28 @@
                 [GMagnifiterINST showMagnifier:self.magnifierRanged];
             }
         }
-        
         return;
     }
     
-    NSDictionary<NSString*,GAttributedToken*> * result = self.textBuilder.tokenRangesDictionary;
     
-    if (result.count > 0) {
-        
-        CFIndex index = [self convertTouchPointToSelectIndex:point];
-        
-        [result enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, GAttributedToken * _Nonnull obj, BOOL * _Nonnull stop) {
-            NSRange range = NSRangeFromString(key);
-            BOOL Contains = IndexContainingInRange(index, range);
-            if (Contains) {
-                
-                _isHighlightTouch = YES;
-                
-                self.highToken = obj;
-                
-                _selectedRange = range;
-                NSArray *path = [self calculateSelectRectPaths];
-                [self.selectionView showHighlightViewWithRects:path withAppearance:obj.tokenAppearance];
-                *stop = YES;
-            }
-            
-        }];
-        
+    CFIndex index = [self convertTouchPointToSelectIndex:point];
+    if (index == kCFNotFound || index == -1) {
+       [super touchesBegan:touches withEvent:event];
+       return;
+    }
+    NSRange range = {0};
+    NSDictionary *dict = [self.attributedString attributesAtIndex:index effectiveRange:&range];
+    
+    if ([dict objectForKey:kGAttributeTokenHighlightName]) {
+        GAttributedToken *token = dict[kGAttributeTokenHighlightName];
+        if (token && [token isKindOfClass:[GAttributedToken class]]) {
+            _isHighlightTouch = YES;
+            self.highToken = token;
+            _selectedRange = range;
+            NSArray *path = [self calculateSelectRectPaths];
+            [self.selectionView showHighlightViewWithRects:path withAppearance:token.tokenAppearance];
+        }
     } else {
-        
         [super touchesBegan:touches withEvent:event];
     }
     

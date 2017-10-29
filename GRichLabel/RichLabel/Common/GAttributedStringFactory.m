@@ -111,8 +111,6 @@
         }
     }
     attributed.truncationToken = layout.truncationToken;
-    attributed.tokenRangesDictionary = tokenRangesDictM.copy;
-
     return attributed;
 }
 

@@ -36,16 +36,6 @@ static NSString* const propertyKeytokenRanges = @"propertyKeytokenRanges";
      objc_setAssociatedObject(self, &propertyKeytruncationToken, truncationToken, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (void)setTokenRangesDictionary:(NSDictionary<NSString *,GAttributedToken *> *)tokenRangesDictionary
-{
-   objc_setAssociatedObject(self, &propertyKeytokenRanges, tokenRangesDictionary, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (NSDictionary<NSString *,GAttributedToken *> *)tokenRangesDictionary
-{
-    return objc_getAssociatedObject(self, &propertyKeytokenRanges);
-}
-
 + (NSMutableAttributedString *)setAttachmentStringWithEmojiImageName:(NSString *)imageName
                                                                 font:(UIFont*)font
 {
@@ -85,6 +75,7 @@ static NSString* const propertyKeytokenRanges = @"propertyKeytokenRanges";
         tokenFont = layout.font;
     }
     [string setAttribute:(NSString*)kCTFontAttributeName value:(id)tokenFont range:NSMakeRange(0, string.length)];
+    [string setAttribute:(NSString *)kGAttributeTokenHighlightName value:token range:NSMakeRange(0, string.length)];
     
 //    [string setAttribute:(NSString*)kCTUnderlineStyleAttributeName value:(id)[NSNumber numberWithInt:kCTUnderlineStyleDouble] range:NSMakeRange(0, string.length)];
     return string;

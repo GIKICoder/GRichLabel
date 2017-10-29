@@ -10,6 +10,14 @@
 #import <UIKit/UIKit.h>
 #import "GTokenAppearance.h"
 
+UIKIT_EXTERN NSString *const kGAttributeTokenHighlightName;
+
+UIKIT_EXTERN NSString *const kGAttributeTokenUnderlineName;
+
+UIKIT_EXTERN NSString *const kGAttributeTokenAttachmentName;
+
+UIKIT_EXTERN NSString *const kGAttributeTokenTruncationName;
+
 @class GAttributedToken;
 typedef void(^GAttributedTokenClick)(GAttributedToken *token);
 

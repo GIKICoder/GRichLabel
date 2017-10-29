@@ -8,6 +8,11 @@
 
 #import "GAttributedToken.h"
 
+NSString *const kGAttributeTokenHighlightName = @"kGAttributeTokenHighlightName";
+NSString *const kGAttributeTokenUnderlineName = @"kGAttributeTokenUnderlineName";
+NSString *const kGAttributeTokenAttachmentName = @"\uFFFC";
+NSString *const kGAttributeTokenTruncationName = @"\u2026";
+
 @implementation GAttributedToken
 
 + (instancetype)attributedTextToken:(NSString*)textToken
