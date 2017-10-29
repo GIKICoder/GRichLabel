@@ -6,12 +6,12 @@ A rich Label that supports selection, copying.
 
 Features
 ==============
-### 1,基于coretext绘制文本.内部使用YYAsyncLayer提供异步绘制任务
-### 2,支持选择/复制文本.
-### 3,支持自定义表情排版
-### 4,可自定义文本选择弹出menuView [GMenuContoller](https://github.com/GIKICoder/GMenuController)
-### 5,对于文本token 采用多模匹配算法. 详见[GACAutomaton](https://github.com/GIKICoder/GRichLabel/tree/master/GRichLabel/GACAutomaton).文本匹配效率比系统字符串匹配效率提高百倍.
-### 6,功能以及代码还在更新完善中. 后期会支持更多功能.欢迎star.
+- 1,基于coretext绘制文本.内部使用YYAsyncLayer提供异步绘制任务
+- 2,支持选择/复制文本.
+- 3,支持自定义表情排版
+- 4,可自定义文本选择弹出menuView [GMenuContoller](https://github.com/GIKICoder/GMenuController)
+- 5,对于文本token 采用多模匹配算法. 详见[GACAutomaton](https://github.com/GIKICoder/GRichLabel/tree/master/GRichLabel/GACAutomaton).文本匹配效率比系统字符串匹配效率提高百倍.
+- 6,功能以及代码还在更新完善中. 后期会支持更多功能.欢迎star.
 
 
 
@@ -71,14 +71,14 @@ richLabel.frame = CGRectMake(5, 0, self.view.frame.size.width-10, 500);
 Installation
 ==============
 
-### 手动添加
+- 手动添加
 1. ` git clone  https://github.com/GIKICoder/GRichLabel.git `
 2. 选择`GRichLabel`文件夹.拖入项目中.
 3. `GRichLabel` 依赖 `GMenuController https://github.com/GIKICoder/GMenuController`,  `YYAsyncLayer https://github.com/ibireme/YYAsyncLayer` 这2个库. 可以使用pod添加. 也可下载手动添加到项目
 
 update Info
 ==============
-### 29/10/2017 代码重构.处理耦合逻辑.简化代码.重新整理NSAttributedString分类(参考NSAttributedString+YYText).使GRichLabel具有更强大的文本处理能力.
+- 29/10/2017 代码重构.处理耦合逻辑.简化代码.重新整理NSAttributedString分类(参考NSAttributedString+YYText).使GRichLabel具有更强大的文本处理能力.
 
 Thanks
 ==============
