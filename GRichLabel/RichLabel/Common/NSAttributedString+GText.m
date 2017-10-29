@@ -61,7 +61,7 @@ static NSString* const propertyKeytokenRanges = @"propertyKeytokenRanges";
     if (!token || (token.textToken.length == 0)) return nil;
    
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:token.textToken];
-    UIColor * tokenColor= config.tokenTextColor;i
+    UIColor * tokenColor= config.tokenTextColor;
     if (token.tokenColor) {
         tokenColor = tokenColor;
     }
