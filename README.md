@@ -78,7 +78,7 @@ Installation
 
 update Info
 ==============
-### 29/10/2017 代码重构.分类耦合.重新整理NSAttributedString分类(参考NSAttributedString+YYText).使GRichLabel具有更强大的文本处理能力.
+### 29/10/2017 代码重构.处理耦合逻辑.简化代码.重新整理NSAttributedString分类(参考NSAttributedString+YYText).使GRichLabel具有更强大的文本处理能力.
 
 Thanks
 ==============
