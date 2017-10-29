@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+
+/**
+ A AttributedString processing factory. Generate 'GAttributedConfiguration' through 'NSMutableAttributedString'.
+ */
 @class GAttributedConfiguration ,GDrawTextBuilder;
 
 @interface GAttributedStringFactory : NSObject
@@ -16,7 +20,7 @@
 /**
  create DrawTextBuilder
  DrawTextBuilder  is a used to draw the rich text library class.
- @param layout GAttributedConfiguration
+ @param config GAttributedConfiguration
  @return DrawTextBuilder
  */
 + (GDrawTextBuilder*)createDrawTextBuilderWithAttributedConfig:(GAttributedConfiguration*)config boundSize:(CGSize)size;
@@ -24,7 +28,7 @@
 /**
  create AttributedString
 
- @param layout GAttributedConfiguration
+ @param config GAttributedConfiguration
  @return NSMutableAttributedString
  */
 + (NSMutableAttributedString*)createAttributedStringWithAttributedConfig:(GAttributedConfiguration*)config;
