@@ -76,6 +76,9 @@ Installation
 2. 选择`GRichLabel`文件夹.拖入项目中.
 3. `GRichLabel` 依赖 `GMenuController https://github.com/GIKICoder/GMenuController`,  `YYAsyncLayer https://github.com/ibireme/YYAsyncLayer` 这2个库. 可以使用pod添加. 也可下载手动添加到项目
 
+update Info
+==============
+### 29/10/2017 代码重构.分类耦合.重新整理NSAttributedString分类(参考NSAttributedString+YYText).使GRichLabel具有更强大的文本处理能力.
 
 Thanks
 ==============
