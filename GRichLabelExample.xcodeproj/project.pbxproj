@@ -64,6 +64,7 @@
 		2B9F6F701FA5E4380094FC6E /* NSAttributedString+GRichLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9F6F6F1FA5E4380094FC6E /* NSAttributedString+GRichLabel.m */; };
 		2BC22DBE1F7B4C3A00A46E47 /* novelReadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC22DBC1F7B4C3A00A46E47 /* novelReadViewController.m */; };
 		2BC22E151F7BB36000A46E47 /* GTextMenuConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC22E141F7BB36000A46E47 /* GTextMenuConfiguration.m */; };
+		2BEE6C9D1FA7023300547BE5 /* NSMutableAttributedString+GRichLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BEE6C9C1FA7023300547BE5 /* NSMutableAttributedString+GRichLabel.m */; };
 		72927A414C6F9ED8D8CC4098 /* libPods-GRichLabelExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 026AFA84B24C1CE9393D15B6 /* libPods-GRichLabelExampleTests.a */; };
 		A1CEF1A44462F8AE0AE2BE46 /* libPods-GRichLabelExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9B01FF650305C13A14BA73B /* libPods-GRichLabelExample.a */; };
 		DAC6BB50DDD4DA1EDBFF65BF /* libPods-GRichLabelExampleUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE2B4B31D09F016C79D387B /* libPods-GRichLabelExampleUITests.a */; };
@@ -160,6 +161,8 @@
 		2BC22DBF1F7B4CE000A46E47 /* novelabcd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = novelabcd.jpg; sourceTree = "<group>"; };
 		2BC22E131F7BB36000A46E47 /* GTextMenuConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTextMenuConfiguration.h; sourceTree = "<group>"; };
 		2BC22E141F7BB36000A46E47 /* GTextMenuConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTextMenuConfiguration.m; sourceTree = "<group>"; };
+		2BEE6C9B1FA7023300547BE5 /* NSMutableAttributedString+GRichLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+GRichLabel.h"; sourceTree = "<group>"; };
+		2BEE6C9C1FA7023300547BE5 /* NSMutableAttributedString+GRichLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+GRichLabel.m"; sourceTree = "<group>"; };
 		382900EE4BFFDC7419BC00A4 /* Pods-GRichLabelExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GRichLabelExampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GRichLabelExampleUITests/Pods-GRichLabelExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3A0B6E473B29FCC3C9870A29 /* Pods-GRichLabelExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GRichLabelExampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GRichLabelExampleTests/Pods-GRichLabelExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		881CBDAFD47176B7D16BD915 /* Pods-GRichLabelExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GRichLabelExampleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GRichLabelExampleUITests/Pods-GRichLabelExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -328,6 +331,8 @@
 				2B9F6F6C1FA5E41F0094FC6E /* NSParagraphStyle+GRichLabel.m */,
 				2B9F6F6E1FA5E4380094FC6E /* NSAttributedString+GRichLabel.h */,
 				2B9F6F6F1FA5E4380094FC6E /* NSAttributedString+GRichLabel.m */,
+				2BEE6C9B1FA7023300547BE5 /* NSMutableAttributedString+GRichLabel.h */,
+				2BEE6C9C1FA7023300547BE5 /* NSMutableAttributedString+GRichLabel.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -688,6 +693,7 @@
 				2B6383C41F73E8F4001FF876 /* GAttributedStringFactory.m in Sources */,
 				2B6383C51F73E8F4001FF876 /* GAttributedConfiguration.h in Sources */,
 				2B6383C61F73E8F4001FF876 /* GAttributedConfiguration.m in Sources */,
+				2BEE6C9D1FA7023300547BE5 /* NSMutableAttributedString+GRichLabel.m in Sources */,
 				2B6383C71F73E8F4001FF876 /* GAttributedToken.h in Sources */,
 				2B6383C81F73E8F4001FF876 /* GAttributedToken.m in Sources */,
 				2B6383C91F73E8F4001FF876 /* GDrawTextBuilder.h in Sources */,

@@ -13,6 +13,36 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
+static float _GDeviceSystemVersion() {
+    static float version;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        version = [UIDevice currentDevice].systemVersion.floatValue;
+    });
+    return version;
+}
+
+#ifndef kSystemVersion
+#define kSystemVersion _GDeviceSystemVersion()
+#endif
+
+#ifndef kiOS6Later
+#define kiOS6Later (kSystemVersion >= 6)
+#endif
+
+#ifndef kiOS7Later
+#define kiOS7Later (kSystemVersion >= 7)
+#endif
+
+#ifndef kiOS8Later
+#define kiOS8Later (kSystemVersion >= 8)
+#endif
+
+#ifndef kiOS9Later
+#define kiOS9Later (kSystemVersion >= 9)
+#endif
+
 /// Returns the distance between two points.
 static inline CGFloat GetDistanceToPoint(CGPoint p1, CGPoint p2) {
     return sqrt((p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y));
