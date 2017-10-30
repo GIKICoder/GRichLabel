@@ -197,10 +197,6 @@
     [self g_setTabStops:tabStops range:NSMakeRange(0, self.length)];
 }
 
-- (void)setG_textGlyphTransform:(CGAffineTransform)textGlyphTransform {
-    [self g_setTextGlyphTransform:textGlyphTransform range:NSMakeRange(0, self.length)];
-}
-
 #pragma mark - Range Setter
 
 - (void)g_setFont:(UIFont *)font range:(NSRange)range {
@@ -457,11 +453,6 @@ style. _attr_ = _attr_; \
     }
 }
 
-
-- (void)g_setTextGlyphTransform:(CGAffineTransform)textGlyphTransform range:(NSRange)range {
-    NSValue *value = CGAffineTransformIsIdentity(textGlyphTransform) ? nil : [NSValue valueWithCGAffineTransform:textGlyphTransform];
-    //    [self g_setAttribute:YYTextGlyphTransformAttributeName value:value range:range];
-}
 
 - (void)g_insertString:(NSString *)string atIndex:(NSUInteger)location {
     [self replaceCharactersInRange:NSMakeRange(location, 0) withString:string];

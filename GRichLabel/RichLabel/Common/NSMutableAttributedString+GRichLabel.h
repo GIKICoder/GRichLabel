@@ -472,22 +472,6 @@
 @property (nonatomic, copy, readwrite) NSArray *g_tabStops;
 - (void)g_setTabStops:(NSArray *)tabStops range:(NSRange)range NS_AVAILABLE_IOS(7_0);
 
-#pragma mark - Set YYText attribute as property
-///=============================================================================
-/// @name Set YYText attribute as property
-///=============================================================================
-
-/**
- The glyph transform.
- 
- @discussion Default value is CGAffineTransformIdentity (no transform).
- @discussion Set this property applies to the entire text string.
- Get this property returns the first character's attribute.
- @since      6.0
- */
-@property (nonatomic, assign, readwrite) CGAffineTransform g_textGlyphTransform;
-- (void)g_setTextGlyphTransform:(CGAffineTransform)textGlyphTransform range:(NSRange)range;
-
 
 #pragma mark - Set discontinuous attribute for range
 ///=============================================================================
