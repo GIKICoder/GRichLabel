@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "GAttributedConfiguration.h"
 #import "GDrawTextBuilder.h"
-#import "NSAttributedString+GText.h"
+#import "NSAttributedString+GRichLabel.h"
+
 @class GTextMenuConfiguration;
 @interface GRichLabel : UIView
 
@@ -104,6 +105,13 @@
  @return NSString
  */
 - (NSString*)getSelectText;
+
+/**
+ 获取当前选中范围
+
+ @return NSRange
+ */
+- (NSRange)getSelectRange;
 
 /**
  获取当前richLabel所在的控制器

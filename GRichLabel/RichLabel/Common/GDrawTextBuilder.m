@@ -7,7 +7,6 @@
 //
 
 #import "GDrawTextBuilder.h"
-#import "NSAttributedString+GText.h"
 #import "GEmojiRunDelegate.h"
 #import "GTextUtils.h"
 @interface GDrawTextBuilder()
@@ -33,8 +32,8 @@
     if (self = [super init]) {
         self.boundSize = size;
         self.attributedString = string.copy;
-        self.hasEmojiImage = string.hasEmojiImage;
-        self.truncationToken = string.truncationToken;
+        self.hasEmojiImage = NO; //string.hasEmojiImage;
+        self.truncationToken = nil;//  string.truncationToken;
         [self initializeMethod];
     }
     return self;

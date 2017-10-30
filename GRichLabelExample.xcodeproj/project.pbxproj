@@ -36,8 +36,6 @@
 		2B6383CC1F73E8F4001FF876 /* GEmojiConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B63839C1F73E8DA001FF876 /* GEmojiConfigManager.m */; };
 		2B6383CD1F73E8F4001FF876 /* GTokenAppearance.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B63839D1F73E8DA001FF876 /* GTokenAppearance.h */; };
 		2B6383CE1F73E8F4001FF876 /* GTokenAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B63839E1F73E8DA001FF876 /* GTokenAppearance.m */; };
-		2B6383CF1F73E8F4001FF876 /* NSAttributedString+GText.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B63839F1F73E8DA001FF876 /* NSAttributedString+GText.h */; };
-		2B6383D01F73E8F4001FF876 /* NSAttributedString+GText.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383A01F73E8DA001FF876 /* NSAttributedString+GText.m */; };
 		2B6383D11F73E8F4001FF876 /* GRichLabel.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383A11F73E8DA001FF876 /* GRichLabel.h */; };
 		2B6383D21F73E8F4001FF876 /* GRichLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383A21F73E8DA001FF876 /* GRichLabel.m */; };
 		2B6383D31F73E8F4001FF876 /* GCursor.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383A41F73E8DA001FF876 /* GCursor.h */; };
@@ -127,8 +125,6 @@
 		2B63839C1F73E8DA001FF876 /* GEmojiConfigManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GEmojiConfigManager.m; sourceTree = "<group>"; };
 		2B63839D1F73E8DA001FF876 /* GTokenAppearance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTokenAppearance.h; sourceTree = "<group>"; };
 		2B63839E1F73E8DA001FF876 /* GTokenAppearance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTokenAppearance.m; sourceTree = "<group>"; };
-		2B63839F1F73E8DA001FF876 /* NSAttributedString+GText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+GText.h"; sourceTree = "<group>"; };
-		2B6383A01F73E8DA001FF876 /* NSAttributedString+GText.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+GText.m"; sourceTree = "<group>"; };
 		2B6383A11F73E8DA001FF876 /* GRichLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GRichLabel.h; sourceTree = "<group>"; };
 		2B6383A21F73E8DA001FF876 /* GRichLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GRichLabel.m; sourceTree = "<group>"; };
 		2B6383A41F73E8DA001FF876 /* GCursor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCursor.h; sourceTree = "<group>"; };
@@ -325,8 +321,6 @@
 				2B63839E1F73E8DA001FF876 /* GTokenAppearance.m */,
 				2BC22E131F7BB36000A46E47 /* GTextMenuConfiguration.h */,
 				2BC22E141F7BB36000A46E47 /* GTextMenuConfiguration.m */,
-				2B63839F1F73E8DA001FF876 /* NSAttributedString+GText.h */,
-				2B6383A01F73E8DA001FF876 /* NSAttributedString+GText.m */,
 				2B9F6F6B1FA5E41F0094FC6E /* NSParagraphStyle+GRichLabel.h */,
 				2B9F6F6C1FA5E41F0094FC6E /* NSParagraphStyle+GRichLabel.m */,
 				2B9F6F6E1FA5E4380094FC6E /* NSAttributedString+GRichLabel.h */,
@@ -703,8 +697,6 @@
 				2B9F6F701FA5E4380094FC6E /* NSAttributedString+GRichLabel.m in Sources */,
 				2B6383CD1F73E8F4001FF876 /* GTokenAppearance.h in Sources */,
 				2B6383CE1F73E8F4001FF876 /* GTokenAppearance.m in Sources */,
-				2B6383CF1F73E8F4001FF876 /* NSAttributedString+GText.h in Sources */,
-				2B6383D01F73E8F4001FF876 /* NSAttributedString+GText.m in Sources */,
 				2B6383D11F73E8F4001FF876 /* GRichLabel.h in Sources */,
 				2B6383D21F73E8F4001FF876 /* GRichLabel.m in Sources */,
 				2B6383D31F73E8F4001FF876 /* GCursor.h in Sources */,

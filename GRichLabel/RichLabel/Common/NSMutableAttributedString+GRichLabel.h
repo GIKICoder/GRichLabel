@@ -63,25 +63,12 @@
  The font of the text.
  
  @discussion Default is Helvetica (Neue) 12.
- @discussion Set this property applies to the entire text string.
- Get this property returns the first character's attribute.
- @since CoreText:3.2  UIKit:6.0       6.0
  */
 @property (nonatomic, strong, readwrite) UIFont *g_font;
 - (void)g_setFont:(UIFont *)font range:(NSRange)range;
 
 /**
  A kerning adjustment.
- 
- @discussion Default is standard kerning. The kerning attribute indicate how many
- points the following character should be shifted from its default offset as
- defined by the current character's font in points; a positive kern indicates a
- shift farther along and a negative kern indicates a shift closer to the current
- character. If this attribute is not present, standard kerning will be used.
- If this attribute is set to 0.0, no kerning will be done at all.
- @discussion Set this property applies to the entire text string.
- Get this property returns the first character's attribute.
- @since CoreText:3.2  UIKit:6.0       6.0
  */
 @property (nonatomic, strong, readwrite) NSNumber *g_kern;
 - (void)g_setKern:(NSNumber *)kern range:(NSRange)range;
@@ -90,9 +77,6 @@
  The foreground color.
  
  @discussion Default is Black.
- @discussion Set this property applies to the entire text string.
- Get this property returns the first character's attribute.
- @since CoreText:3.2  UIKit:6.0       6.0
  */
 @property (nonatomic, strong, readwrite) UIColor *g_color;
 - (void)g_setColor:(UIColor *)color range:(NSRange)range;
@@ -101,9 +85,6 @@
  The background color.
  
  @discussion Default is nil (or no background).
- @discussion Set this property applies to the entire text string.
- Get this property returns the first character's attribute.
- @since UIKit:6.0
  */
 @property (nonatomic, strong, readwrite) UIColor *g_backgroundColor;
 - (void)g_setBackgroundColor:(UIColor *)backgroundColor range:(NSRange)range;
@@ -111,13 +92,7 @@
 /**
  The stroke width.
  
- @discussion Default value is 0.0 (no stroke). This attribute, interpreted as
- a percentage of font point size, controls the text drawing mode: positive
- values effect drawing with stroke only; negative values are for stroke and fill.
- A typical value for outlined text is 3.0.
- @discussion Set this property applies to the entire text string.
- Get this property returns the first character's attribute.
- @since CoreText:3.2  UIKit:6.0       6.0
+ @discussion Default value is 0.0 (no stroke).
  */
 @property (nonatomic, strong, readwrite) NSNumber *g_strokeWidth;
 - (void)g_setStrokeWidth:(NSNumber *)strokeWidth range:(NSRange)range;
@@ -126,9 +101,6 @@
  The stroke color.
  
  @discussion Default value is nil (same as foreground color).
- @discussion Set this property applies to the entire text string.
- Get this property returns the first character's attribute.
- @since CoreText:3.2  UIKit:6.0       6.0
  */
 @property (nonatomic, strong, readwrite) UIColor *g_strokeColor;
 - (void)g_setStrokeColor:(UIColor *)strokeColor range:(NSRange)range;
@@ -137,9 +109,6 @@
  The text shadow.
  
  @discussion Default value is nil (no shadow).
- @discussion Set this property applies to the entire text string.
- Get this property returns the first character's attribute.
- @since UIKit:6.0       6.0
  */
 @property (nonatomic, strong, readwrite) NSShadow *g_shadow;
 - (void)g_setShadow:(NSShadow *)shadow range:(NSRange)range;
@@ -148,9 +117,6 @@
  The strikethrough style.
  
  @discussion Default value is NSUnderlineStyleNone (no strikethrough).
- @discussion Set this property applies to the entire text string.
- Get this property returns the first character's attribute.
- @since UIKit:6.0
  */
 @property (nonatomic, assign, readwrite) NSUnderlineStyle g_strikethroughStyle;
 - (void)g_setStrikethroughStyle:(NSUnderlineStyle)strikethroughStyle range:(NSRange)range;
@@ -158,10 +124,7 @@
 /**
  The strikethrough color.
  
- @discussion Default value is nil (same as foreground color).
- @discussion Set this property applies to the entire text string.
- Get this property returns the first character's attribute.
- @since UIKit:7.0
+ @discussion Default value is nil (same as foreground color)
  */
 @property (nonatomic, strong, readwrite) UIColor *g_strikethroughColor;
 - (void)g_setStrikethroughColor:(UIColor *)strikethroughColor range:(NSRange)range NS_AVAILABLE_IOS(7_0);
@@ -170,9 +133,6 @@
  The underline style.
  
  @discussion Default value is NSUnderlineStyleNone (no underline).
- @discussion Set this property applies to the entire text string.
- Get this property returns the first character's attribute.
- @since CoreText:3.2  UIKit:6.0
  */
 @property (nonatomic, assign, readwrite) NSUnderlineStyle g_underlineStyle;
 - (void)g_setUnderlineStyle:(NSUnderlineStyle)underlineStyle range:(NSRange)range;

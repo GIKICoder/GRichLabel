@@ -885,6 +885,11 @@
     return [self.attributedString.string substringWithRange:NSMakeRange(_selectedRange.location, _selectedRange.length)];
 }
 
+- (NSRange)getSelectRange
+{
+    return self.selectedRange;
+}
+
 - (UIViewController*)getCurrentViewController
 {
     if (!self.currentController) {

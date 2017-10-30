@@ -12,8 +12,8 @@
 #import "GACAutomaton.h"
 #import "GEmojiConfigManager.h"
 #import "GEmojiRunDelegate.h"
-#import "NSAttributedString+GText.h"
 #import "GDrawTextBuilder.h"
+#import "NSAttributedString+GRichLabel.h"
 
 @implementation GAttributedStringFactory
 
@@ -42,12 +42,12 @@
             NSRange range = emo.range;
             range.location -= clipLength;
             
-            if ([attributed attribute:(id)kCTRunDelegateAttributeName atIndex:range.location]) continue;
+            if ([attributed g_attribute:(id)kCTRunDelegateAttributeName atIndex:range.location]) continue;
             NSString *emoString = [attributed.string substringWithRange:range];
             NSString* emojiName = [[GEmojiConfigManager sharedInstance] getEmojiImageName:emoString];
             if (!emojiName) continue;
-            attributed.hasEmojiImage = YES;
-            NSMutableAttributedString * attr = [NSAttributedString setAttachmentStringWithEmojiImageName:emojiName font:config.font];
+//            attributed.hasEmojiImage = YES;
+            NSMutableAttributedString * attr = [GAttributedStringFactory setAttachmentStringWithEmojiImageName:emojiName font:config.font];
             [attributed replaceCharactersInRange:range withAttributedString:attr];
             clipLength += range.length - 1;
         }
@@ -67,10 +67,10 @@
             [result enumerateObjectsUsingBlock:^(GACResult* obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 
                 if (obj.range.location == NSNotFound && obj.range.length <= 1) *stop = NO;
-                if ([attributed attribute:(NSString*)kCTForegroundColorAttributeName atIndex:obj.range.location]) *stop = NO;
+                if ([attributed g_attribute:(NSString*)kCTForegroundColorAttributeName atIndex:obj.range.location]) *stop = NO;
                 
                 // 替换的内容
-                NSMutableAttributedString *replace = [NSMutableAttributedString setTokenStringWithAttributedToken:obj.info attributedConfig:config];
+                NSMutableAttributedString *replace = [GAttributedStringFactory setTokenStringWithAttributedToken:obj.info attributedConfig:config];
                 if (!replace) *stop = NO;
                 
                 // 替换
@@ -93,11 +93,11 @@
                         
                         NSString *matchString = [attributed.string substringWithRange:match.range];
                         if (!matchString || matchString.length == 0) continue;
-                        if ([attributed attribute:(NSString*)kCTForegroundColorAttributeName atIndex:match.range.location]) *stop = NO;
+                        if ([attributed g_attribute:(NSString*)kCTForegroundColorAttributeName atIndex:match.range.location]) *stop = NO;
                         
                         obj.textToken = matchString;
                         // 替换的内容
-                        NSMutableAttributedString *replace = [NSMutableAttributedString setTokenStringWithAttributedToken:obj attributedConfig:config];
+                        NSMutableAttributedString *replace = [GAttributedStringFactory setTokenStringWithAttributedToken:obj attributedConfig:config];
                         if (!replace) continue;
                         
                         // 替换
@@ -110,7 +110,7 @@
             
         }
     }
-    attributed.truncationToken = config.truncationToken;
+//    attributed.truncationToken = config.truncationToken;
     return attributed;
 }
 
@@ -184,4 +184,48 @@
     return regex;
 }
 
++ (NSMutableAttributedString *)setAttachmentStringWithEmojiImageName:(NSString *)imageName
+                                                                font:(UIFont*)font
+{
+    if (!imageName || !font) return nil;
+    
+    GEmojiRunDelegate *delegate = [[GEmojiRunDelegate alloc] init];
+    
+    delegate.textFont = font;
+    delegate.emojiImageName = imageName;
+    
+    // 创建带有图片的占位符
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"\uFFFC"];
+    
+    CTRunDelegateRef ctDelegate = [delegate GetCTRunDelegate];
+    [string g_setAttribute:(id)kCTRunDelegateAttributeName value:(__bridge id)ctDelegate range:NSMakeRange(0, string.length)];
+    if (ctDelegate) CFRelease(ctDelegate);
+    
+    return string;
+}
+
++ (NSMutableAttributedString*)setTokenStringWithAttributedToken:(GAttributedToken*)token attributedConfig:(GAttributedConfiguration*)config
+{
+    if (!token || (token.textToken.length == 0)) return nil;
+    
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:token.textToken];
+    UIColor * tokenColor= config.tokenTextColor;
+    if (token.tokenColor) {
+        tokenColor = tokenColor;
+    }
+    if (!tokenColor) {
+        tokenColor = config.textColor;
+    }
+    [string g_setAttribute:(NSString*)kCTForegroundColorAttributeName value:(id)tokenColor.CGColor range:NSMakeRange(0, string.length)];
+    
+    UIFont *tokenFont = token.tokenFont;
+    if (!tokenFont) {
+        tokenFont = config.font;
+    }
+    [string g_setAttribute:(NSString*)kCTFontAttributeName value:(id)tokenFont range:NSMakeRange(0, string.length)];
+    [string g_setAttribute:(NSString *)kGAttributeTokenHighlightName value:token range:NSMakeRange(0, string.length)];
+    //    [string addAttribute:kCTUnderlineColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, string.length)];
+    //    [string setAttribute:(NSString*)kCTUnderlineStyleAttributeName value:(id)[NSNumber numberWithInt:kCTUnderlineStyleSingle] range:NSMakeRange(0, string.length)];
+    return string;
+}
 @end

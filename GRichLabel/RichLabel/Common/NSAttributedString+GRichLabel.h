@@ -13,6 +13,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <CoreText/CoreText.h>
+#import "NSMutableAttributedString+GRichLabel.h"
 
 @interface NSAttributedString (GRichLabel)
 
@@ -41,13 +42,7 @@
  A kerning adjustment. (read-only)
  
  @discussion Default is standard kerning. The kerning attribute indicate how many
- points the following character should be shifted from its default offset as
- defined by the current character's font in points; a positive kern indicates a
- shift farther along and a negative kern indicates a shift closer to the current
- character. If this attribute is not present, standard kerning will be used.
- If this attribute is set to 0.0, no kerning will be done at all.
- @discussion Get this property returns the first character's attribute.
- @since CoreText:3.2  UIKit:6.0       6.0
+
  */
 @property (nonatomic, strong, readonly) NSNumber *g_kern;
 - (NSNumber *)g_kernAtIndex:(NSUInteger)index;
@@ -57,7 +52,7 @@
  
  @discussion Default is Black.
  @discussion Get this property returns the first character's attribute.
- @since CoreText:3.2  UIKit:6.0       6.0
+
  */
 @property (nonatomic, strong, readonly) UIColor *g_color;
 - (UIColor *)g_colorAtIndex:(NSUInteger)index;
@@ -67,7 +62,6 @@
  
  @discussion Default is nil (or no background).
  @discussion Get this property returns the first character's attribute.
- @since UIKit:6.0
  */
 @property (nonatomic, strong, readonly) UIColor *g_backgroundColor;
 - (UIColor *)g_backgroundColorAtIndex:(NSUInteger)index;

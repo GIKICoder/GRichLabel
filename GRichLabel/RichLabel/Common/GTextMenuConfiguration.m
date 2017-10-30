@@ -10,6 +10,8 @@
 #import "GRichLabel.h"
 #import "GMenuController.h"
 #import "GBigbang.h"
+#import "NSMutableAttributedString+GRichLabel.h"
+#import "NSAttributedString+GRichLabel.h"
 @interface GRichLabel(TextMenuDefault)
 
 @end
@@ -95,10 +97,11 @@
         self.useGMenuController = YES;
         if (self.useGMenuController) {
             GMenuItem *copyItem = [[GMenuItem alloc] initWithTitle:@"拷贝" target:self action:@selector(copyItem:)];
-           GMenuItem *selectAllItem = [[GMenuItem alloc] initWithTitle:@"全选" target:self action:@selector(selectAllItem:)];
-           GMenuItem *shareItem = [[GMenuItem alloc] initWithTitle:@"共享" target:self action:@selector(shareItem:)];
+            GMenuItem *selectAllItem = [[GMenuItem alloc] initWithTitle:@"全选" target:self action:@selector(selectAllItem:)];
+            GMenuItem *shareItem = [[GMenuItem alloc] initWithTitle:@"共享" target:self action:@selector(shareItem:)];
             GMenuItem *bigbangItem = [[GMenuItem alloc] initWithTitle:@"bigbang" target:self action:@selector(bigbang:)];
-            NSArray *items = [NSArray arrayWithObjects:copyItem,selectAllItem,shareItem,bigbangItem,nil];
+            GMenuItem *underlineItem = [[GMenuItem alloc] initWithTitle:@"划线" target:self action:@selector(underline:)];
+            NSArray *items = [NSArray arrayWithObjects:copyItem,selectAllItem,shareItem,bigbangItem,underlineItem,nil];
             self.menuItems = items;
             
             GTagFlowContainer *container = [GTagFlowContainer new];
@@ -123,6 +126,7 @@
 {
     if (self.menuItems.count == 0) return;
     if (self.useGMenuController) {
+        
         GMenuController *menuController = [GMenuController sharedMenuController];
         
         NSArray *items = self.menuItems;
@@ -153,7 +157,6 @@
     }
 }
 
-
 /**
  copy Method
  
@@ -166,6 +169,7 @@
     
     [self.richLabel resetSelection];
 }
+
 /**
  select All Method
  
@@ -176,6 +180,19 @@
     [self.richLabel setSelectAllRange];
     [self.richLabel showSelectionView];
     [self showAfterSelectAllMenu];
+}
+
+- (void)underline:(id)sender
+{
+    NSRange selectRange = [self.richLabel getSelectRange];
+    [self.richLabel resetSelection];
+    
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:self.richLabel.attributedString];
+    [string g_setUnderlineStyle:NSUnderlineStyleSingle range:selectRange];
+    [string g_setUnderlineColor:[UIColor redColor] range:selectRange];
+    GDrawTextBuilder *buider = [GDrawTextBuilder buildDrawTextSize:self.richLabel.frame.size attributedString:string.copy];
+    self.richLabel.textBuilder = buider;
+    
 }
 
 - (void)bigbang:(id)sender
