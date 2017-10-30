@@ -174,20 +174,21 @@
 - (void)setText:(NSString *)text
 {
     _text = text;
-    GAttributedConfiguration *layout = [GAttributedConfiguration attributedConfig:text color:[UIColor blackColor] font:[UIFont systemFontOfSize:12]];
-    self.attributedConfig = layout;
+    GAttributedConfiguration *defaultConfig = [GAttributedConfiguration attributedConfig:text color:[UIColor blackColor] font:[UIFont systemFontOfSize:12]];
+    self.attributedConfig = defaultConfig;
 }
 
 - (void)setAttributedString:(NSAttributedString *)attributedString
 {
     _attributedString = attributedString;
-    [self contentNeedUpdate];
+    self.textBuilder = [GDrawTextBuilder buildDrawTextSize:self.frame.size attributedString:attributedString];
 }
 
 - (void)setTextBuilder:(GDrawTextBuilder *)textBuilder
 {
     _textBuilder = textBuilder;
-    self.attributedString = textBuilder.attributedString;
+    _attributedString = textBuilder.attributedString;
+     [self contentNeedUpdate];
 }
 
 - (void)setattributedConfig:(GAttributedConfiguration *)attributedConfig
