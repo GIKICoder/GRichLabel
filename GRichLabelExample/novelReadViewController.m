@@ -34,7 +34,7 @@
         _richLabel;
     })];
     _backgroundImage.frame = self.view.bounds;
-    _richLabel.frame = CGRectMake(10, 70, self.view.frame.size.width-20, self.view.frame.size.height-70);//self.view.frame.size.height-64
+    _richLabel.frame = CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height-64);//self.view.frame.size.height-64
     [self setrichContent];
 }
 
@@ -54,7 +54,9 @@
     layout.font = [UIFont systemFontOfSize:16];
     layout.textColor = [UIColor blackColor];
     layout.lineIndent = 2;
-    self.richLabel.textBuilder = [GAttributedStringFactory createDrawTextBuilderWithAttributedConfig:layout boundSize:CGSizeMake(self.richLabel.frame.size.width, self.richLabel.frame.size.height)];
+    NSAttributedString *config = [GAttributedStringFactory createAttributedStringWithAttributedConfig:layout];
+    GDrawTextBuilder *buider = [GDrawTextBuilder buildDrawTextRect:CGRectMake(10, 20, self.richLabel.frame.size.width-20,  self.richLabel.frame.size.height-40) attributedString:config];
+    self.richLabel.textBuilder = buider;//[GAttributedStringFactory createDrawTextBuilderWithAttributedConfig:layout boundSize:CGSizeMake(self.richLabel.frame.size.width, self.richLabel.frame.size.height)];
 }
 
 - (NSString*)content {

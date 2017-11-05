@@ -12,11 +12,13 @@
 @interface GDrawTextBuilder()
 @property (nonatomic, strong,readwrite) NSAttributedString  *attributedString;
 @property (nonatomic, assign,readwrite) CGSize  boundSize;
+@property (nonatomic, assign) CGRect  drawRect;
 @property (nonatomic, strong,readwrite) NSArray<GLineLayout*>  *lineLayouts;
 @property (nonatomic, assign,readwrite) CTFramesetterRef frameSetter;
 @property (nonatomic, assign,readwrite) CTFrameRef ctFrame;
 @property (nonatomic, assign,readwrite) BOOL  hasEmojiImage;
 @property (nonatomic, strong,readwrite) NSAttributedString *truncationToken;
+
 @end
 
 @implementation GDrawTextBuilder
@@ -24,6 +26,12 @@
 + (instancetype)buildDrawTextSize:(CGSize)size attributedString:(NSAttributedString*)string
 {
     GDrawTextBuilder *textBuilder = [[GDrawTextBuilder alloc] initWithBoundSize:size attributedString:string];
+    return textBuilder;
+}
+
++ (instancetype)buildDrawTextRect:(CGRect)rect attributedString:(NSAttributedString*)string
+{
+    GDrawTextBuilder *textBuilder = [[GDrawTextBuilder alloc] initWithDrawRect:rect attributedString:string];
     return textBuilder;
 }
 
@@ -35,6 +43,19 @@
         self.hasEmojiImage = NO; //string.hasEmojiImage;
         self.truncationToken = nil;//  string.truncationToken;
         [self initializeMethod];
+    }
+    return self;
+}
+
+- (instancetype)initWithDrawRect:(CGRect)rect attributedString:(NSAttributedString*)string
+{
+    if (self = [super init]) {
+        self.boundSize = rect.size;
+        self.drawRect = rect;
+        self.attributedString = string.copy;
+        self.hasEmojiImage = NO; //string.hasEmojiImage;
+        self.truncationToken = nil;//  string.truncationToken;
+        [self initializeMethod2];
     }
     return self;
 }
@@ -83,7 +104,7 @@
         if (linespace < 0) {
             linespace = 0;
         }
-//         linespace = 0;
+        //         linespace = 0;
         __block CGFloat linePointY = lineOrigins[0].y;
         
         //calculate line rect
@@ -103,7 +124,7 @@
             GLineLayout *lineModel = [GLineLayout line:lineObj Layout:lineRect];
             lineModel.linespace = linespace;
             [lineLayouts addObject:lineModel];
-     
+            
             /// linePointY --
             linePointY-=linespace;
             
@@ -128,6 +149,65 @@
     }
 }
 
+- (void)initializeMethod2
+{
+    @synchronized (self.attributedString) {
+        NSMutableAttributedString * attributedM = [[NSMutableAttributedString alloc] initWithAttributedString:self.attributedString];
+        CTFramesetterRef  framesetter = CTFramesetterCreateWithAttributedString((__bridge CFAttributedStringRef)attributedM);
+        [self releaseCTFrame];
+        NSMutableArray *lineLayouts = [NSMutableArray array];
+//        CGMutablePathRef path = CGPathCreateMutable();
+        
+//        CGPathAddRect(path, NULL, CGRectMake(0, 0, self.boundSize.width, self.boundSize.height));
+
+        CGRect rect = CGRectStandardize(self.drawRect);
+        self.drawRect = rect;
+        rect = CGRectApplyAffineTransform(rect, CGAffineTransformMakeScale(1, -1));
+        
+        CGPathRef path = CGPathCreateWithRect(rect, NULL);
+        CFRange range = CFRangeMake(0, CFAttributedStringGetLength((__bridge CFAttributedStringRef)attributedM));
+        _ctFrame = CTFramesetterCreateFrame(framesetter, range, path, NULL);
+        
+        CFArrayRef Lines = CTFrameGetLines(_ctFrame);
+        CFIndex lineCount = CFArrayGetCount(Lines);
+        //获取基线原点
+        CGPoint origins[lineCount];
+        CTFrameGetLineOrigins(_ctFrame, CFRangeMake(0, 0), origins);
+        
+        for (CFIndex i = 0; i < lineCount; i ++) {
+            
+            CTLineRef line = CFArrayGetValueAtIndex(Lines, i);
+            
+            //遍历每一行CTLine
+            CGFloat lineAscent;
+            CGFloat lineDescent;
+            CGFloat lineLeading;
+            
+            CGFloat lineWidth =  CTLineGetTypographicBounds(line, &lineAscent, &lineDescent, &lineLeading);
+            
+            CGPoint lineOrigin = origins[i];
+            
+            CFArrayRef ctRuns = CTLineGetGlyphRuns(line);
+            NSUInteger runCount = CFArrayGetCount(ctRuns);
+            if (!ctRuns || runCount == 0) continue;
+            
+            CGPoint linePoint;
+            linePoint.y =  lineOrigin.y - self.drawRect.origin.y;
+            linePoint.x = self.drawRect.origin.x + lineOrigin.x;
+            CGRect lineRect = CGRectMake(linePoint.x,linePoint.y , lineWidth, CTLineGetBoundsWithOptions(line, 0).size.height);
+            id lineobj = (__bridge id) line;
+            GLineLayout *lineModel = [GLineLayout line:lineobj Layout:lineRect];
+            [lineLayouts addObject:lineModel];
+            
+        }
+        self.lineLayouts = lineLayouts.copy;
+        
+        CGPathRelease(path);
+        CFRelease(framesetter);
+    }
+}
+
+
 - (void)drawAttributedText:(CGContextRef)context cancel:(BOOL (^)(void))cancel
 {
     @autoreleasepool {
@@ -137,7 +217,7 @@
         
         [self drawTextLine:context cancel:cancel];
         
-     
+        
     }
 }
 
@@ -146,9 +226,11 @@
     if (cancel()) return;
     // convert core text
     CGContextSaveGState(context);
-    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+//    CGContextTranslateCTM(context, self.drawRect.origin.x, self.drawRect.origin.y);
     CGContextTranslateCTM(context, 0, self.boundSize.height);
     CGContextScaleCTM(context, 1.0, -1.0);
+    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+  
     __weak typeof(self) weakSelf = self;
     [self.lineLayouts enumerateObjectsUsingBlock:^(GLineLayout * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         //draw by Line
@@ -182,7 +264,7 @@
         } else {
             CTLineDraw(line, context);
         }
-
+        
         if (weakSelf.hasEmojiImage) {
             [weakSelf drawEmojiWithLine:obj Context:context cancel:cancel];
             

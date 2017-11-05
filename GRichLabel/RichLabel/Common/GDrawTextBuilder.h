@@ -22,6 +22,7 @@
 
 
 + (instancetype)buildDrawTextSize:(CGSize)size attributedString:(NSAttributedString*)string;
++ (instancetype)buildDrawTextRect:(CGRect)rect attributedString:(NSAttributedString*)string;
 
 - (void)drawAttributedText:(CGContextRef)context cancel:(BOOL (^)(void))cancel;
 
