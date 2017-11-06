@@ -12,53 +12,43 @@
 @interface GDrawTextBuilder()
 @property (nonatomic, strong,readwrite) NSAttributedString  *attributedString;
 @property (nonatomic, assign,readwrite) CGSize  boundSize;
-@property (nonatomic, assign) CGRect  drawRect;
+@property (nonatomic, assign,readwrite) UIEdgeInsets  edgeInsets;
 @property (nonatomic, strong,readwrite) NSArray<GLineLayout*>  *lineLayouts;
 @property (nonatomic, assign,readwrite) CTFramesetterRef frameSetter;
 @property (nonatomic, assign,readwrite) CTFrameRef ctFrame;
 @property (nonatomic, assign,readwrite) BOOL  hasEmojiImage;
 @property (nonatomic, strong,readwrite) NSAttributedString *truncationToken;
-
+@property (nonatomic, assign) CGRect  pathRect;
 @end
 
 @implementation GDrawTextBuilder
 
 + (instancetype)buildDrawTextSize:(CGSize)size attributedString:(NSAttributedString*)string
 {
-    GDrawTextBuilder *textBuilder = [[GDrawTextBuilder alloc] initWithBoundSize:size attributedString:string];
+    GDrawTextBuilder *textBuilder = [[GDrawTextBuilder alloc] initWithBoundSize:size insert:UIEdgeInsetsZero attributedString:string];
     return textBuilder;
 }
 
-+ (instancetype)buildDrawTextRect:(CGRect)rect attributedString:(NSAttributedString*)string
++ (instancetype)buildDrawTextSize:(CGSize)size insert:(UIEdgeInsets)edgeInsets attributedString:(NSAttributedString*)string
 {
-    GDrawTextBuilder *textBuilder = [[GDrawTextBuilder alloc] initWithDrawRect:rect attributedString:string];
+    GDrawTextBuilder *textBuilder = [[GDrawTextBuilder alloc] initWithBoundSize:size insert:edgeInsets attributedString:string];
     return textBuilder;
 }
 
-- (instancetype)initWithBoundSize:(CGSize)size attributedString:(NSAttributedString*)string
+
+- (instancetype)initWithBoundSize:(CGSize)size insert:(UIEdgeInsets)edgeInsets attributedString:(NSAttributedString*)string
 {
     if (self = [super init]) {
         self.boundSize = size;
+        self.edgeInsets = edgeInsets;
         self.attributedString = string.copy;
-        self.hasEmojiImage = YES; //string.hasEmojiImage;
-        self.truncationToken = nil;//  string.truncationToken;
-        [self initializeMethod];
-    }
-    return self;
-}
-
-- (instancetype)initWithDrawRect:(CGRect)rect attributedString:(NSAttributedString*)string
-{
-    if (self = [super init]) {
-        self.boundSize = rect.size;
-        self.drawRect = rect;
-        self.attributedString = string.copy;
-        self.hasEmojiImage = YES; //string.hasEmojiImage;
-        self.truncationToken = nil;//  string.truncationToken;
+        self.hasEmojiImage = YES;
+        self.truncationToken = nil;
         [self initializeMethod2];
     }
     return self;
 }
+
 
 - (void)dealloc
 {
@@ -75,8 +65,16 @@
         
         [self releaseCTFrame];
         
-        CGMutablePathRef path = CGPathCreateMutable();
-        CGPathAddRect(path, NULL, CGRectMake(0, 0, self.boundSize.width, self.boundSize.height));
+        CGRect rect = (CGRect) {CGPointZero, self.boundSize};
+        rect = UIEdgeInsetsInsetRect(rect, self.edgeInsets);
+        rect = CGRectStandardize(rect);
+        _pathRect = rect;
+        rect = CGRectApplyAffineTransform(rect, CGAffineTransformMakeScale(1, -1));
+        
+        CGPathRef path = CGPathCreateWithRect(rect, NULL);
+        
+//        CGMutablePathRef path = CGPathCreateMutable();
+//        CGPathAddRect(path, NULL, CGRectMake(0, 0, self.boundSize.width, self.boundSize.height));
         CFRange range = CFRangeMake(0, CFAttributedStringGetLength((__bridge CFAttributedStringRef)attributedM));
         _ctFrame = CTFramesetterCreateFrame(framesetter, range, path, NULL);
         CFArrayRef lines = CTFrameGetLines(_ctFrame);
@@ -116,11 +114,13 @@
                 linePointY-=lineHeights[idx];
             }
             lineOrigin.y = self.boundSize.height - lineOrigin.y;
-            
+            CGPoint linePoint = CGPointZero;
+            linePoint.x = lineOrigin.x+_pathRect.origin.x;
+            linePoint.y = linePointY;
             /// store LineLayout
             CGFloat descent,ascent,leading;
             CGFloat lineWidth = CTLineGetTypographicBounds(line, &ascent, &descent, &leading);
-            CGRect lineRect = CGRectMake(lineOrigin.x, linePointY, lineWidth, lineHeights[idx]);
+            CGRect lineRect = CGRectMake(linePoint.x, linePoint.y, lineWidth, lineHeights[idx]);
             GLineLayout *lineModel = [GLineLayout line:lineObj Layout:lineRect];
             lineModel.linespace = linespace;
             [lineLayouts addObject:lineModel];
@@ -156,12 +156,11 @@
         CTFramesetterRef  framesetter = CTFramesetterCreateWithAttributedString((__bridge CFAttributedStringRef)attributedM);
         [self releaseCTFrame];
         NSMutableArray *lineLayouts = [NSMutableArray array];
-//        CGMutablePathRef path = CGPathCreateMutable();
-        
-//        CGPathAddRect(path, NULL, CGRectMake(0, 0, self.boundSize.width, self.boundSize.height));
 
-        CGRect rect = CGRectStandardize(self.drawRect);
-        self.drawRect = rect;
+        CGRect rect = (CGRect) {CGPointZero, self.boundSize};
+        rect = UIEdgeInsetsInsetRect(rect, self.edgeInsets);
+        rect = CGRectStandardize(rect);
+        _pathRect = rect;
         rect = CGRectApplyAffineTransform(rect, CGAffineTransformMakeScale(1, -1));
         
         CGPathRef path = CGPathCreateWithRect(rect, NULL);
@@ -192,8 +191,9 @@
             if (!ctRuns || runCount == 0) continue;
             
             CGPoint linePoint;
-            linePoint.y =  lineOrigin.y - self.drawRect.origin.y;
-            linePoint.x = self.drawRect.origin.x + lineOrigin.x;
+            linePoint.y =  lineOrigin.y - _pathRect.origin.y;
+//              linePoint.y = _pathRect.size.height + _pathRect.origin.y - lineOrigin.y;
+            linePoint.x = _pathRect.origin.x + lineOrigin.x;
             CGRect lineRect = CGRectMake(linePoint.x,linePoint.y , lineWidth, CTLineGetBoundsWithOptions(line, 0).size.height);
             id lineobj = (__bridge id) line;
             GLineLayout *lineModel = [GLineLayout line:lineobj Layout:lineRect];
@@ -226,8 +226,7 @@
     if (cancel()) return;
     // convert core text
     CGContextSaveGState(context);
-//    CGContextTranslateCTM(context, self.drawRect.origin.x, self.drawRect.origin.y);
-    CGContextTranslateCTM(context, 0, self.boundSize.height);
+    CGContextTranslateCTM(context, 0, self.pathRect.size.height);
     CGContextScaleCTM(context, 1.0, -1.0);
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
   

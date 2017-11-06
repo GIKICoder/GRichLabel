@@ -30,11 +30,11 @@
     [self.view addSubview:({
         _richLabel = [[GRichLabel alloc] init];
         _richLabel.canSelect = YES;
-        _richLabel.backgroundColor = [UIColor clearColor];
+//        _richLabel.backgroundColor = [UIColor redColor];
         _richLabel;
     })];
     _backgroundImage.frame = self.view.bounds;
-    _richLabel.frame = CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height-64);//self.view.frame.size.height-64
+    _richLabel.frame = CGRectMake(0, 70, self.view.frame.size.width, self.view.frame.size.height-80);//self.view.frame.size.height-64
     [self setrichContent];
 }
 
@@ -55,7 +55,7 @@
     layout.textColor = [UIColor blackColor];
     layout.lineIndent = 2;
     NSAttributedString *config = [GAttributedStringFactory createAttributedStringWithAttributedConfig:layout];
-    GDrawTextBuilder *buider = [GDrawTextBuilder buildDrawTextRect:CGRectMake(10, 20, self.richLabel.frame.size.width-20,  self.richLabel.frame.size.height-40) attributedString:config];
+    GDrawTextBuilder *buider = [GDrawTextBuilder buildDrawTextSize:self.richLabel.frame.size insert:UIEdgeInsetsMake(0, 0, 0, 0) attributedString:config];
     self.richLabel.textBuilder = buider;//[GAttributedStringFactory createDrawTextBuilderWithAttributedConfig:layout boundSize:CGSizeMake(self.richLabel.frame.size.width, self.richLabel.frame.size.height)];
 }
 

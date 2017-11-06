@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong,readonly) NSAttributedString  *attributedString;
 @property (nonatomic, assign,readonly) CGSize  boundSize;
+@property (nonatomic, assign,readonly) UIEdgeInsets  edgeInsets;
 @property (nonatomic, strong,readonly) NSArray<GLineLayout*>  *lineLayouts;
 @property (nonatomic, assign,readonly) CTFramesetterRef frameSetter;
 @property (nonatomic, assign,readonly) CTFrameRef ctFrame;
@@ -22,7 +23,8 @@
 
 
 + (instancetype)buildDrawTextSize:(CGSize)size attributedString:(NSAttributedString*)string;
-+ (instancetype)buildDrawTextRect:(CGRect)rect attributedString:(NSAttributedString*)string;
++ (instancetype)buildDrawTextSize:(CGSize)size insert:(UIEdgeInsets)edgeInsets attributedString:(NSAttributedString*)string;
+
 
 - (void)drawAttributedText:(CGContextRef)context cancel:(BOOL (^)(void))cancel;
 
