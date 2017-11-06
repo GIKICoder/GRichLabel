@@ -101,7 +101,8 @@
             GMenuItem *shareItem = [[GMenuItem alloc] initWithTitle:@"共享" target:self action:@selector(shareItem:)];
             GMenuItem *bigbangItem = [[GMenuItem alloc] initWithTitle:@"bigbang" target:self action:@selector(bigbang:)];
             GMenuItem *underlineItem = [[GMenuItem alloc] initWithTitle:@"划线" target:self action:@selector(underline:)];
-            NSArray *items = [NSArray arrayWithObjects:copyItem,selectAllItem,shareItem,bigbangItem,underlineItem,nil];
+//            ,bigbangItem,underlineItem,
+            NSArray *items = [NSArray arrayWithObjects:copyItem,selectAllItem,shareItem,nil];
             self.menuItems = items;
             
             GTagFlowContainer *container = [GTagFlowContainer new];

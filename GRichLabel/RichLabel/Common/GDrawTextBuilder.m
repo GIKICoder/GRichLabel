@@ -40,7 +40,7 @@
     if (self = [super init]) {
         self.boundSize = size;
         self.attributedString = string.copy;
-        self.hasEmojiImage = NO; //string.hasEmojiImage;
+        self.hasEmojiImage = YES; //string.hasEmojiImage;
         self.truncationToken = nil;//  string.truncationToken;
         [self initializeMethod];
     }
@@ -53,7 +53,7 @@
         self.boundSize = rect.size;
         self.drawRect = rect;
         self.attributedString = string.copy;
-        self.hasEmojiImage = NO; //string.hasEmojiImage;
+        self.hasEmojiImage = YES; //string.hasEmojiImage;
         self.truncationToken = nil;//  string.truncationToken;
         [self initializeMethod2];
     }
