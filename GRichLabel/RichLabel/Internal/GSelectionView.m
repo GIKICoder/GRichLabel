@@ -65,7 +65,7 @@
     
     [self.markViews removeAllObjects];
     
-    CGAffineTransform transform =  CGAffineTransformMakeTranslation(0, self.bounds.size.height);
+    CGAffineTransform transform =  CGAffineTransformMakeTranslation(0, self.pathRect.size.height);
     transform = CGAffineTransformScale(transform, 1.f, -1.f);
     
     __block BOOL isFirst = YES;

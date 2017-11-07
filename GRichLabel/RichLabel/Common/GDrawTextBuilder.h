@@ -15,6 +15,7 @@
 @property (nonatomic, strong,readonly) NSAttributedString  *attributedString;
 @property (nonatomic, assign,readonly) CGSize  boundSize;
 @property (nonatomic, assign,readonly) UIEdgeInsets  edgeInsets;
+@property (nonatomic, assign,readonly) CGRect  pathRect;
 @property (nonatomic, strong,readonly) NSArray<GLineLayout*>  *lineLayouts;
 @property (nonatomic, assign,readonly) CTFramesetterRef frameSetter;
 @property (nonatomic, assign,readonly) CTFrameRef ctFrame;

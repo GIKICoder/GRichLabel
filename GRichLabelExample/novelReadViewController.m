@@ -55,7 +55,7 @@
     layout.textColor = [UIColor blackColor];
     layout.lineIndent = 2;
     NSAttributedString *config = [GAttributedStringFactory createAttributedStringWithAttributedConfig:layout];
-    GDrawTextBuilder *buider = [GDrawTextBuilder buildDrawTextSize:self.richLabel.frame.size insert:UIEdgeInsetsMake(0, 0, 0, 0) attributedString:config];
+    GDrawTextBuilder *buider = [GDrawTextBuilder buildDrawTextSize:self.richLabel.frame.size insert:UIEdgeInsetsMake(60, 20,10, 20) attributedString:config];
     self.richLabel.textBuilder = buider;//[GAttributedStringFactory createDrawTextBuilderWithAttributedConfig:layout boundSize:CGSizeMake(self.richLabel.frame.size.width, self.richLabel.frame.size.height)];
 }
 

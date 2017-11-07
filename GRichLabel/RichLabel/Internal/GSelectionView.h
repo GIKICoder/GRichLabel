@@ -22,6 +22,7 @@
 @property (nonatomic, strong) UIColor * highlightColor;
 
 @property (nonatomic, assign) CGFloat  linespace;
+@property (nonatomic, assign) CGRect  pathRect;
 
 - (void)showSelectionView:(NSArray*)selectionRects showCursor:(BOOL)isShowCursor;
 

@@ -18,7 +18,7 @@
 @property (nonatomic, assign,readwrite) CTFrameRef ctFrame;
 @property (nonatomic, assign,readwrite) BOOL  hasEmojiImage;
 @property (nonatomic, strong,readwrite) NSAttributedString *truncationToken;
-@property (nonatomic, assign) CGRect  pathRect;
+@property (nonatomic, assign,readwrite) CGRect  pathRect;
 @end
 
 @implementation GDrawTextBuilder
@@ -44,7 +44,7 @@
         self.attributedString = string.copy;
         self.hasEmojiImage = YES;
         self.truncationToken = nil;
-        [self initializeMethod2];
+        [self initializeMethod];
     }
     return self;
 }
@@ -73,8 +73,6 @@
         
         CGPathRef path = CGPathCreateWithRect(rect, NULL);
         
-//        CGMutablePathRef path = CGPathCreateMutable();
-//        CGPathAddRect(path, NULL, CGRectMake(0, 0, self.boundSize.width, self.boundSize.height));
         CFRange range = CFRangeMake(0, CFAttributedStringGetLength((__bridge CFAttributedStringRef)attributedM));
         _ctFrame = CTFramesetterCreateFrame(framesetter, range, path, NULL);
         CFArrayRef lines = CTFrameGetLines(_ctFrame);
@@ -97,7 +95,7 @@
         
         CGFloat linespace = 0;
         if (lineCount-1 > 0) {
-            linespace = (self.boundSize.height - totalHeight - lineOrigins[lineCount-1].y)/(lineCount-1);
+            linespace = (_pathRect.size.height - totalHeight - lineOrigins[lineCount-1].y)/(lineCount-1);
         }
         if (linespace < 0) {
             linespace = 0;
@@ -113,10 +111,10 @@
             if (idx>0) {
                 linePointY-=lineHeights[idx];
             }
-            lineOrigin.y = self.boundSize.height - lineOrigin.y;
+            lineOrigin.y = _pathRect.size.height - lineOrigin.y;
             CGPoint linePoint = CGPointZero;
             linePoint.x = lineOrigin.x+_pathRect.origin.x;
-            linePoint.y = linePointY;
+            linePoint.y = linePointY- _pathRect.origin.y;
             /// store LineLayout
             CGFloat descent,ascent,leading;
             CGFloat lineWidth = CTLineGetTypographicBounds(line, &ascent, &descent, &leading);
@@ -192,7 +190,7 @@
             
             CGPoint linePoint;
             linePoint.y =  lineOrigin.y - _pathRect.origin.y;
-//              linePoint.y = _pathRect.size.height + _pathRect.origin.y - lineOrigin.y;
+
             linePoint.x = _pathRect.origin.x + lineOrigin.x;
             CGRect lineRect = CGRectMake(linePoint.x,linePoint.y , lineWidth, CTLineGetBoundsWithOptions(line, 0).size.height);
             id lineobj = (__bridge id) line;

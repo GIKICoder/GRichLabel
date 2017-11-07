@@ -184,18 +184,19 @@
     self.textBuilder = [GDrawTextBuilder buildDrawTextSize:self.frame.size attributedString:attributedString];
 }
 
-- (void)setTextBuilder:(GDrawTextBuilder *)textBuilder
-{
-    _textBuilder = textBuilder;
-    _attributedString = textBuilder.attributedString;
-     [self contentNeedUpdate];
-}
-
 - (void)setattributedConfig:(GAttributedConfiguration *)attributedConfig
 {
     _attributedConfig = attributedConfig;
     GDrawTextBuilder * builder = [GAttributedStringFactory createDrawTextBuilderWithAttributedConfig:attributedConfig boundSize:self.frame.size];
     self.textBuilder = builder;
+}
+
+- (void)setTextBuilder:(GDrawTextBuilder *)textBuilder
+{
+    _textBuilder = textBuilder;
+    _attributedString = textBuilder.attributedString;
+    [self contentNeedUpdate];
+    self.selectionView.pathRect = self.textBuilder.pathRect;
 }
 
 #pragma mark - update draw layer
@@ -260,9 +261,9 @@
             CGFloat xStart = CTLineGetOffsetForStringIndex(line, intersection.location, NULL);
             
             CGFloat xEnd = CTLineGetOffsetForStringIndex(line, intersection.location + intersection.length, NULL);
-            CGFloat ascent, descent;
-            CTLineGetTypographicBounds(line, &ascent, &descent, NULL);
-            CGRect selectionRect = CGRectMake(lineLayout.rect.origin.x + xStart, lineLayout.rect.origin.y-descent  , xEnd - xStart, lineLayout.rect.size.height);
+            CGFloat ascent, descent,leading;
+            CTLineGetTypographicBounds(line, &ascent, &descent, &leading);
+            CGRect selectionRect = CGRectMake(lineLayout.rect.origin.x + xStart, lineLayout.rect.origin.y-descent , xEnd - xStart, lineLayout.rect.size.height);
             self.selectionView.linespace = lineLayout.linespace;
             [pathRects addObject:NSStringFromCGRect(selectionRect)];
         }
@@ -279,7 +280,7 @@
  */
 - (CFIndex)convertTouchPointToSelectIndex:(CGPoint)point
 {
-    CGPoint touchPoint = CGPointMake(point.x, self.frame.size.height-point.y);
+    CGPoint touchPoint = CGPointMake(point.x, self.textBuilder.pathRect.size.height-point.y);
     CFIndex index = kCFNotFound;
     for (GLineLayout *lineLayout in _textBuilder.lineLayouts) {
         
@@ -287,7 +288,7 @@
             /// line的起始点
             CGPoint point = CGPointMake(touchPoint.x -lineLayout.rect.origin.x,0);
             index = CTLineGetStringIndexForPosition((__bridge CTLineRef)lineLayout.line, point);
-            
+            break;
         }
     }
     return index;
@@ -302,7 +303,7 @@
  */
 - (CFIndex)moveConvertTouchPointToSelectIndex:(CGPoint)point isLeft:(BOOL)isLeft
 {
-    CGPoint touchPoint = CGPointMake(point.x, self.frame.size.height-point.y);
+    CGPoint touchPoint = CGPointMake(point.x, self.textBuilder.pathRect.size.height-point.y);
     CFIndex index = kCFNotFound;
     for (GLineLayout *lineLayout in _textBuilder.lineLayouts) {
         
@@ -333,7 +334,7 @@
  */
 - (NSRange)getCharacterRangeAtpoint:(CGPoint)point
 {
-    CGPoint touchPoint = CGPointMake(point.x, self.frame.size.height-point.y);
+    CGPoint touchPoint = CGPointMake(point.x, self.textBuilder.pathRect.size.height-point.y);
     CTLineRef line ;
     __block NSRange returnRange = NSMakeRange(NSNotFound, 0);
     for (int i = 0;i<_textBuilder.lineLayouts.count;i++) {
@@ -507,13 +508,11 @@
 - (void)showMenu
 {
     _longRecognizer.enabled = NO;
-    if ([self becomeFirstResponder]) {
-        CGRect selectedRect =CGRectFromString([self.selectionView.selectionRects firstObject]);
-        CGAffineTransform transform =  CGAffineTransformMakeTranslation(0, self.bounds.size.height);
-        transform = CGAffineTransformScale(transform, 1.0, -1.0);
-        selectedRect = CGRectApplyAffineTransform(selectedRect, transform);
-        [self.menuConfiguration showMenuWithTargetRect:selectedRect selectRange:_selectedRange];
-    }
+    CGRect selectedRect =CGRectFromString([self.selectionView.selectionRects firstObject]);
+    CGAffineTransform transform =  CGAffineTransformMakeTranslation(0, self.textBuilder.pathRect.size.height);
+    transform = CGAffineTransformScale(transform, 1.0, -1.0);
+    selectedRect = CGRectApplyAffineTransform(selectedRect, transform);
+    [self.menuConfiguration showMenuWithTargetRect:selectedRect selectRange:_selectedRange];
 }
 
 - (void)selectAllRange
@@ -883,7 +882,9 @@
 
 - (NSString *)getSelectText
 {
-    return [self.attributedString.string substringWithRange:NSMakeRange(_selectedRange.location, _selectedRange.length)];
+    NSString *select = [self.attributedString.string substringWithRange:NSMakeRange(_selectedRange.location, _selectedRange.length)];
+    NSLog(@"copy--%@",select);
+    return select;
 }
 
 - (NSRange)getSelectRange
