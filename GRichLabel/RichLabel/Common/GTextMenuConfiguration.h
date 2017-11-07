@@ -8,15 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "GMenuContextProtocol.h"
 @class GRichLabel;
-@interface GTextMenuConfiguration : NSObject
+@interface GTextMenuConfiguration : NSObject<GMenuContextProtocol>
 
-@property (nonatomic, assign) BOOL  useGMenuController;
 @property (nonatomic, strong) NSArray * menuItems;
-
-+ (instancetype)textMenuConfig:(GRichLabel*)richLabel;
-- (void)showMenuWithTargetRect:(CGRect)targetRect selectRange:(NSRange)selectRange;
-- (void)hideTextMenu;
-
 
 @end

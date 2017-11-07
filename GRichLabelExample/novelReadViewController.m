@@ -8,7 +8,7 @@
 
 #import "novelReadViewController.h"
 #import "GRichLabel.h"
-
+#import "DemoTextMenuConfig.h"
 @interface novelReadViewController ()
 @property (nonatomic, strong) UIImageView * backgroundImage;
 @property (nonatomic, strong) GRichLabel * richLabel;
@@ -30,7 +30,7 @@
     [self.view addSubview:({
         _richLabel = [[GRichLabel alloc] init];
         _richLabel.canSelect = YES;
-//        _richLabel.backgroundColor = [UIColor redColor];
+        _richLabel.menuConfiguration = [DemoTextMenuConfig new];
         _richLabel;
     })];
     _backgroundImage.frame = self.view.bounds;

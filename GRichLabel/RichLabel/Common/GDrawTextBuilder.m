@@ -36,7 +36,7 @@
 }
 
 
-- (instancetype)initWithBoundSize:(CGSize)size insert:(UIEdgeInsets)edgeInsets attributedString:(NSAttributedString*)string
+- (instancetype)initWithBoundSize:(CGSize)size insert:(UIEdgeInsets)edgeInsets attributedString:(NSAttributedString*)string 
 {
     if (self = [super init]) {
         self.boundSize = size;
@@ -44,18 +44,26 @@
         self.attributedString = string.copy;
         self.hasEmojiImage = YES;
         self.truncationToken = nil;
-        [self initializeMethod];
+        [self setFixedLineHeight:NO];
     }
     return self;
 }
 
+- (void)setFixedLineHeight:(BOOL)fixedLineHeight
+{
+    if (fixedLineHeight) {
+        [self processFixedLineHeight];
+    } else {
+        [self processNormalLineHeight];
+    }
+}
 
 - (void)dealloc
 {
     [self releaseCTFrame];
 }
 
-- (void)initializeMethod
+- (void)processFixedLineHeight
 {
     @synchronized (self.attributedString) {
         
@@ -147,7 +155,7 @@
     }
 }
 
-- (void)initializeMethod2
+- (void)processNormalLineHeight
 {
     @synchronized (self.attributedString) {
         NSMutableAttributedString * attributedM = [[NSMutableAttributedString alloc] initWithAttributedString:self.attributedString];

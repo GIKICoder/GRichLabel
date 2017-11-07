@@ -25,7 +25,7 @@
 
 + (instancetype)buildDrawTextSize:(CGSize)size attributedString:(NSAttributedString*)string;
 + (instancetype)buildDrawTextSize:(CGSize)size insert:(UIEdgeInsets)edgeInsets attributedString:(NSAttributedString*)string;
-
+- (void)setFixedLineHeight:(BOOL)fixedLineHeight;
 
 - (void)drawAttributedText:(CGContextRef)context cancel:(BOOL (^)(void))cancel;
 

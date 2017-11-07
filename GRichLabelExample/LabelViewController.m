@@ -49,7 +49,7 @@
     })];
     
         self.richLabel = [GRichLabel new];
-    
+        self.richLabel.isFixedLineHeight = YES;
         self.richLabel.frame = CGRectMake(5, 0, self.view.frame.size.width-10, self.scrollview.contentSize.height);
     
         self.richLabel.contentScrollView = self.scrollview;
@@ -94,7 +94,9 @@
     [truncation g_setAttribute:(NSString*)kCTFontAttributeName value:(id)([UIFont systemFontOfSize:14]) range:NSMakeRange(0, truncation.length)];
     [truncation g_setAttribute:(NSString *)kCTForegroundColorAttributeName value:(id)[UIColor blueColor] range:NSMakeRange(3, 2)];
     attributedConfig.truncationToken = truncation;
-    GDrawTextBuilder * builder = [GAttributedStringFactory createDrawTextBuilderWithAttributedConfig:attributedConfig boundSize:self.richLabel.frame.size];
+    
+    NSAttributedString *attri = [GAttributedStringFactory createAttributedStringWithAttributedConfig:attributedConfig];
+    GDrawTextBuilder * builder = [GDrawTextBuilder buildDrawTextSize:self.richLabel.frame.size insert:UIEdgeInsetsMake(10, 10, 10, 10) attributedString:attri];
     self.richLabel.textBuilder = builder;
 }
 

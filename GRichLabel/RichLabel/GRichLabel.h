@@ -10,8 +10,8 @@
 #import "GAttributedConfiguration.h"
 #import "GDrawTextBuilder.h"
 #import "NSAttributedString+GRichLabel.h"
+#import "GMenuContextProtocol.h"
 
-@class GTextMenuConfiguration;
 @interface GRichLabel : UIView
 
 @property (nonatomic, strong) NSString * text;
@@ -25,7 +25,7 @@
 ///GDrawTextBuilder class is a readonly class stores text layout result.
 @property (nonatomic, strong) GDrawTextBuilder  *textBuilder;
 
-@property (nonatomic, strong,readonly) GTextMenuConfiguration * menuConfiguration;
+@property (nonatomic, strong) id<GMenuContextProtocol> menuConfiguration;
 
 /**
  是否开启异步绘制
@@ -49,6 +49,12 @@
  @default: 1
  */
 @property (nonatomic, assign) CGFloat  minSelectRange;
+
+/**
+ 是否开启固定行高
+ default:NO
+ */
+@property (nonatomic, assign) BOOL isFixedLineHeight;
 
 /**
  richlabel的容器view
@@ -77,6 +83,7 @@
  0 means no limit.
  */
 //@property (nonatomic, assign) NSUInteger numberOfLines;  //// 暂未实现
+
 #pragma mark - public Method
 
 /**

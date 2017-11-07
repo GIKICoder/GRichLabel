@@ -155,7 +155,7 @@
     
     [self.highlightViews removeAllObjects];
     
-    CGAffineTransform transform =  CGAffineTransformMakeTranslation(0, self.bounds.size.height);
+    CGAffineTransform transform =  CGAffineTransformMakeTranslation(0, self.pathRect.size.height);
     transform = CGAffineTransformScale(transform, 1.f, -1.f);
     
     [hightLightRects enumerateObjectsUsingBlock:^(NSString* obj, NSUInteger idx, BOOL * _Nonnull stop) {

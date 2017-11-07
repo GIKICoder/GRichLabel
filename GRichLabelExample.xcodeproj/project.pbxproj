@@ -16,6 +16,7 @@
 		2B58E5861F61548F00505193 /* GRichLabelExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B58E5851F61548F00505193 /* GRichLabelExampleTests.m */; };
 		2B58E5911F61548F00505193 /* GRichLabelExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B58E5901F61548F00505193 /* GRichLabelExampleUITests.m */; };
 		2B58E5DD1F6157DA00505193 /* LabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B58E5DC1F6157DA00505193 /* LabelViewController.m */; };
+		2B62BC791FB19E7800F611CC /* DemoTextMenuConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B62BC781FB19E7800F611CC /* DemoTextMenuConfig.m */; };
 		2B6383BB1F73E8F4001FF876 /* GACAutomaton.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B6383891F73E8DA001FF876 /* GACAutomaton.h */; };
 		2B6383BC1F73E8F4001FF876 /* GACAutomaton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B63838A1F73E8DA001FF876 /* GACAutomaton.m */; };
 		2B6383BD1F73E8F4001FF876 /* GACNode.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B63838B1F73E8DA001FF876 /* GACNode.h */; };
@@ -105,6 +106,9 @@
 		2B58E5921F61548F00505193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B58E5DB1F6157DA00505193 /* LabelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelViewController.h; sourceTree = "<group>"; };
 		2B58E5DC1F6157DA00505193 /* LabelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelViewController.m; sourceTree = "<group>"; };
+		2B62BC761FB19C8F00F611CC /* GMenuContextProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMenuContextProtocol.h; sourceTree = "<group>"; };
+		2B62BC771FB19E7800F611CC /* DemoTextMenuConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoTextMenuConfig.h; sourceTree = "<group>"; };
+		2B62BC781FB19E7800F611CC /* DemoTextMenuConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoTextMenuConfig.m; sourceTree = "<group>"; };
 		2B6383891F73E8DA001FF876 /* GACAutomaton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GACAutomaton.h; sourceTree = "<group>"; };
 		2B63838A1F73E8DA001FF876 /* GACAutomaton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GACAutomaton.m; sourceTree = "<group>"; };
 		2B63838B1F73E8DA001FF876 /* GACNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GACNode.h; sourceTree = "<group>"; };
@@ -231,6 +235,8 @@
 				2B58E5DC1F6157DA00505193 /* LabelViewController.m */,
 				2BC22DBB1F7B4C3A00A46E47 /* novelReadViewController.h */,
 				2BC22DBC1F7B4C3A00A46E47 /* novelReadViewController.m */,
+				2B62BC771FB19E7800F611CC /* DemoTextMenuConfig.h */,
+				2B62BC781FB19E7800F611CC /* DemoTextMenuConfig.m */,
 				2BC22DBD1F7B4C3A00A46E47 /* novelabcd@2x.jpg */,
 				2BC22DBF1F7B4CE000A46E47 /* novelabcd.jpg */,
 				2B58E5741F61548F00505193 /* Main.storyboard */,
@@ -319,6 +325,7 @@
 				2B63839C1F73E8DA001FF876 /* GEmojiConfigManager.m */,
 				2B63839D1F73E8DA001FF876 /* GTokenAppearance.h */,
 				2B63839E1F73E8DA001FF876 /* GTokenAppearance.m */,
+				2B62BC761FB19C8F00F611CC /* GMenuContextProtocol.h */,
 				2BC22E131F7BB36000A46E47 /* GTextMenuConfiguration.h */,
 				2BC22E141F7BB36000A46E47 /* GTextMenuConfiguration.m */,
 				2B9F6F6B1FA5E41F0094FC6E /* NSParagraphStyle+GRichLabel.h */,
@@ -679,6 +686,7 @@
 				2B6383BC1F73E8F4001FF876 /* GACAutomaton.m in Sources */,
 				2B6383BD1F73E8F4001FF876 /* GACNode.h in Sources */,
 				2B6383BE1F73E8F4001FF876 /* GACNode.m in Sources */,
+				2B62BC791FB19E7800F611CC /* DemoTextMenuConfig.m in Sources */,
 				2B6383BF1F73E8F4001FF876 /* GACQueue.h in Sources */,
 				2B6383C01F73E8F4001FF876 /* GACQueue.m in Sources */,
 				2B6383C11F73E8F4001FF876 /* GACResult.h in Sources */,

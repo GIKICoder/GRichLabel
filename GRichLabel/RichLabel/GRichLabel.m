@@ -53,7 +53,6 @@
 
 @property (nonatomic, strong) GAttributedToken * highToken;
 
-@property (nonatomic, strong,readwrite) GTextMenuConfiguration * menuConfiguration;
 @end
 
 @implementation GRichLabel
@@ -128,7 +127,8 @@
         _longRecognizer.enabled = YES;
         [self addGestureRecognizer:_longRecognizer];
         if (!self.menuConfiguration) {
-            self.menuConfiguration = [GTextMenuConfiguration textMenuConfig:self];
+            self.menuConfiguration = [GTextMenuConfiguration new];
+            [self.menuConfiguration configMenuWithRichLabel:self];
         }
     } else {
         if (_longRecognizer) {
@@ -171,17 +171,26 @@
     self.selectionView.rightCursor.color = cursorColor;
 }
 
+- (void)setIsFixedLineHeight:(BOOL)isFixedLineHeight
+{
+    _isFixedLineHeight = isFixedLineHeight;
+    if (self.textBuilder) {
+        [self.textBuilder setFixedLineHeight:YES];
+        [self contentNeedUpdate];
+    }
+}
+
+- (void)setMenuConfiguration:(id<GMenuContextProtocol>)menuConfiguration
+{
+    _menuConfiguration = menuConfiguration;
+    [_menuConfiguration configMenuWithRichLabel:self];
+}
+
 - (void)setText:(NSString *)text
 {
     _text = text;
     GAttributedConfiguration *defaultConfig = [GAttributedConfiguration attributedConfig:text color:[UIColor blackColor] font:[UIFont systemFontOfSize:12]];
     self.attributedConfig = defaultConfig;
-}
-
-- (void)setAttributedString:(NSAttributedString *)attributedString
-{
-    _attributedString = attributedString;
-    self.textBuilder = [GDrawTextBuilder buildDrawTextSize:self.frame.size attributedString:attributedString];
 }
 
 - (void)setattributedConfig:(GAttributedConfiguration *)attributedConfig
@@ -191,9 +200,16 @@
     self.textBuilder = builder;
 }
 
+- (void)setAttributedString:(NSAttributedString *)attributedString
+{
+    _attributedString = attributedString;
+    self.textBuilder = [GDrawTextBuilder buildDrawTextSize:self.frame.size attributedString:attributedString];
+}
+
 - (void)setTextBuilder:(GDrawTextBuilder *)textBuilder
 {
     _textBuilder = textBuilder;
+    [textBuilder setFixedLineHeight:_isFixedLineHeight];
     _attributedString = textBuilder.attributedString;
     [self contentNeedUpdate];
     self.selectionView.pathRect = self.textBuilder.pathRect;
