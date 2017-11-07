@@ -26,6 +26,12 @@
 #define kLeftCursorTag 100
 #define kRightCursorTag 200
 
+NSNotificationName  const GRichLabelWillSelectNotification = @"GRichLabelWillSelectNotification";
+NSNotificationName  const GRichLabelDidSelectNotification= @"GRichLabelDidSelectNotification";
+
+NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDidCancelSelectNotification";
+
+
 @interface GRichLabel ()<YYAsyncLayerDelegate>
 
 /// recognizer property
@@ -528,7 +534,17 @@
     CGAffineTransform transform =  CGAffineTransformMakeTranslation(0, self.textBuilder.pathRect.size.height);
     transform = CGAffineTransformScale(transform, 1.0, -1.0);
     selectedRect = CGRectApplyAffineTransform(selectedRect, transform);
-    [self.menuConfiguration showMenuWithTargetRect:selectedRect selectRange:_selectedRange];
+    CGRect rect = [self convertRect:selectedRect toView:[UIApplication sharedApplication].keyWindow];
+    if (rect.origin.x <0 || rect.origin.y < 0) {
+        CGRect selectedRect =CGRectFromString([self.selectionView.selectionRects lastObject]);
+        CGAffineTransform transform =  CGAffineTransformMakeTranslation(0, self.textBuilder.pathRect.size.height);
+        transform = CGAffineTransformScale(transform, 1.0, -1.0);
+        selectedRect = CGRectApplyAffineTransform(selectedRect, transform);
+        [self.menuConfiguration showMenuWithTargetRect:selectedRect selectRange:_selectedRange];
+    } else {
+        [self.menuConfiguration showMenuWithTargetRect:selectedRect selectRange:_selectedRange];
+    }
+
 }
 
 - (void)selectAllRange
@@ -550,7 +566,7 @@
     self.selectionView.tag = 0;
     [self hideSelectionView];
     [self hideMenu];
-    
+    self.isLongPressTouch = NO;
     _longRecognizer.enabled = YES;
 }
 
@@ -651,6 +667,8 @@
         }
         
         if (isSelectCursor) {
+           [[NSNotificationCenter defaultCenter] postNotificationName:GRichLabelDidSelectNotification object:nil];
+            [self hideMenu];
             if (!self.magnifierRanged) {
                 self.magnifierRanged = [GMagnifiter magnifierWithType:GTextMagnifierTypeRanged];
                 self.magnifierRanged.hostView = self;
@@ -694,7 +712,6 @@
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     if (self.isLongPressTouch) {
-        
         UITouch *touch = touches.anyObject;
         CGPoint point = [touch locationInView:self];
         
@@ -744,7 +761,7 @@
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     if (self.isLongPressTouch) {
-        
+       [[NSNotificationCenter defaultCenter] postNotificationName:GRichLabelDidCancelSelectNotification object:nil];
         [self hideMaginfierView];
         if (_selectedRange.length > 0) {
             [self showMenu];
@@ -761,6 +778,7 @@
     }
     
     if (_isHighlightTouch) {
+        
         _isHighlightTouch = NO;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self hideHighlightView];
@@ -780,7 +798,7 @@
 - (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     if (self.isLongPressTouch) {
-        
+      [[NSNotificationCenter defaultCenter] postNotificationName:GRichLabelDidCancelSelectNotification object:nil];
         [self hideMaginfierView];
         if (_selectedRange.length > 0) {
             [self showMenu];
@@ -814,10 +832,6 @@
  */
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
-    if (point.x > 30) {
-        return self;
-    }
-    
     if (_isLongPressTouch) {
         BOOL isHitCursor = NO;
         
@@ -829,6 +843,10 @@
             isHitCursor = NO;
         }
         if (isHitCursor) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:GRichLabelWillSelectNotification object:nil];
+            if (point.x > 60) {
+                return self;
+            }
             if (!self.currentController) {
                 self.currentController = [self getViewController];
             }

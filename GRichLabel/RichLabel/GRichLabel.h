@@ -127,3 +127,7 @@
  */
 - (UIViewController*)getCurrentViewController;
 @end
+
+UIKIT_EXTERN NSNotificationName const GRichLabelWillSelectNotification;
+UIKIT_EXTERN NSNotificationName const GRichLabelDidSelectNotification;
+UIKIT_EXTERN NSNotificationName const GRichLabelDidCancelSelectNotification;

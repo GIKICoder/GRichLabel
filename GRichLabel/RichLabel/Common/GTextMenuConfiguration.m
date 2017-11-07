@@ -11,7 +11,7 @@
 #import "GMenuController.h"
 #import "NSMutableAttributedString+GRichLabel.h"
 #import "NSAttributedString+GRichLabel.h"
-
+#import "UIView+GText.h"
 
 @interface GTextMenuConfiguration ()
 @property (nonatomic, weak) GRichLabel * richLabel;
@@ -48,7 +48,7 @@
         
         NSArray *items = self.menuItems;
         [menuController setMenuItems:items];
-        
+
         [menuController setTargetRect:targetRect inView:self.richLabel];
         [menuController setMenuVisible:YES animated:YES];
     
