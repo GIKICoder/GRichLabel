@@ -84,4 +84,3 @@ Thanks
 ==============
  *[YYText](https://github.com/ibireme/YYText)
  
- *[ACAutomaton](https://github.com/heweizhou/ACAutomatic)
