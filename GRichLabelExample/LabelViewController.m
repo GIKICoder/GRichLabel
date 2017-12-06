@@ -10,7 +10,7 @@
 
 #import "GRichLabel.h"
 #define Phone @"(([0-9]{11})|((400|800)([0-9\\-]{7,10})|(([0-9]{4}|[0-9]{3})(-| )?)?([0-9]{7,8})((-| |转)*([0-9]{1,4}))?)|(110|120|119|114))"
-@interface LabelViewController ()
+@interface LabelViewController ()<UIScrollViewDelegate>
 @property (nonatomic, strong) UIScrollView  *scrollview;
 @property (nonatomic, strong) GRichLabel * richLabel;
 @property (nonatomic, assign) int  type;
@@ -43,6 +43,7 @@
     [self.view addSubview:({
         _scrollview = [[UIScrollView alloc] initWithFrame:self.view.bounds];
         _scrollview.backgroundColor =[UIColor clearColor];
+        _scrollview.delegate = self;
         _scrollview.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height*2);
         _scrollview.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
         _scrollview;
@@ -63,6 +64,17 @@
         self.richLabel.canSelect = YES;
     }
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self.richLabel hideTextMenu];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    [self.richLabel showTextMenu];
+}
+
 
 - (void)setRichText
 {

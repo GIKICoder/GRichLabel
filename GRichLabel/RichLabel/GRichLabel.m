@@ -477,6 +477,8 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
  */
 - (void)hideMaginfierView
 {
+    if (!_canSelect) return;
+    
     [GMagnifiterINST hideMagnifier:self.magnifierCaret];
     [GMagnifiterINST hideMagnifier:self.magnifierRanged];
 }
@@ -502,6 +504,8 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
  */
 - (void)hideMenu
 {
+    if (!_canSelect) return;
+    
     [self.menuConfiguration hideTextMenu];
 }
 
@@ -529,6 +533,8 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
  */
 - (void)showMenu
 {
+    if (!_canSelect) return;
+    
     _longRecognizer.enabled = NO;
     CGRect selectedRect =CGRectFromString([self.selectionView.selectionRects firstObject]);
     CGAffineTransform transform =  CGAffineTransformMakeTranslation(0, self.textBuilder.pathRect.size.height);
@@ -914,11 +920,29 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
     [self showMenu];
 }
 
+- (void)hideTextMenu
+{
+    [self hideMenu];
+}
+
 - (NSString *)getSelectText
 {
-    NSString *select = [self.attributedString.string substringWithRange:NSMakeRange(_selectedRange.location, _selectedRange.length)];
-    NSLog(@"copy--%@",select);
-    return select;
+    NSRange range = NSMakeRange(_selectedRange.location, _selectedRange.length);
+    NSString *select = [self.attributedString.string substringWithRange:range];
+    
+    NSAttributedString *innerAttri = [self.attributedString attributedSubstringFromRange:range];
+    NSMutableString *result = [NSMutableString string];
+    if (range.length == 0) return result;
+    NSString *string = select;
+    [innerAttri enumerateAttribute:kGAttributeTokenReplaceStringName inRange:NSMakeRange(0, innerAttri.length) options:kNilOptions usingBlock:^(id value, NSRange range, BOOL *stop) {
+        NSString *backed = value;
+        if (backed) {
+            [result appendString:backed];
+        } else {
+            [result appendString:[string substringWithRange:range]];
+        }
+    }];
+    return result.copy;
 }
 
 - (NSRange)getSelectRange

@@ -2,6 +2,7 @@ GMenuController
 ==============
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/GIKICoder/GMenuController/blob/master/LICENSE)&nbsp;
 [![Support](https://img.shields.io/badge/support-iOS7+-blue.svg?style=flat)](https://www.apple.com/nl/ios/)&nbsp;
+[![CocoaPods](http://img.shields.io/cocoapods/v/GMenuController.svg?style=flat)](http://cocoapods.org/pods/GMenuController)&nbsp;
 
 介绍
 ==============
@@ -53,7 +54,23 @@ GMenuController.sharedMenuController.menuViewContainer.menuViewHeight = 65;
 [[GMenuController sharedMenuController] setTargetRect:sender.frame inView:self.view];
 [[GMenuController sharedMenuController] setMenuVisible:YES];
 ```
+安装
+==============
 
+### CocoaPods
+
+1. Update cocoapods to the latest version.
+2. Add `pod 'GMenuController'` to your Podfile.
+3. Run `pod install` or `pod update`.
+4. Import "GMenuController.h"
+
+### 手动添加
+1. ` git clone  https://github.com/GIKICoder/GMenuController.git `
+2. 选择`GMenuController`文件夹.拖入项目中即可.
+
+
+Demo
+==============
 ### Demo
 
 <img src="https://github.com/GIKICoder/GMenuController/blob/master/snapshot/demo4.gif" width="320">

@@ -107,6 +107,11 @@
 - (void)showTextMenu;
 
 /**
+ 隐藏Menu
+ */
+- (void)hideTextMenu;
+
+/**
  获取当前选中文本
  
  @return NSString

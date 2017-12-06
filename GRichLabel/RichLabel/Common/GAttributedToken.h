@@ -17,6 +17,8 @@ UIKIT_EXTERN NSString *const kGAttributeTokenUnderlineName;
 UIKIT_EXTERN NSString *const kGAttributeTokenAttachmentName;
 
 UIKIT_EXTERN NSString *const kGAttributeTokenTruncationName;
+/// 表情.link等被替换的字符串
+UIKIT_EXTERN NSString *const kGAttributeTokenReplaceStringName;
 
 @class GAttributedToken;
 typedef void(^GAttributedTokenClick)(GAttributedToken *token);

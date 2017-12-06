@@ -48,7 +48,9 @@
             if (!emojiName) continue;
 //            attributed.hasEmojiImage = YES;
             NSMutableAttributedString * attr = [GAttributedStringFactory setAttachmentStringWithEmojiImageName:emojiName font:config.font];
+            [attr g_setAttribute:kGAttributeTokenReplaceStringName value:emoString range:NSMakeRange(0, attr.length)];
             [attributed replaceCharactersInRange:range withAttributedString:attr];
+            
             clipLength += range.length - 1;
         }
     }
@@ -199,6 +201,7 @@
     
     CTRunDelegateRef ctDelegate = [delegate GetCTRunDelegate];
     [string g_setAttribute:(id)kCTRunDelegateAttributeName value:(__bridge id)ctDelegate range:NSMakeRange(0, string.length)];
+   
     if (ctDelegate) CFRelease(ctDelegate);
     
     return string;

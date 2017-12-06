@@ -12,6 +12,7 @@ NSString *const kGAttributeTokenHighlightName = @"kGAttributeTokenHighlightName"
 NSString *const kGAttributeTokenUnderlineName = @"kGAttributeTokenUnderlineName";
 NSString *const kGAttributeTokenAttachmentName = @"\uFFFC";
 NSString *const kGAttributeTokenTruncationName = @"\u2026";
+NSString *const kGAttributeTokenReplaceStringName =  @"kGAttributeTokenReplaceStringName";
 
 @implementation GAttributedToken
 
