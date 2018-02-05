@@ -1,6 +1,6 @@
 //
 //  NSAttributedString+GRichLabel.m
-//  GRichLabelExample
+//  GRichLabel
 //
 //  Created by GIKI on 2017/10/29.
 //  Copyright © 2017年 GIKI. All rights reserved.
