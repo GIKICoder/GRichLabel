@@ -33,8 +33,10 @@
         GMenuItem *shareItem = [[GMenuItem alloc] initWithTitle:@"共享" target:self action:@selector(shareItem:)];
         GMenuItem *bigbangItem = [[GMenuItem alloc] initWithTitle:@"bigbang" target:self action:@selector(bigbang:)];
         GMenuItem *underlineItem = [[GMenuItem alloc] initWithTitle:@"划线" target:self action:@selector(underline:)];
+        GMenuItem *underlineItem1 = [[GMenuItem alloc] initWithTitle:@"划线2" target:self action:@selector(underline:)];
+        GMenuItem *underlineItem2 = [[GMenuItem alloc] initWithTitle:@"划线3" target:self action:@selector(underline:)];
         //
-        NSArray *items = [NSArray arrayWithObjects:copyItem,selectAllItem,shareItem,bigbangItem,underlineItem,nil];
+        NSArray *items = [NSArray arrayWithObjects:copyItem,selectAllItem,shareItem,bigbangItem,underlineItem,underlineItem1,underlineItem2,nil];
         self.menuItems = items;
         
         GTagFlowContainer *container = [GTagFlowContainer new];
