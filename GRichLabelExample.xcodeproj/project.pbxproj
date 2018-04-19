@@ -378,11 +378,11 @@
 		2BDCBF9E2088AB3E000055FE /* GMatcherProcessor */ = {
 			isa = PBXGroup;
 			children = (
-				2BDCBF9F2088AB3E000055FE /* GKMPMatcherProcessor.h */,
 				2BDCBFA02088AB3E000055FE /* GACMatcherProcessor.m */,
-				2BDCBFA12088AB3E000055FE /* GRegexMatcherProcessor.h */,
 				2BDCBFA22088AB3E000055FE /* GACMatcherProcessor.h */,
+				2BDCBF9F2088AB3E000055FE /* GKMPMatcherProcessor.h */,
 				2BDCBFA32088AB3E000055FE /* GKMPMatcherProcessor.m */,
+				2BDCBFA12088AB3E000055FE /* GRegexMatcherProcessor.h */,
 				2BDCBFA42088AB3E000055FE /* GRegexMatcherProcessor.m */,
 				2BDCBFA52088AB3E000055FE /* IMatcherProcessor.h */,
 				2BDCBFA62088AB3E000055FE /* IMatcherObject.h */,
@@ -393,11 +393,11 @@
 		2BDCBFA72088AB3E000055FE /* GMatcherUtil */ = {
 			isa = PBXGroup;
 			children = (
-				2BDCBFA82088AB3E000055FE /* GThreadSafeArray.m */,
 				2BDCBFA92088AB3E000055FE /* GMatcherResult.h */,
-				2BDCBFAA2088AB3E000055FE /* GThreadSafeDictionary.h */,
-				2BDCBFAB2088AB3E000055FE /* GThreadSafeArray.h */,
 				2BDCBFAC2088AB3E000055FE /* GMatcherResult.m */,
+				2BDCBFAB2088AB3E000055FE /* GThreadSafeArray.h */,
+				2BDCBFA82088AB3E000055FE /* GThreadSafeArray.m */,
+				2BDCBFAA2088AB3E000055FE /* GThreadSafeDictionary.h */,
 				2BDCBFAD2088AB3E000055FE /* GThreadSafeDictionary.m */,
 			);
 			path = GMatcherUtil;
