@@ -38,6 +38,7 @@
         self.menuItems = items;
         
         GTagFlowContainer *container = [GTagFlowContainer new];
+         
         self.container = container;
         
         self.container.actionBlock = ^(NSString *actionTitle, NSString *newText) {

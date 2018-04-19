@@ -9,7 +9,6 @@
 #import "GRichLabel.h"
 #import <CoreText/CoreText.h>
 #import <objc/runtime.h>
-
 #import "YYAsyncLayer.h"
 #import "GCursor.h"
 #import "GMagnifiter.h"
@@ -271,7 +270,6 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
     }
     
     NSMutableArray *pathRects = [[NSMutableArray alloc] init];
-    
     for (GLineLayout *lineLayout in _textBuilder.lineLayouts) {
         CTLineRef line = (__bridge CTLineRef)lineLayout.line;
         CFRange lineRange = CTLineGetStringRange(line);
@@ -333,11 +331,11 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
             CGPoint point = CGPointMake(touchPoint.x -lineLayout.rect.origin.x,0);
             index = CTLineGetStringIndexForPosition((__bridge CTLineRef)lineLayout.line, point);
         } else {
-            if (touchPoint.x>lineLayout.rect.origin.x+lineLayout.rect.size.width && lineLayout.rect.origin.y > touchPoint.y && lineLayout.rect.origin.y- lineLayout.rect.size.height < touchPoint.y) {
+            if (touchPoint.x>lineLayout.rect.origin.x+lineLayout.rect.size.width && lineLayout.rect.origin.y > touchPoint.y && lineLayout.rect.origin.y - lineLayout.rect.size.height < touchPoint.y) {
                 /// line终点
                 CGPoint pointOffset = CGPointMake(lineLayout.rect.origin.x+lineLayout.rect.size.width,0);
                 index = CTLineGetStringIndexForPosition((__bridge CTLineRef)lineLayout.line, pointOffset);
-            } else if (touchPoint.x < lineLayout.rect.origin.x && lineLayout.rect.origin.y > touchPoint.y && lineLayout.rect.origin.y- lineLayout.rect.size.height < touchPoint.y ) {
+            } else if (touchPoint.x < lineLayout.rect.origin.x && lineLayout.rect.origin.y > touchPoint.y && lineLayout.rect.origin.y - lineLayout.rect.size.height < touchPoint.y ) {
                 /// line 起点
                 CGPoint pointOffset = CGPointMake(0,0);
                 index = CTLineGetStringIndexForPosition((__bridge CTLineRef)lineLayout.line, pointOffset);
@@ -549,7 +547,7 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
     } else {
         [self.menuConfiguration showMenuWithTargetRect:selectedRect selectRange:_selectedRange];
     }
-
+    
 }
 
 - (void)selectAllRange
@@ -672,7 +670,7 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
         }
         
         if (isSelectCursor) {
-           [[NSNotificationCenter defaultCenter] postNotificationName:GRichLabelDidSelectNotification object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:GRichLabelDidSelectNotification object:nil];
             [self hideMenu];
             if (!self.magnifierRanged) {
                 self.magnifierRanged = [GMagnifiter magnifierWithType:GTextMagnifierTypeRanged];
@@ -693,8 +691,8 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
     
     CFIndex index = [self convertTouchPointToSelectIndex:point];
     if (index == kCFNotFound || index == -1) {
-       [super touchesBegan:touches withEvent:event];
-       return;
+        [super touchesBegan:touches withEvent:event];
+        return;
     }
     NSRange range = {0};
     NSDictionary *dict = [self.attributedString attributesAtIndex:index effectiveRange:&range];
@@ -766,7 +764,7 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     if (self.isLongPressTouch) {
-       [[NSNotificationCenter defaultCenter] postNotificationName:GRichLabelDidCancelSelectNotification object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:GRichLabelDidCancelSelectNotification object:nil];
         [self hideMaginfierView];
         if (_selectedRange.length > 0) {
             [self showMenu];
@@ -803,7 +801,7 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
 - (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     if (self.isLongPressTouch) {
-      [[NSNotificationCenter defaultCenter] postNotificationName:GRichLabelDidCancelSelectNotification object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:GRichLabelDidCancelSelectNotification object:nil];
         [self hideMaginfierView];
         if (_selectedRange.length > 0) {
             [self showMenu];
