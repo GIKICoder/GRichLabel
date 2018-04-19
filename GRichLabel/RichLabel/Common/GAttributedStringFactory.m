@@ -9,7 +9,7 @@
 #import "GAttributedStringFactory.h"
 #import <CoreText/CoreText.h>
 #import "GAttributedConfiguration.h"
-#import "GACAutomaton.h"
+#import "GMatcherExpression.h"
 #import "GEmojiConfigManager.h"
 #import "GEmojiRunDelegate.h"
 #import "GDrawTextBuilder.h"
@@ -59,14 +59,11 @@
     {
         NSArray * tokens = config.tokenPatternConfigs;
         if (tokens.count > 0) {
-            GACAutomaton *automaton = [[GACAutomaton alloc] init];
+      
+            GMatcherExpression * expression = [GMatcherExpression matcherExpressionWithObjectPatterns:tokens option:GMatchingOption_AC];
+            NSArray * result = [expression matchesInString:attributed.string];
             
-            [automaton insertObjects:tokens];
-            [automaton build];
-            
-            NSArray * result = [automaton searchString:attributed.string];
-            
-            [result enumerateObjectsUsingBlock:^(GACResult* obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [result enumerateObjectsUsingBlock:^(GMatcherResult* obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 
                 if (obj.range.location == NSNotFound && obj.range.length <= 1) *stop = NO;
                 if ([attributed g_attribute:(NSString*)kCTForegroundColorAttributeName atIndex:obj.range.location]) *stop = NO;

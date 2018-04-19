@@ -1,19 +1,18 @@
 //
-//  GACResult.m
-//  GRichLabel
+//  GMatcherResult.m
+//  GMatchingKit
 //
-//  Created by GIKI on 2017/8/28.
-//  Copyright © 2017年 GIKI. All rights reserved.
+//  Created by GIKI on 2018/4/18.
+//  Copyright © 2018年 GIKI. All rights reserved.
 //
 
-#import "GACResult.h"
+#import "GMatcherResult.h"
 
-@implementation GACResult
-
+@implementation GMatcherResult
 
 + (instancetype)result:(NSString*)string location:(long)location userInfo:(id)info
 {
-    GACResult * result = [[GACResult alloc] init];
+    GMatcherResult * result = [[GMatcherResult alloc] init];
     result.range = NSMakeRange(location, [string length]);
     result.string = string;
     result.info = info;

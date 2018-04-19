@@ -17,7 +17,6 @@
 #import "GTextUtils.h"
 #import "GMagnifiterWindow.h"
 #import "GLineLayout.h"
-#import "GACAutomaton.h"
 #import "UIView+GText.h"
 #import "GEmojiRunDelegate.h"
 #import "GEmojiConfigManager.h"

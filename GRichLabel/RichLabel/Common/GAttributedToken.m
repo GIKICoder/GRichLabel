@@ -63,7 +63,7 @@ NSString *const kGAttributeTokenReplaceStringName =  @"kGAttributeTokenReplaceSt
 }
 
 #pragma mark - protocol Method
-- (NSString *)getKeyString
+- (NSString *)getPatternString
 {
     return self.textToken;
 }
