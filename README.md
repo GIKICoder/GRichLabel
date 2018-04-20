@@ -19,13 +19,13 @@ Usage
 ==============
 
 ### 1
-```
-  GRichLabel *richLabel = [GRichLabel new];
+```objc
+  GRichLabel *richLabel = [GRichLabel new];
   richLabel.frame = CGRectMake(5, 0, self.view.frame.size.width-10, 500);
   richLabel.text = @"xxxxxx";
 ```
 ### 2
-```
+```objc
 {
 self.tokens = @[@"@冯科",@"@王金yu",@"@巩柯",@"#郭天池#"];
 GRichLabel *richLabel = [GRichLabel new];
