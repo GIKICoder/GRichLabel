@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B491D31208CD05000357D19 /* GCDThrottle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B491D30208CD04800357D19 /* GCDThrottle.m */; };
 		2B58E56D1F61548F00505193 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B58E56C1F61548F00505193 /* main.m */; };
 		2B58E5701F61548F00505193 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B58E56F1F61548F00505193 /* AppDelegate.m */; };
 		2B58E5731F61548F00505193 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B58E5721F61548F00505193 /* ViewController.m */; };
@@ -87,6 +88,8 @@
 
 /* Begin PBXFileReference section */
 		026AFA84B24C1CE9393D15B6 /* libPods-GRichLabelExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GRichLabelExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B491D2F208CD04800357D19 /* GCDThrottle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCDThrottle.h; sourceTree = "<group>"; };
+		2B491D30208CD04800357D19 /* GCDThrottle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCDThrottle.m; sourceTree = "<group>"; };
 		2B58E5681F61548F00505193 /* GRichLabelExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GRichLabelExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B58E56C1F61548F00505193 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2B58E56E1F61548F00505193 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -208,6 +211,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B491D2E208CD04800357D19 /* Throttle */ = {
+			isa = PBXGroup;
+			children = (
+				2B491D2F208CD04800357D19 /* GCDThrottle.h */,
+				2B491D30208CD04800357D19 /* GCDThrottle.m */,
+			);
+			path = Throttle;
+			sourceTree = "<group>";
+		};
 		2B58E55F1F61548F00505193 = {
 			isa = PBXGroup;
 			children = (
@@ -285,6 +297,7 @@
 		2B6383871F73E8DA001FF876 /* GRichLabel */ = {
 			isa = PBXGroup;
 			children = (
+				2B491D2E208CD04800357D19 /* Throttle */,
 				2BDCBF9D2088AB3E000055FE /* GMatching */,
 				2B6383911F73E8DA001FF876 /* RichLabel */,
 			);
@@ -725,6 +738,7 @@
 				2B6383C81F73E8F4001FF876 /* GAttributedToken.m in Sources */,
 				2B6383C91F73E8F4001FF876 /* GDrawTextBuilder.h in Sources */,
 				2B6383CA1F73E8F4001FF876 /* GDrawTextBuilder.m in Sources */,
+				2B491D31208CD05000357D19 /* GCDThrottle.m in Sources */,
 				2B6383CB1F73E8F4001FF876 /* GEmojiConfigManager.h in Sources */,
 				2B6383CC1F73E8F4001FF876 /* GEmojiConfigManager.m in Sources */,
 				2B9F6F701FA5E4380094FC6E /* NSAttributedString+GRichLabel.m in Sources */,
