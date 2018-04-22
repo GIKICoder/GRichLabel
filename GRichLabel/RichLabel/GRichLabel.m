@@ -514,9 +514,6 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
  */
 - (void)showSelectionViewWithCursor:(BOOL)isShowCursor
 {
-    static int methodcount = 0;
-    
-    NSLog(@"Method Invoke Count -- %d",methodcount++);
     dispatch_throttle_by_type(0.0005, GCDThrottleTypeDelayAndInvoke, ^{
         [self throttleShowSelectionViewWithCursor:isShowCursor];
     });
@@ -524,8 +521,6 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
 
 - (void)throttleShowSelectionViewWithCursor:(BOOL)isShowCursor
 {
-    static int methodcount2 = 0;
-    NSLog(@"Throttle Method Invoke Count -- %d",methodcount2++);
     if (_selectedRange.length == 0 || _selectedRange.location == NSNotFound ) {
         return;
     }
