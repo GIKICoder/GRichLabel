@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSString * selectText;
 @property (nonatomic, strong) GTagFlowContainer *container;
 @property (nonatomic, strong) NSArray * menuItems;
+@property (nonatomic, strong) NSArray * oriMenuItems;
 @end
 
 @implementation DemoTextMenuConfig
@@ -38,7 +39,7 @@
         //
         NSArray *items = [NSArray arrayWithObjects:copyItem,selectAllItem,shareItem,bigbangItem,underlineItem,underlineItem1,underlineItem2,nil];
         self.menuItems = items;
-        
+        self.oriMenuItems = items;
         GTagFlowContainer *container = [GTagFlowContainer new];
          
         self.container = container;
@@ -64,7 +65,6 @@
     
     NSArray *items = self.menuItems;
     [menuController setMenuItems:items];
-    
     [menuController setTargetRect:targetRect inView:self.richLabel];
     [menuController setMenuVisible:YES animated:YES];
     
@@ -162,6 +162,7 @@
     NSArray *items = [NSArray arrayWithObjects:copyItem,shareItem,nil];
     self.menuItems = items;
     [self.richLabel showTextMenu];
+    self.menuItems = self.oriMenuItems;
 }
 
 

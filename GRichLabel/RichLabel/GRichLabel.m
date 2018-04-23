@@ -514,9 +514,10 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
  */
 - (void)showSelectionViewWithCursor:(BOOL)isShowCursor
 {
-    dispatch_throttle_by_type(0.0005, GCDThrottleTypeDelayAndInvoke, ^{
-        [self throttleShowSelectionViewWithCursor:isShowCursor];
-    });
+//    dispatch_throttle_by_type(0.0005, GCDThrottleTypeDelayAndInvoke, ^{
+//        [self throttleShowSelectionViewWithCursor:isShowCursor];
+//    });
+    [self throttleShowSelectionViewWithCursor:isShowCursor];
 }
 
 - (void)throttleShowSelectionViewWithCursor:(BOOL)isShowCursor
