@@ -12,10 +12,9 @@
 
 @class GRichLabel;
 @protocol GMenuContextProtocol <NSObject>
+
 @required
-
 - (void)configMenuWithRichLabel:(GRichLabel*)richLabel;
-
 - (void)showMenuWithTargetRect:(CGRect)targetRect selectRange:(NSRange)selectRange;
 - (void)hideTextMenu;
 
