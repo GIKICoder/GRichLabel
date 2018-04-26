@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B491D31208CD05000357D19 /* GCDThrottle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B491D30208CD04800357D19 /* GCDThrottle.m */; };
 		2B58E56D1F61548F00505193 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B58E56C1F61548F00505193 /* main.m */; };
 		2B58E5701F61548F00505193 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B58E56F1F61548F00505193 /* AppDelegate.m */; };
 		2B58E5731F61548F00505193 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B58E5721F61548F00505193 /* ViewController.m */; };
@@ -63,6 +62,7 @@
 		2BDCBFB42088AB3E000055FE /* GMatcherResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCBFAC2088AB3E000055FE /* GMatcherResult.m */; };
 		2BDCBFB52088AB3E000055FE /* GThreadSafeDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCBFAD2088AB3E000055FE /* GThreadSafeDictionary.m */; };
 		2BDCBFB62088AB3E000055FE /* GMatcherExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCBFAF2088AB3E000055FE /* GMatcherExpression.m */; };
+		2BE9AD1E2091788D00CA804A /* GThrottleInvoke.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9AD1D2091788D00CA804A /* GThrottleInvoke.m */; };
 		2BEE6C9D1FA7023300547BE5 /* NSMutableAttributedString+GRichLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BEE6C9C1FA7023300547BE5 /* NSMutableAttributedString+GRichLabel.m */; };
 		72927A414C6F9ED8D8CC4098 /* libPods-GRichLabelExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 026AFA84B24C1CE9393D15B6 /* libPods-GRichLabelExampleTests.a */; };
 		A1CEF1A44462F8AE0AE2BE46 /* libPods-GRichLabelExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9B01FF650305C13A14BA73B /* libPods-GRichLabelExample.a */; };
@@ -88,8 +88,6 @@
 
 /* Begin PBXFileReference section */
 		026AFA84B24C1CE9393D15B6 /* libPods-GRichLabelExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GRichLabelExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B491D2F208CD04800357D19 /* GCDThrottle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCDThrottle.h; sourceTree = "<group>"; };
-		2B491D30208CD04800357D19 /* GCDThrottle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCDThrottle.m; sourceTree = "<group>"; };
 		2B58E5681F61548F00505193 /* GRichLabelExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GRichLabelExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B58E56C1F61548F00505193 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2B58E56E1F61548F00505193 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -171,6 +169,8 @@
 		2BDCBFAD2088AB3E000055FE /* GThreadSafeDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GThreadSafeDictionary.m; sourceTree = "<group>"; };
 		2BDCBFAE2088AB3E000055FE /* GMatcherExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMatcherExpression.h; sourceTree = "<group>"; };
 		2BDCBFAF2088AB3E000055FE /* GMatcherExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMatcherExpression.m; sourceTree = "<group>"; };
+		2BE9AD1C2091788D00CA804A /* GThrottleInvoke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GThrottleInvoke.h; sourceTree = "<group>"; };
+		2BE9AD1D2091788D00CA804A /* GThrottleInvoke.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GThrottleInvoke.m; sourceTree = "<group>"; };
 		2BEE6C9B1FA7023300547BE5 /* NSMutableAttributedString+GRichLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+GRichLabel.h"; sourceTree = "<group>"; };
 		2BEE6C9C1FA7023300547BE5 /* NSMutableAttributedString+GRichLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+GRichLabel.m"; sourceTree = "<group>"; };
 		382900EE4BFFDC7419BC00A4 /* Pods-GRichLabelExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GRichLabelExampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GRichLabelExampleUITests/Pods-GRichLabelExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -214,8 +214,8 @@
 		2B491D2E208CD04800357D19 /* Throttle */ = {
 			isa = PBXGroup;
 			children = (
-				2B491D2F208CD04800357D19 /* GCDThrottle.h */,
-				2B491D30208CD04800357D19 /* GCDThrottle.m */,
+				2BE9AD1C2091788D00CA804A /* GThrottleInvoke.h */,
+				2BE9AD1D2091788D00CA804A /* GThrottleInvoke.m */,
 			);
 			path = Throttle;
 			sourceTree = "<group>";
@@ -733,12 +733,12 @@
 				2B6383C51F73E8F4001FF876 /* GAttributedConfiguration.h in Sources */,
 				2B6383C61F73E8F4001FF876 /* GAttributedConfiguration.m in Sources */,
 				2BDCBFB52088AB3E000055FE /* GThreadSafeDictionary.m in Sources */,
+				2BE9AD1E2091788D00CA804A /* GThrottleInvoke.m in Sources */,
 				2BEE6C9D1FA7023300547BE5 /* NSMutableAttributedString+GRichLabel.m in Sources */,
 				2B6383C71F73E8F4001FF876 /* GAttributedToken.h in Sources */,
 				2B6383C81F73E8F4001FF876 /* GAttributedToken.m in Sources */,
 				2B6383C91F73E8F4001FF876 /* GDrawTextBuilder.h in Sources */,
 				2B6383CA1F73E8F4001FF876 /* GDrawTextBuilder.m in Sources */,
-				2B491D31208CD05000357D19 /* GCDThrottle.m in Sources */,
 				2B6383CB1F73E8F4001FF876 /* GEmojiConfigManager.h in Sources */,
 				2B6383CC1F73E8F4001FF876 /* GEmojiConfigManager.m in Sources */,
 				2B9F6F701FA5E4380094FC6E /* NSAttributedString+GRichLabel.m in Sources */,

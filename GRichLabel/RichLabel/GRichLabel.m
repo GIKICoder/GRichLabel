@@ -20,7 +20,7 @@
 #import "GEmojiRunDelegate.h"
 #import "GEmojiConfigManager.h"
 #import "GTextMenuConfiguration.h"
-#import "GCDThrottle.h"
+#import "GThrottleInvoke.h"
 
 #define kLeftCursorTag 100
 #define kRightCursorTag 200
@@ -514,10 +514,9 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
  */
 - (void)showSelectionViewWithCursor:(BOOL)isShowCursor
 {
-//    dispatch_throttle_by_type(0.0005, GCDThrottleTypeDelayAndInvoke, ^{
-//        [self throttleShowSelectionViewWithCursor:isShowCursor];
-//    });
-    [self throttleShowSelectionViewWithCursor:isShowCursor];
+    [GThrottleInvoke throttle:0.0005 block:^{
+            [self throttleShowSelectionViewWithCursor:isShowCursor];
+    }];
 }
 
 - (void)throttleShowSelectionViewWithCursor:(BOOL)isShowCursor
