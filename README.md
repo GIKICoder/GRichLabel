@@ -4,6 +4,7 @@ A rich Label that supports selection, copying.
 <img src="https://github.com/GIKICoder/GRichLabel/blob/master/screenshot/selectCopy.png" width="400">
 <img src="https://github.com/GIKICoder/GRichLabel/blob/master/screenshot/novelReader.png" width="400">
 <img src="https://github.com/GIKICoder/GRichLabel/blob/master/screenshot/chatlist.png" width="400">
+
 Features
 ==============
 - 1,基于coretext绘制文本.内部使用YYAsyncLayer提供异步绘制任务
