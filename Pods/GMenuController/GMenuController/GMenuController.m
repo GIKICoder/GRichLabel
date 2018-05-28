@@ -68,7 +68,6 @@ NSNotificationName  const GMenuControllerMenuFrameDidChangeNotification= @"GMenu
     } else {
         [[NSNotificationCenter defaultCenter] postNotificationName:GMenuControllerWillHideMenuNotification object:nil];
         [[GMenuEffectsWindow sharedWindow] hideMenu:self.menuViewContainer];
-        [[GMenuController sharedMenuController] reset];
     }
 }
 

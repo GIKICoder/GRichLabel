@@ -41,8 +41,14 @@ static inline CGPoint GMenuGetXCenter(CGRect rect) {
     return self;
 }
 
+- (void)dealloc
+{
+    //NSLog(@"GMenuController Dealloc~");
+}
+
 - (void)initConfigs
 {
+    self.hasAutoHide = YES;
     self.cornerRadius = 6;
     self.arrowDirection = GMenuControllerArrowDefault;
     self.arrowSize = CGSizeMake(17, 9.7);

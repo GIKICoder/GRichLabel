@@ -10,7 +10,8 @@
 #import "GMenuViewContainer.h"
 
 @interface GMenuEffectsWindow ()
-
+@property (nonatomic, strong) UITapGestureRecognizer * tapGesture;
+@property (nonatomic, weak) GMenuViewContainer * currentMenu;
 @end
 
 @implementation GMenuEffectsWindow
@@ -49,7 +50,9 @@
     if(!menu) return;
     menu.alpha = 0;
     if(menu.superview != self) [self addSubview:menu];
+    self.currentMenu = menu;
     [self updateWindowLevel];
+    
     if (animation) {
         NSTimeInterval time =  0.16;
         [UIView animateWithDuration:time delay:0 options:UIViewAnimationOptionCurveEaseInOut  animations:^{
@@ -67,11 +70,11 @@
   
 }
 
-
 - (void)hideMenu:(GMenuViewContainer *)menu
 {
     if (!menu) return;
     if (menu.superview != self) return;
+    [menu initConfigs];
     [menu removeFromSuperview];
     menu = nil;
     [[NSNotificationCenter defaultCenter] postNotificationName:GMenuControllerDidHideMenuNotification object:nil];
@@ -105,6 +108,9 @@
     }
     if (fitView) {
         return fitView;
+    }
+    if (self.currentMenu && self.currentMenu.superview && self.currentMenu.hasAutoHide) {
+        [self hideMenu:self.currentMenu];
     }
     return nil;
 }

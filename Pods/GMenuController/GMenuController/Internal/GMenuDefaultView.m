@@ -128,6 +128,11 @@ static inline BOOL GMenuHasContainingInRange(CGFloat index,NSRange range) {
     return self;
 }
 
+- (void)dealloc
+{
+   // NSLog(@"GMenuDefaultView dealloc~");
+}
+
 - (void)processLineWithMidX:(CGFloat)midX direction:(GMenuControllerArrowDirection)direction
 {
     NSRange arrowRange = NSMakeRange(midX - _arrowSize.width/2, _arrowSize.width);

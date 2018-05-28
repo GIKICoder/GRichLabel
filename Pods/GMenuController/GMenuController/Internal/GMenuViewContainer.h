@@ -13,6 +13,11 @@
 @interface GMenuViewContainer : UIView
 
 /**
+ 点击非menuViewContainer 区域.自动隐藏. Defulat:YES
+ */
+@property (nonatomic, assign) BOOL  hasAutoHide;
+
+/**
  menuView
  */
 @property(nonatomic, strong) GMenuDefaultView *menuView;

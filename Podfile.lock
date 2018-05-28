@@ -1,6 +1,6 @@
 PODS:
   - GBigbang (0.0.1)
-  - GMenuController (0.0.5)
+  - GMenuController (0.0.6)
   - YYAsyncLayer (1.0)
 
 DEPENDENCIES:
@@ -10,7 +10,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   GBigbang: 1b89811891ec0f84b1def9ca031fa5baffcfc4f0
-  GMenuController: 086d7e017537e7f4440b57d510a08f5f362d2731
+  GMenuController: c7712947635f972cd00e62a52b6276bfab24bfc6
   YYAsyncLayer: df6b01ebc695c5f6b4c15dd5c23fa3e081eb25c0
 
 PODFILE CHECKSUM: b8e2c421cf398ce3825533aaf48074aeb9911975

@@ -16,6 +16,7 @@
 @interface GTextMenuConfiguration ()
 @property (nonatomic, weak) GRichLabel * richLabel;
 @property (nonatomic, strong) NSString * selectText;
+@property (nonatomic, strong) NSArray * innerItems;
 @end
 
 @implementation GTextMenuConfiguration
@@ -24,13 +25,14 @@
 {
     self = [super init];
     if (self) {
-        
             GMenuItem *copyItem = [[GMenuItem alloc] initWithTitle:@"拷贝" target:self action:@selector(copyItem:)];
             GMenuItem *selectAllItem = [[GMenuItem alloc] initWithTitle:@"全选" target:self action:@selector(selectAllItem:)];
             GMenuItem *shareItem = [[GMenuItem alloc] initWithTitle:@"共享" target:self action:@selector(shareItem:)];
-
+        
             NSArray *items = [NSArray arrayWithObjects:copyItem,selectAllItem,shareItem,nil];
             self.menuItems = items;
+            self.innerItems = items;
+
     }
     return self;
 }
@@ -45,7 +47,7 @@
     if (self.menuItems.count == 0) return;
         
         GMenuController *menuController = [GMenuController sharedMenuController];
-        
+        menuController.menuViewContainer.hasAutoHide = NO;
         NSArray *items = self.menuItems;
         [menuController setMenuItems:items];
 
@@ -54,11 +56,15 @@
     
 }
 
+- (void)resetSelection
+{
+    [self.richLabel resetSelection];
+}
+
 - (void)hideTextMenu
 {
     GMenuController *menu = [GMenuController sharedMenuController];
     [menu setMenuVisible:NO animated:YES];
-
 }
 
 /**
@@ -116,6 +122,7 @@
     NSArray *items = [NSArray arrayWithObjects:copyItem,shareItem,nil];
     self.menuItems = items;
     [self.richLabel showTextMenu];
+    self.menuItems = self.innerItems;
 }
 
 
