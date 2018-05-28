@@ -173,6 +173,13 @@
     return ceilf(size.height+0.5);
 }
 
++ (CGSize)getRichLabelDrawSizeWithAttributedString:(NSAttributedString*)string MaxContianerWidth:(CGFloat)width
+{
+    CTFramesetterRef setter = CTFramesetterCreateWithAttributedString((__bridge CFAttributedStringRef)string);
+    CGSize size = CTFramesetterSuggestFrameSizeWithConstraints(setter, CFRangeMake(0, 0), NULL, CGSizeMake(width, CGFLOAT_MAX), NULL);
+    return size;
+}
+
 + (NSRegularExpression *)regexEmoticon
 {
     static NSRegularExpression *regex;

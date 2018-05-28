@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "LabelViewController.h"
 #import "novelReadViewController.h"
+#import "ChatViewController.h"
 @interface ViewController ()
 
 @end
@@ -18,6 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+}
+- (IBAction)chatTextCell:(id)sender
+{
+    ChatViewController * chat = [ChatViewController new];
+    [self.navigationController pushViewController:chat animated:YES];
 }
 
 - (IBAction)richLabel:(id)sender

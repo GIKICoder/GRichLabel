@@ -42,4 +42,6 @@
  */
 + (CGFloat)getRichLabelHeightWithAttributedString:(NSAttributedString*)string MaxContianerWidth:(CGFloat)width;
 
++ (CGSize)getRichLabelDrawSizeWithAttributedString:(NSAttributedString*)string MaxContianerWidth:(CGFloat)width;
+
 @end

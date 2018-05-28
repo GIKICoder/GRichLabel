@@ -55,6 +55,8 @@
 		2B9F6F701FA5E4380094FC6E /* NSAttributedString+GRichLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9F6F6F1FA5E4380094FC6E /* NSAttributedString+GRichLabel.m */; };
 		2BC22DBE1F7B4C3A00A46E47 /* novelReadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC22DBC1F7B4C3A00A46E47 /* novelReadViewController.m */; };
 		2BC22E151F7BB36000A46E47 /* GTextMenuConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC22E141F7BB36000A46E47 /* GTextMenuConfiguration.m */; };
+		2BCF03AB20BBD6C8006909CB /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCF03AA20BBD6C8006909CB /* ChatViewController.m */; };
+		2BCF03AE20BBD85E006909CB /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCF03AD20BBD85E006909CB /* ChatTableViewCell.m */; };
 		2BDCBFB02088AB3E000055FE /* GACMatcherProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCBFA02088AB3E000055FE /* GACMatcherProcessor.m */; };
 		2BDCBFB12088AB3E000055FE /* GKMPMatcherProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCBFA32088AB3E000055FE /* GKMPMatcherProcessor.m */; };
 		2BDCBFB22088AB3E000055FE /* GRegexMatcherProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCBFA42088AB3E000055FE /* GRegexMatcherProcessor.m */; };
@@ -153,6 +155,10 @@
 		2BC22DBF1F7B4CE000A46E47 /* novelabcd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = novelabcd.jpg; sourceTree = "<group>"; };
 		2BC22E131F7BB36000A46E47 /* GTextMenuConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTextMenuConfiguration.h; sourceTree = "<group>"; };
 		2BC22E141F7BB36000A46E47 /* GTextMenuConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTextMenuConfiguration.m; sourceTree = "<group>"; };
+		2BCF03A920BBD6C8006909CB /* ChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		2BCF03AA20BBD6C8006909CB /* ChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		2BCF03AC20BBD85E006909CB /* ChatTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatTableViewCell.h; sourceTree = "<group>"; };
+		2BCF03AD20BBD85E006909CB /* ChatTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatTableViewCell.m; sourceTree = "<group>"; };
 		2BDCBF9F2088AB3E000055FE /* GKMPMatcherProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKMPMatcherProcessor.h; sourceTree = "<group>"; };
 		2BDCBFA02088AB3E000055FE /* GACMatcherProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GACMatcherProcessor.m; sourceTree = "<group>"; };
 		2BDCBFA12088AB3E000055FE /* GRegexMatcherProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRegexMatcherProcessor.h; sourceTree = "<group>"; };
@@ -250,6 +256,10 @@
 				2B58E56F1F61548F00505193 /* AppDelegate.m */,
 				2B58E5711F61548F00505193 /* ViewController.h */,
 				2B58E5721F61548F00505193 /* ViewController.m */,
+				2BCF03A920BBD6C8006909CB /* ChatViewController.h */,
+				2BCF03AA20BBD6C8006909CB /* ChatViewController.m */,
+				2BCF03AC20BBD85E006909CB /* ChatTableViewCell.h */,
+				2BCF03AD20BBD85E006909CB /* ChatTableViewCell.m */,
 				2B58E5DB1F6157DA00505193 /* LabelViewController.h */,
 				2B58E5DC1F6157DA00505193 /* LabelViewController.m */,
 				2BC22DBB1F7B4C3A00A46E47 /* novelReadViewController.h */,
@@ -766,12 +776,14 @@
 				2B6383E01F73E8F4001FF876 /* GTextUtils.m in Sources */,
 				2BDCBFB12088AB3E000055FE /* GKMPMatcherProcessor.m in Sources */,
 				2B9F6F6D1FA5E41F0094FC6E /* NSParagraphStyle+GRichLabel.m in Sources */,
+				2BCF03AB20BBD6C8006909CB /* ChatViewController.m in Sources */,
 				2B6383E11F73E8F4001FF876 /* UIView+GText.h in Sources */,
 				2B6383E21F73E8F4001FF876 /* UIView+GText.m in Sources */,
 				2B58E5731F61548F00505193 /* ViewController.m in Sources */,
 				2B58E5701F61548F00505193 /* AppDelegate.m in Sources */,
 				2BDCBFB62088AB3E000055FE /* GMatcherExpression.m in Sources */,
 				2BDCBFB42088AB3E000055FE /* GMatcherResult.m in Sources */,
+				2BCF03AE20BBD85E006909CB /* ChatTableViewCell.m in Sources */,
 				2B58E5DD1F6157DA00505193 /* LabelViewController.m in Sources */,
 				2B58E56D1F61548F00505193 /* main.m in Sources */,
 			);
@@ -929,7 +941,7 @@
 				INFOPLIST_FILE = GRichLabelExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = GIKI.GRichLabelExample;
+				PRODUCT_BUNDLE_IDENTIFIER = GIKIqw.GRichLabelExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -943,7 +955,7 @@
 				INFOPLIST_FILE = GRichLabelExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = GIKI.GRichLabelExample;
+				PRODUCT_BUNDLE_IDENTIFIER = GIKIqw.GRichLabelExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
