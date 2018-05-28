@@ -62,7 +62,7 @@
     if (self.menuItems.count == 0) return;
     
     GMenuController *menuController = [GMenuController sharedMenuController];
-    
+    menuController.menuViewContainer.hasAutoHide = NO;
     NSArray *items = self.menuItems;
     [menuController setMenuItems:items];
     [menuController setTargetRect:targetRect inView:self.richLabel];
