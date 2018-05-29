@@ -35,19 +35,22 @@
     [super viewDidAppear:animated];
 
 }
+
+- (void)dealloc
+{
+    _scrollview.delegate = nil;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    [self.view addSubview:({
+
         _scrollview = [[UIScrollView alloc] initWithFrame:self.view.bounds];
         _scrollview.backgroundColor =[UIColor clearColor];
         _scrollview.delegate = self;
         _scrollview.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height*2);
         _scrollview.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-        _scrollview;
-    })];
+       [self.view addSubview: _scrollview];
     
         self.richLabel = [GRichLabel new];
         self.richLabel.isFixedLineHeight = YES;
@@ -98,7 +101,7 @@
     attributedConfig.tokenPatternConfigs = tokens.copy;
     attributedConfig.regexPatternConifgs = @[regex];
     attributedConfig.textAlignment = kCTTextAlignmentJustified;
-    attributedConfig.linespace = 1;
+    attributedConfig.linespace = 20;
     attributedConfig.lineIndent = 2;
     attributedConfig.font = [UIFont systemFontOfSize:14];
 

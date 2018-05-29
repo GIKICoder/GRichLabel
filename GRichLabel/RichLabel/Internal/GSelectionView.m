@@ -68,17 +68,20 @@
     CGAffineTransform transform =  CGAffineTransformMakeTranslation(0, self.pathRect.size.height);
     transform = CGAffineTransformScale(transform, 1.f, -1.f);
     
-    __block BOOL isFirst = YES;
     __block CGFloat lastPointY = 0;
+    NSInteger count = selectionRects.count;
     [selectionRects enumerateObjectsUsingBlock:^(NSString* obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         CGRect rect =  CGRectFromString(obj);
         rect = CGRectStandardize(rect);
-    
-        if (isFirst) {
+        
+        if (idx == 0) {
             _leftCursor.cursorHeight = rect.size.height;
             _rightCursor.cursorHeight = rect.size.height;
+        } else if (idx == count -1) {
+            _rightCursor.cursorHeight = rect.size.height;
         }
+
         CGPoint cgPoint = CGPointApplyAffineTransform(rect.origin, transform);
         CGPoint point = CGPointMake(cgPoint.x, cgPoint.y-rect.size.height);
         if (lastPointY != 0) {

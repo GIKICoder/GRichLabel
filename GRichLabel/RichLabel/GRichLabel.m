@@ -19,7 +19,6 @@
 #import "UIView+GText.h"
 #import "GEmojiRunDelegate.h"
 #import "GEmojiConfigManager.h"
-#import "GTextMenuConfiguration.h"
 #import "GThrottleInvoke.h"
 #import "GRichLabel+TextMenuConfiguration.h"
 
