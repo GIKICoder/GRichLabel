@@ -196,4 +196,12 @@ UIApplication *GTextSharedApplication();
 
 @interface GTextUtils : NSObject
 
+/**
+ 分词
+
+ @param string <#string description#>
+ @return <#return value description#>
+ */
++(NSArray *)splitByWords:(NSString *)string range:(NSRange)range;
++ (void)enumerateSubstringsInRange:(NSRange)range string:(NSString *)string usingBlock:(void (^)(NSString *  substring, NSRange substringRange, BOOL *stop))block;
 @end

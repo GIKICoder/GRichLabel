@@ -136,4 +136,135 @@ CGAffineTransform GTextCGAffineTransformGetFromViews(UIView *from, UIView *to) {
 
 @implementation GTextUtils
 
++ (void)enumerateSubstringsInRange:(NSRange)range string:(NSString *)string usingBlock:(void (^)(NSString * substring, NSRange substringRange, BOOL *stop))block
+{
+    @try {
+        if (range.length == 0 || range.location > string.length || range.location+range.length > string.length) {
+            range = NSMakeRange(0, string.length);
+        }
+        
+        __block BOOL hasStop = NO;
+        [string enumerateSubstringsInRange:range options:NSStringEnumerationByWords usingBlock:^(NSString *subString, NSRange subStringRange, NSRange enclosingRange, BOOL *stop){
+            
+            if (subStringRange.location > enclosingRange.location) {
+                NSRange preRange =  NSMakeRange(enclosingRange.location, subStringRange.location);
+                NSString * preString = [string substringWithRange:preRange];
+                [preString enumerateSubstringsInRange:NSMakeRange(0, preString.length) options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString * _Nullable substring1, NSRange substringRange, NSRange enclosingRange, BOOL * _Nonnull stop) {
+                    
+                    BOOL tempStop = NO;
+                    if (block) {
+                        block(substring1,subStringRange,&tempStop);
+                    }
+                    if (tempStop) {
+                        hasStop = YES;
+                        *stop = YES;
+                    }
+                }];
+            }
+            if (hasStop) {
+                *stop = YES;
+            }
+            if (subString) {
+                BOOL tempStop = NO;
+                if (block) {
+                    block(subString,subStringRange,&tempStop);
+                }
+                if (tempStop) {
+                    *stop = YES;
+                }
+            }
+            if (subStringRange.location > enclosingRange.location && (subStringRange.location + subStringRange.length) < (enclosingRange.location +enclosingRange.length)) {
+                
+                NSRange nextRange =  NSMakeRange(subStringRange.location + subStringRange.length, (enclosingRange.location +enclosingRange.length)-(subStringRange.location + subStringRange.length));
+                NSString * nextString = [string substringWithRange:nextRange];
+                [nextString enumerateSubstringsInRange:NSMakeRange(0, nextString.length) options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString * _Nullable substring2, NSRange substringRange, NSRange enclosingRange, BOOL * _Nonnull stop) {
+                    BOOL tempStop = NO;
+                    if (block) {
+                        block(substring2,subStringRange,&tempStop);
+                    }
+                    if (tempStop) {
+                        hasStop = YES;
+                        *stop = YES;
+                    }
+                }];
+            }
+            if (hasStop) {
+                *stop = YES;
+            }
+            if (subStringRange.length<enclosingRange.length && subStringRange.location == enclosingRange.location) {
+                NSRange subRan = NSMakeRange(subStringRange.location+subStringRange.length, enclosingRange.length-subStringRange.length);
+                if (string.length > subRan.location+subRan.length) {
+                    NSString *subStr = [string substringWithRange:subRan];
+                    if (subStr.length > 0) {
+                        [subStr enumerateSubstringsInRange:NSMakeRange(0, subStr.length) options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString * _Nullable substring3, NSRange substringRange, NSRange enclosingRange, BOOL * _Nonnull stop) {
+                            BOOL tempStop = NO;
+                            if (block) {
+                                block(substring3,subStringRange,&tempStop);
+                            }
+                            if (tempStop) {
+                                hasStop = YES;
+                                *stop = YES;
+                            }
+                        }];
+                    }
+                }
+            }
+            if (hasStop) {
+                *stop = YES;
+            }
+        }];
+    
+    } @catch(NSException *exception)  {
+
+    }
+}
+
++(NSArray *)splitByWords:(NSString *)string range:(NSRange)range
+{
+    @try {
+        __block NSMutableArray * array = [NSMutableArray array];
+        if (range.length == 0 || range.location > string.length || range.location+range.length > string.length) {
+            range = NSMakeRange(0, string.length);
+        }
+        [string enumerateSubstringsInRange:range options:NSStringEnumerationByWords usingBlock:^(NSString *subString, NSRange subStringRange, NSRange enclosingRange, BOOL *stop){
+            
+            if (subStringRange.location > enclosingRange.location) {
+                NSRange preRange =  NSMakeRange(enclosingRange.location, subStringRange.location);
+                NSString * preString = [string substringWithRange:preRange];
+                [preString enumerateSubstringsInRange:NSMakeRange(0, preString.length) options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString * _Nullable substring1, NSRange substringRange, NSRange enclosingRange, BOOL * _Nonnull stop) {
+                    [array addObject:substring1];
+                }];
+            }
+            
+            if (subString) {
+                [array addObject:subString];
+            }
+            
+            if (subStringRange.location > enclosingRange.location && (subStringRange.location + subStringRange.length) < (enclosingRange.location +enclosingRange.length)) {
+                
+                NSRange nextRange =  NSMakeRange(subStringRange.location + subStringRange.length, (enclosingRange.location +enclosingRange.length)-(subStringRange.location + subStringRange.length));
+                NSString * nextString = [string substringWithRange:nextRange];
+                [nextString enumerateSubstringsInRange:NSMakeRange(0, nextString.length) options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString * _Nullable substring2, NSRange substringRange, NSRange enclosingRange, BOOL * _Nonnull stop) {
+                    [array addObject:substring2];
+                }];
+            }
+            
+            if (subStringRange.length<enclosingRange.length && subStringRange.location == enclosingRange.location) {
+                NSRange subRan = NSMakeRange(subStringRange.location+subStringRange.length, enclosingRange.length-subStringRange.length);
+                if (string.length > subRan.location+subRan.length) {
+                    NSString *subStr = [string substringWithRange:subRan];
+                    if (subStr.length > 0) {
+                        [subStr enumerateSubstringsInRange:NSMakeRange(0, subStr.length) options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString * _Nullable substring3, NSRange substringRange, NSRange enclosingRange, BOOL * _Nonnull stop) {
+                            [array addObject:substring3];
+                        }];
+                    }
+                }
+            }
+        }];
+        return array.copy;
+    } @catch(NSException *exception)  {
+        return [NSArray array];
+    }
+}
+
 @end

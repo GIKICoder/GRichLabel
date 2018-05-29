@@ -348,126 +348,54 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
 }
 
 /**
- 长按手势在当前区域的范围
+ 长按手势 智能选择
  
  @param point 点击区域
  @return 选择范围
  */
-- (NSRange)getCharacterRangeAtpoint:(CGPoint)point
+- (NSRange)selectWordsRangeAtpoint:(CGPoint)point
 {
     CGPoint touchPoint = CGPointMake(point.x, self.textBuilder.pathRect.size.height-point.y);
-    CTLineRef line ;
+    __block CFIndex index;
     __block NSRange returnRange = NSMakeRange(NSNotFound, 0);
-    for (int i = 0;i<_textBuilder.lineLayouts.count;i++) {
-        
-        GLineLayout *lineLayout = _textBuilder.lineLayouts[i];
-        
+    NSInteger linesCount = _textBuilder.lineLayouts.count;
+    __block NSRange selectRange = NSMakeRange(0, 0);
+    [_textBuilder.lineLayouts enumerateObjectsUsingBlock:^(GLineLayout * _Nonnull lineLayout, NSUInteger idx, BOOL * _Nonnull stop) {
         if (CGRectContainsPoint(lineLayout.rect, touchPoint)){
+            CTLineRef line = (__bridge CTLineRef)lineLayout.line;
+            CFRange currentRange = CTLineGetStringRange(line);
+            CFRange nextRange = CFRangeMake(0, 0);
+            NSRange range = NSMakeRange(currentRange.location == kCFNotFound ? NSNotFound : currentRange.location, currentRange.length == kCFNotFound ? 0 : currentRange.length);
+            /// line的起始点
+            CGPoint point = CGPointMake(touchPoint.x -lineLayout.rect.origin.x,0);
+            index = CTLineGetStringIndexForPosition((__bridge CTLineRef)lineLayout.line, point);
+            if (idx < linesCount - 1) {
+                GLineLayout *nextLineLayout = [_textBuilder.lineLayouts objectAtIndex:idx+1];
+                __block CTLineRef nextLine = (__bridge CTLineRef)nextLineLayout.line;
+                nextRange = CTLineGetStringRange(nextLine);
             
-            line = (__bridge CTLineRef)lineLayout.line;
-            CFRange cfRange = CTLineGetStringRange(line);
-            CFRange cfRange_Next = CFRangeMake(0, 0);
-            
-            if (i < _textBuilder.lineLayouts.count - 1) {
-                GLineLayout *nextLine = [_textBuilder.lineLayouts objectAtIndex:i+1];
-                
-                __block CTLineRef line_Next = (__bridge CTLineRef)nextLine.line;
-                cfRange_Next = CTLineGetStringRange(line_Next);
-                
-                NSRange range = NSMakeRange(cfRange.location == kCFNotFound ? NSNotFound : cfRange.location, cfRange.length == kCFNotFound ? 0 : cfRange.length);
-                /// line的起始点
-                CGPoint point = CGPointMake(touchPoint.x -lineLayout.rect.origin.x,0);
-                CFIndex index = CTLineGetStringIndexForPosition((__bridge CTLineRef)lineLayout.line, point);
-                
-                if (index >= range.location && index <= range.location+range.length) {
-                    
-                    if (range.length > 1) {
-                        
-                        NSRange newRange = NSMakeRange(range.location, range.length + cfRange_Next.length);
-                        __block BOOL byWords = NO;
-                        [self.attributedString.string enumerateSubstringsInRange:newRange options:NSStringEnumerationByWords usingBlock:^(NSString *subString, NSRange subStringRange, NSRange enclosingRange, BOOL *stop){
-                            
-                            if (index - subStringRange.location <= subStringRange.length&&index - subStringRange.location!=0) {
-                                byWords = YES;
-                                returnRange = subStringRange;
-                                /// 选择范围大于最小选择范围
-                                if (returnRange.length <= self.minSelectRange && self.attributedString.length > self.minSelectRange) {
-                                    returnRange.length = self.minSelectRange;
-                                }
-                                *stop = YES;
-                                
-                            }
-                            
-                        }];
-                        if (!byWords) {
-                            [self.attributedString.string enumerateSubstringsInRange:newRange options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *subString, NSRange subStringRange, NSRange enclosingRange, BOOL *stop){
-                                
-                                if (index - subStringRange.location <= subStringRange.length&&index - subStringRange.location!=0) {
-                                    byWords = YES;
-                                    returnRange = subStringRange;
-                                    /// 选择范围大于最小选择范围
-                                    if (returnRange.length <= self.minSelectRange && self.attributedString.length > self.minSelectRange) {
-                                        returnRange.length = self.minSelectRange;
-                                    }
-                                    *stop = YES;
-                                    
-                                }
-                                
-                            }];
-                        }
-                    }
-                    
+                if (index >= range.location && index <= range.location+range.length && range.length > 1) {
+                    range = NSMakeRange(range.location, range.length + nextRange.length);
                 }
-            } else {
-                NSRange range = NSMakeRange(cfRange.location == kCFNotFound ? NSNotFound : cfRange.location, cfRange.length == kCFNotFound ? 0 : cfRange.length);
-                /// line的起始点
-                CGPoint point = CGPointMake(touchPoint.x -lineLayout.rect.origin.x,0);
-                CFIndex index = CTLineGetStringIndexForPosition((__bridge CTLineRef)lineLayout.line, point);
-                
-                if (index >= range.location && index <= range.location+range.length) {
-                    
-                    if (range.length > 1) {
-                        
-                        NSRange newRange = NSMakeRange(range.location, range.length + cfRange_Next.length);
-                        __block BOOL byWords = NO;
-                        [self.attributedString.string enumerateSubstringsInRange:newRange options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *subString, NSRange subStringRange, NSRange enclosingRange, BOOL *stop){
-                            
-                            if (index - subStringRange.location <= subStringRange.length&&index - subStringRange.location!=0) {
-                                returnRange = subStringRange;
-                                byWords = YES;
-                                /// 选择范围大于最小选择范围
-                                if (returnRange.length <= self.minSelectRange && self.attributedString.length > self.minSelectRange) {
-                                    returnRange.length = self.minSelectRange;
-                                }
-                                *stop = YES;
-                                
-                            }
-                            
-                        }];
-                        if (!byWords) {
-                            [self.attributedString.string enumerateSubstringsInRange:newRange options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *subString, NSRange subStringRange, NSRange enclosingRange, BOOL *stop){
-                                
-                                if (index - subStringRange.location <= subStringRange.length&&index - subStringRange.location!=0) {
-                                    
-                                    returnRange = subStringRange;
-                                    /// 选择范围大于最小选择范围
-                                    if (returnRange.length <= self.minSelectRange && self.attributedString.length > self.minSelectRange) {
-                                        returnRange.length = self.minSelectRange;
-                                    }
-                                    *stop = YES;
-                                    
-                                }
-                                
-                            }];
-                            
-                        }
-                    }
-                    
-                }
-                
             }
+            selectRange = range;
+            *stop = YES;
         }
+    }];
+    if (selectRange.length <= 0) {
+        return returnRange;
     }
+    [GTextUtils enumerateSubstringsInRange:selectRange string:self.attributedString.string usingBlock:^(NSString *substring, NSRange subStringRange, BOOL *stop) {
+        if (index - subStringRange.location <= subStringRange.length&&index - subStringRange.location!=0) {
+            returnRange = subStringRange;
+            /// 选择范围大于最小选择范围
+            if (returnRange.length <= self.minSelectRange && self.attributedString.length > self.minSelectRange) {
+                returnRange.length = self.minSelectRange;
+            }
+            *stop = YES;
+        }
+    }];
+    
     return returnRange;
 }
 
@@ -613,17 +541,14 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
 
 - (void)LongRecognizerMethod:(UILongPressGestureRecognizer *)Recognizer
 {
-    
     CGPoint point = [Recognizer locationInView:self];
-    
     if (Recognizer.state == UIGestureRecognizerStateBegan ||
         Recognizer.state == UIGestureRecognizerStateChanged){
         
         CFIndex index = [self convertTouchPointToSelectIndex:point];
-        
         if (index != kCFNotFound && index <= self.attributedString.length) {
             /// 智能选择
-            NSRange range = [self getCharacterRangeAtpoint:point];
+            NSRange range = [self selectWordsRangeAtpoint:point];
             _selectedRange = NSMakeRange(range.location, range.length);
             
             [self showSelectionViewWithCursor:NO];
@@ -642,9 +567,7 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
                 [GMagnifiterINST showMagnifier:self.magnifierCaret];
             }
         }
-        
     }else{
-        
         [self hideMaginfierView];
         [self showSelectionViewWithCursor:YES];
         if (_selectedRange.length == 0) {
@@ -653,7 +576,6 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
             _isLongPressTouch = YES;
             [self showMenu];
         }
-        
     }
     
 }
