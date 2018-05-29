@@ -136,7 +136,7 @@ CGAffineTransform GTextCGAffineTransformGetFromViews(UIView *from, UIView *to) {
 
 @implementation GTextUtils
 
-+ (void)enumerateSubstringsInRange:(NSRange)range string:(NSString *)string usingBlock:(void (^)(NSString * substring, NSRange substringRange, BOOL *stop))block
++ (void)enumerateSubstringsInRange1:(NSRange)range string:(NSString *)string usingBlock:(void (^)(NSString * substring, NSRange substringRange, BOOL *stop))block
 {
     @try {
         if (range.length == 0 || range.location > string.length || range.location+range.length > string.length) {
@@ -153,7 +153,7 @@ CGAffineTransform GTextCGAffineTransformGetFromViews(UIView *from, UIView *to) {
                     
                     BOOL tempStop = NO;
                     if (block) {
-                        block(substring1,subStringRange,&tempStop);
+                        block(substring1,enclosingRange,&tempStop);
                     }
                     if (tempStop) {
                         hasStop = YES;
@@ -180,7 +180,7 @@ CGAffineTransform GTextCGAffineTransformGetFromViews(UIView *from, UIView *to) {
                 [nextString enumerateSubstringsInRange:NSMakeRange(0, nextString.length) options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString * _Nullable substring2, NSRange substringRange, NSRange enclosingRange, BOOL * _Nonnull stop) {
                     BOOL tempStop = NO;
                     if (block) {
-                        block(substring2,subStringRange,&tempStop);
+                        block(substring2,enclosingRange,&tempStop);
                     }
                     if (tempStop) {
                         hasStop = YES;
@@ -199,7 +199,7 @@ CGAffineTransform GTextCGAffineTransformGetFromViews(UIView *from, UIView *to) {
                         [subStr enumerateSubstringsInRange:NSMakeRange(0, subStr.length) options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString * _Nullable substring3, NSRange substringRange, NSRange enclosingRange, BOOL * _Nonnull stop) {
                             BOOL tempStop = NO;
                             if (block) {
-                                block(substring3,subStringRange,&tempStop);
+                                block(substring3,enclosingRange,&tempStop);
                             }
                             if (tempStop) {
                                 hasStop = YES;
@@ -216,6 +216,35 @@ CGAffineTransform GTextCGAffineTransformGetFromViews(UIView *from, UIView *to) {
     
     } @catch(NSException *exception)  {
 
+    }
+}
+
++ (void)enumerateSubstringsInRange:(NSRange)range string:(NSString *)string usingBlock:(void (^)(NSString *, NSRange, BOOL *))block
+{
+    __block BOOL byWords = NO;
+    [string enumerateSubstringsInRange:range options:NSStringEnumerationByWords usingBlock:^(NSString *subString, NSRange subStringRange, NSRange enclosingRange, BOOL *stop){
+        
+        BOOL tempStop = NO;
+        if (block) {
+            block(subString,subStringRange,&tempStop);
+        }
+        if (tempStop) {
+            byWords = YES;
+            *stop = YES;
+        }
+    }];
+    if (!byWords) {
+        [string enumerateSubstringsInRange:range options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *subString, NSRange subStringRange, NSRange enclosingRange, BOOL *stop){
+            
+            BOOL tempStop = NO;
+            if (block) {
+                block(subString,subStringRange,&tempStop);
+            }
+            if (tempStop) {
+                *stop = YES;
+            }
+            
+        }];
     }
 }
 

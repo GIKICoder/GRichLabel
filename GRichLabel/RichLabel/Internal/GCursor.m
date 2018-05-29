@@ -9,8 +9,8 @@
 #import "GCursor.h"
 
 #define kCursorW 2
-#define kGestureW 12
-#define kDotGestureW 6
+#define kGestureW 22
+#define kDotGestureW 16
 
 @interface GCursor()
 {

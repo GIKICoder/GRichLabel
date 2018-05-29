@@ -70,12 +70,12 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-//    [self.richLabel hideTextMenu];
+    [self.richLabel hideTextMenu];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-//    [self.richLabel showTextMenu];
+    [self.richLabel showTextMenu];
 }
 
 

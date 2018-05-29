@@ -356,7 +356,7 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
 - (NSRange)selectWordsRangeAtpoint:(CGPoint)point
 {
     CGPoint touchPoint = CGPointMake(point.x, self.textBuilder.pathRect.size.height-point.y);
-    __block CFIndex index;
+    __block CFIndex index = NSNotFound;
     __block NSRange returnRange = NSMakeRange(NSNotFound, 0);
     NSInteger linesCount = _textBuilder.lineLayouts.count;
     __block NSRange selectRange = NSMakeRange(0, 0);
@@ -451,14 +451,11 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
 
 - (void)throttleShowSelectionViewWithCursor:(BOOL)isShowCursor
 {
-    if (_selectedRange.length == 0 || _selectedRange.location == NSNotFound ) {
-        return;
-    }
-    
+    if (_selectedRange.length == 0 || _selectedRange.location == NSNotFound )  return;
     [self hideSelectionView];
-    
     NSArray * array = [self calculateSelectRectPaths];
     if (array) {
+        if (isShowCursor)  _longRecognizer.enabled = NO;
         [self.selectionView showSelectionView:array showCursor:isShowCursor];
     }
 }
@@ -469,8 +466,9 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
 - (void)showMenu
 {
     if (!_canSelect) return;
+    if (self.selectionView.selectionRects.count <= 0) return;
+    if (self.selectedRange.length <=0) return;
     
-    _longRecognizer.enabled = NO;
     CGRect selectedRect =CGRectFromString([self.selectionView.selectionRects firstObject]);
     CGAffineTransform transform =  CGAffineTransformMakeTranslation(0, self.textBuilder.pathRect.size.height);
     transform = CGAffineTransformScale(transform, 1.0, -1.0);
@@ -631,6 +629,9 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
         return;
     }
     NSRange range = {0};
+    if (index >= self.attributedString.string.length) {
+        return;
+    }
     NSDictionary *dict = [self.attributedString attributesAtIndex:index effectiveRange:&range];
     
     if ([dict objectForKey:kGAttributeTokenHighlightName]) {
