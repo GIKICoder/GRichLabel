@@ -14,8 +14,9 @@
 @protocol GMenuContextProtocol <NSObject>
 
 @required
-- (void)configMenuWithRichLabel:(GRichLabel*)richLabel;
-- (void)showMenuWithTargetRect:(CGRect)targetRect selectRange:(NSRange)selectRange;
-- (void)hideTextMenu;
+- (void)ShowRichLabelTextMenuWithTargetRect:(CGRect)targetRect;
+- (void)HideRichLabelTextMenu;
 
+@optional
+- (void)ConfigMenuWithRichLabel:(GRichLabel*)richLabel;
 @end

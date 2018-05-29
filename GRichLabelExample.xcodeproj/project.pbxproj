@@ -57,6 +57,7 @@
 		2BC22E151F7BB36000A46E47 /* GTextMenuConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC22E141F7BB36000A46E47 /* GTextMenuConfiguration.m */; };
 		2BCF03AB20BBD6C8006909CB /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCF03AA20BBD6C8006909CB /* ChatViewController.m */; };
 		2BCF03AE20BBD85E006909CB /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCF03AD20BBD85E006909CB /* ChatTableViewCell.m */; };
+		2BCF03D720BD4E43006909CB /* GRichLabel+TextMenuConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCF03D620BD4E43006909CB /* GRichLabel+TextMenuConfiguration.m */; };
 		2BDCBFB02088AB3E000055FE /* GACMatcherProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCBFA02088AB3E000055FE /* GACMatcherProcessor.m */; };
 		2BDCBFB12088AB3E000055FE /* GKMPMatcherProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCBFA32088AB3E000055FE /* GKMPMatcherProcessor.m */; };
 		2BDCBFB22088AB3E000055FE /* GRegexMatcherProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCBFA42088AB3E000055FE /* GRegexMatcherProcessor.m */; };
@@ -159,6 +160,8 @@
 		2BCF03AA20BBD6C8006909CB /* ChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		2BCF03AC20BBD85E006909CB /* ChatTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatTableViewCell.h; sourceTree = "<group>"; };
 		2BCF03AD20BBD85E006909CB /* ChatTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatTableViewCell.m; sourceTree = "<group>"; };
+		2BCF03D520BD4E43006909CB /* GRichLabel+TextMenuConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GRichLabel+TextMenuConfiguration.h"; sourceTree = "<group>"; };
+		2BCF03D620BD4E43006909CB /* GRichLabel+TextMenuConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GRichLabel+TextMenuConfiguration.m"; sourceTree = "<group>"; };
 		2BDCBF9F2088AB3E000055FE /* GKMPMatcherProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKMPMatcherProcessor.h; sourceTree = "<group>"; };
 		2BDCBFA02088AB3E000055FE /* GACMatcherProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GACMatcherProcessor.m; sourceTree = "<group>"; };
 		2BDCBFA12088AB3E000055FE /* GRegexMatcherProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRegexMatcherProcessor.h; sourceTree = "<group>"; };
@@ -340,6 +343,8 @@
 				2B63839C1F73E8DA001FF876 /* GEmojiConfigManager.m */,
 				2B63839D1F73E8DA001FF876 /* GTokenAppearance.h */,
 				2B63839E1F73E8DA001FF876 /* GTokenAppearance.m */,
+				2BCF03D520BD4E43006909CB /* GRichLabel+TextMenuConfiguration.h */,
+				2BCF03D620BD4E43006909CB /* GRichLabel+TextMenuConfiguration.m */,
 				2B62BC761FB19C8F00F611CC /* GMenuContextProtocol.h */,
 				2BC22E131F7BB36000A46E47 /* GTextMenuConfiguration.h */,
 				2BC22E141F7BB36000A46E47 /* GTextMenuConfiguration.m */,
@@ -751,6 +756,7 @@
 				2B6383CA1F73E8F4001FF876 /* GDrawTextBuilder.m in Sources */,
 				2B6383CB1F73E8F4001FF876 /* GEmojiConfigManager.h in Sources */,
 				2B6383CC1F73E8F4001FF876 /* GEmojiConfigManager.m in Sources */,
+				2BCF03D720BD4E43006909CB /* GRichLabel+TextMenuConfiguration.m in Sources */,
 				2B9F6F701FA5E4380094FC6E /* NSAttributedString+GRichLabel.m in Sources */,
 				2BDCBFB22088AB3E000055FE /* GRegexMatcherProcessor.m in Sources */,
 				2B6383CD1F73E8F4001FF876 /* GTokenAppearance.h in Sources */,

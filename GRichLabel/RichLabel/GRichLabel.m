@@ -21,6 +21,7 @@
 #import "GEmojiConfigManager.h"
 #import "GTextMenuConfiguration.h"
 #import "GThrottleInvoke.h"
+#import "GRichLabel+TextMenuConfiguration.h"
 
 #define kLeftCursorTag 100
 #define kRightCursorTag 200
@@ -88,11 +89,6 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
     self.selectionView.frame = self.bounds;
 }
 
-- (BOOL)canBecomeFirstResponder
-{
-    return YES;
-}
-
 + (Class)layerClass
 {
     [YYAsyncLayer defaultValueForKey:@"NODisplayAsyn"];
@@ -132,8 +128,11 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
         _longRecognizer.enabled = YES;
         [self addGestureRecognizer:_longRecognizer];
         if (!self.menuConfiguration) {
-            self.menuConfiguration = [GTextMenuConfiguration new];
-            [self.menuConfiguration configMenuWithRichLabel:self];
+            GRichLabelWeakReference * reference = [GRichLabelWeakReference weakReference:self];
+            self.menuConfiguration = reference.weakObj;
+            if ([self.menuConfiguration respondsToSelector:@selector(ConfigMenuWithRichLabel:)]) {
+                [self.menuConfiguration ConfigMenuWithRichLabel:reference.weakObj];
+            }
         }
     } else {
         if (_longRecognizer) {
@@ -188,7 +187,10 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
 - (void)setMenuConfiguration:(id<GMenuContextProtocol>)menuConfiguration
 {
     _menuConfiguration = menuConfiguration;
-    [_menuConfiguration configMenuWithRichLabel:self];
+    if ([_menuConfiguration respondsToSelector:@selector(ConfigMenuWithRichLabel:)]) {
+        GRichLabelWeakReference * reference = [GRichLabelWeakReference weakReference:self];
+        [_menuConfiguration ConfigMenuWithRichLabel:reference.weakObj];
+    }
 }
 
 - (void)setText:(NSString *)text
@@ -503,8 +505,9 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
 - (void)hideMenu
 {
     if (!_canSelect) return;
-    
-    [self.menuConfiguration hideTextMenu];
+    if ([self.menuConfiguration respondsToSelector:@selector(HideRichLabelTextMenu)]) {
+        [self.menuConfiguration HideRichLabelTextMenu];
+    }
 }
 
 /**
@@ -551,9 +554,13 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
         CGAffineTransform transform =  CGAffineTransformMakeTranslation(0, self.textBuilder.pathRect.size.height);
         transform = CGAffineTransformScale(transform, 1.0, -1.0);
         selectedRect = CGRectApplyAffineTransform(selectedRect, transform);
-        [self.menuConfiguration showMenuWithTargetRect:selectedRect selectRange:_selectedRange];
+        if ([self.menuConfiguration respondsToSelector:@selector(ShowRichLabelTextMenuWithTargetRect:)]) {
+             [self.menuConfiguration ShowRichLabelTextMenuWithTargetRect:selectedRect];
+        }
     } else {
-        [self.menuConfiguration showMenuWithTargetRect:selectedRect selectRange:_selectedRange];
+        if ([self.menuConfiguration respondsToSelector:@selector(ShowRichLabelTextMenuWithTargetRect:)]) {
+            [self.menuConfiguration ShowRichLabelTextMenuWithTargetRect:selectedRect];
+        }
     }
     
 }

@@ -32,17 +32,17 @@
             NSArray *items = [NSArray arrayWithObjects:copyItem,selectAllItem,shareItem,nil];
             self.menuItems = items;
             self.innerItems = items;
-
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetSelection) name:GMenuControllerDidHideMenuNotification object:nil];
     }
     return self;
 }
 
-- (void)configMenuWithRichLabel:(GRichLabel*)richLabel
+- (void)ConfigMenuWithRichLabel:(GRichLabel*)richLabel
 {
     self.richLabel = richLabel;
 }
 
-- (void)showMenuWithTargetRect:(CGRect)targetRect selectRange:(NSRange)selectRange
+- (void)ShowRichLabelTextMenuWithTargetRect:(CGRect)targetRect
 {
     if (self.menuItems.count == 0) return;
         
@@ -58,11 +58,14 @@
 
 - (void)resetSelection
 {
-    [self.richLabel resetSelection];
+    if ([self.richLabel getSelectRange].length > 0) {
+        [self.richLabel resetSelection];
+    }
 }
 
-- (void)hideTextMenu
+- (void)HideRichLabelTextMenu
 {
+
     GMenuController *menu = [GMenuController sharedMenuController];
     [menu setMenuVisible:NO animated:YES];
 }

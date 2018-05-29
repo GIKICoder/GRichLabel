@@ -52,12 +52,13 @@
     return self;
 }
 
-- (void)configMenuWithRichLabel:(GRichLabel*)richLabel
+
+- (void)ConfigMenuWithRichLabel:(GRichLabel*)richLabel
 {
     self.richLabel = richLabel;
 }
 
-- (void)showMenuWithTargetRect:(CGRect)targetRect selectRange:(NSRange)selectRange
+- (void)ShowRichLabelTextMenuWithTargetRect:(CGRect)targetRect
 {
     if (self.menuItems.count == 0) return;
     
@@ -70,7 +71,7 @@
     
 }
 
-- (void)hideTextMenu
+- (void)HideRichLabelTextMenu
 {
     GMenuController *menu = [GMenuController sharedMenuController];
     [menu setMenuVisible:NO animated:YES];
