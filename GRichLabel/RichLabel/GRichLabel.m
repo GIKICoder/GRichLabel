@@ -674,6 +674,7 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
         }
         
         CFIndex index = [self moveConvertTouchPointToSelectIndex:point isLeft:isLeftCursor];
+        NSLog(@"movelindex --- %ld",index);
         if (index == kCFNotFound) {
             return;
         }
