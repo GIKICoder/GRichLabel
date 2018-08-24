@@ -57,6 +57,13 @@
 @property (nonatomic, assign) BOOL isFixedLineHeight;
 
 /**
+ 是否可以滚动选择
+ richLabel在scrollview等具有滚动功能的视图上。开启可以滚动选择文字。
+ default：NO
+ */
+@property (nonatomic, assign) BOOL  canScrollerSelect;
+
+/**
  richlabel的容器view
  如果开启canSelect,并且richLabel在scrollview等具有滚动功能的view上.
  滚动会和select文字选择冲突.

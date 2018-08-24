@@ -81,6 +81,9 @@
         } else if (idx == count -1) {
             _rightCursor.cursorHeight = rect.size.height;
         }
+        if (idx != count - 1) {
+             rect.size.width = self.pathRect.size.width-rect.origin.x;
+        }
 
         CGPoint cgPoint = CGPointApplyAffineTransform(rect.origin, transform);
         CGPoint point = CGPointMake(cgPoint.x, cgPoint.y-rect.size.height);

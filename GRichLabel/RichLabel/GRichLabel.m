@@ -140,6 +140,11 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
     }
 }
 
+- (void)setCanScrollerSelect:(BOOL)canScrollerSelect
+{
+    _canScrollerSelect = canScrollerSelect;
+}
+
 /**
  是否开启异步绘制
  
@@ -327,7 +332,6 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
     CGPoint touchPoint = CGPointMake(point.x, self.textBuilder.pathRect.size.height-point.y);
     CFIndex index = kCFNotFound;
     for (GLineLayout *lineLayout in _textBuilder.lineLayouts) {
-        
         if (CGRectContainsPoint(lineLayout.rect, touchPoint)){
             /// line的起始点
             CGPoint point = CGPointMake(touchPoint.x -lineLayout.rect.origin.x,0);
@@ -683,7 +687,6 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
         } else {
             isMoveCursor = NO;
         }
-        
         
         if (isMoveCursor) {
             self.magnifierRanged.hostCaptureCenter = point;
