@@ -37,7 +37,7 @@
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    self.tableView.frame = self.view.bounds;
+    self.tableView.frame = CGRectMake(0, CGRectGetMaxY(self.navigationController.navigationBar.frame), self.view.bounds.size.width, self.view.bounds.size.height - CGRectGetMaxY(self.navigationController.navigationBar.frame));
 }
 
 #pragma mark -- TableView DataSource
