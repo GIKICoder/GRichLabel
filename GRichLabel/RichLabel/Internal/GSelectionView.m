@@ -81,10 +81,12 @@
         } else if (idx == count -1) {
             _rightCursor.cursorHeight = rect.size.height;
         }
-        if (idx == 0 && count > 1) {
+        if ((idx == 0 && count > 1)) {
              rect.size.width = self.pathRect.size.width-(rect.origin.x-self.pathRect.origin.x);
         } else if (idx != count - 1 && idx != 0) {
              rect.size.width = self.pathRect.size.width;
+        } else if (idx == count -1 && count > 1) {
+            rect.size.width = (rect.origin.x+rect.size.width) - self.pathRect.origin.x;
         }
         if (idx != 0) {
             rect.origin.x = self.pathRect.origin.x;
@@ -101,13 +103,9 @@
         if (self.linespace < 1) {
              rect.size.height += self.linespace;
         }
-
-    
         lastPointY = rect.origin.y+rect.size.height;
         if (rect.size.width > 0 && rect.size.height > 0) {
-            	
             UIView *mark = [[UIView alloc] initWithFrame:rect];
-            //
             mark.backgroundColor = self.selectionColor;;
             mark.alpha = self.alphaValue;
             [self insertSubview:mark atIndex:0];
@@ -124,14 +122,12 @@
         CGPoint leftCursorPoint = leftCursorRect.origin;
         leftCursorPoint = CGPointApplyAffineTransform(leftCursorPoint, transform);
         [_leftCursor showPoint:leftCursorPoint];
-       
-        
+    
         CGRect rightCursorRect =  CGRectFromString([selectionRects lastObject]);
         CGPoint rightCursorPoint = rightCursorRect.origin;
         rightCursorPoint.x = rightCursorPoint.x + CGRectFromString([selectionRects lastObject]).size.width;
         rightCursorPoint = CGPointApplyAffineTransform(rightCursorPoint, transform);
-        [_rightCursor showPoint:rightCursorPoint];
-        
+        [_rightCursor showPoint:rightCursorPoint]; 
     }
 }
 

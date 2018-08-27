@@ -330,6 +330,8 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
 - (CFIndex)moveConvertTouchPointToSelectIndex:(CGPoint)point isLeft:(BOOL)isLeft
 {
     CGPoint touchPoint = CGPointMake(point.x, self.textBuilder.pathRect.size.height-point.y);
+    [self updateContainerScroller:point isLeft:isLeft];
+    
     CFIndex index = kCFNotFound;
     for (GLineLayout *lineLayout in _textBuilder.lineLayouts) {
         if (CGRectContainsPoint(lineLayout.rect, touchPoint)){
@@ -606,7 +608,7 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
             _isLongPressTouch = NO;
             [self releaseSelectionRanges];
         }
-        
+
         if (isSelectCursor) {
             [[NSNotificationCenter defaultCenter] postNotificationName:GRichLabelDidSelectNotification object:nil];
             [self hideMenu];
@@ -674,7 +676,8 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
         }
         
         CFIndex index = [self moveConvertTouchPointToSelectIndex:point isLeft:isLeftCursor];
-        NSLog(@"movelindex --- %ld",index);
+//        NSLog(@"movelindex --- %ld",index);
+
         if (index == kCFNotFound) {
             return;
         }
@@ -823,6 +826,47 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
     }
     return nil;
 }
+
+/**
+ 在scrollView上开启自动处理滚动
+
+ @param point move point
+ @param isLeft 是否是左边光标
+ */
+- (void)updateContainerScroller:(CGPoint)point isLeft:(BOOL)isLeft
+{
+    if (!self.contentScrollView || !self.contentScrollView.superview || !self.canScrollerSelect) return;
+  
+    UIWindow *window= [UIApplication sharedApplication].keyWindow;
+    
+    CGRect scrollRect = self.contentScrollView.frame;
+    UIEdgeInsets edgeInsets = self.contentScrollView.contentInset;
+    scrollRect = UIEdgeInsetsInsetRect(scrollRect,edgeInsets);
+    CGRect scrollToWinRect = [self.contentScrollView.superview convertRect:scrollRect toView:window];
+    CGRect labelToWinRect = [self.superview convertRect:self.frame toView:window];
+    CGRect intersectionRect = CGRectIntersection(labelToWinRect, scrollToWinRect);
+
+    if (CGRectEqualToRect(intersectionRect, labelToWinRect) || CGRectIsEmpty(intersectionRect) || CGRectIsNull(intersectionRect)) return;
+    CGFloat scrollBottom = scrollToWinRect.origin.y + scrollToWinRect.size.height;
+    CGFloat labelBottom = labelToWinRect.origin.y + labelToWinRect.size.height;
+    CGPoint pointToWin = [self.superview convertPoint:point toViewOrWindow:window];
+    if (isLeft && (scrollToWinRect.origin.y >= labelToWinRect.origin.y)) {
+        CGFloat intersection = pointToWin.y - scrollToWinRect.origin.y;
+        if (intersection <= 40 && intersection > 0) { //start scroll up
+            CGFloat autoDistance = ((labelToWinRect.origin.y - scrollToWinRect.origin.y) > 40) ? 40 : (labelToWinRect.origin.y - scrollToWinRect.origin.y);
+            CGPoint autoOffset = CGPointMake(self.contentScrollView.contentOffset.x,self.contentScrollView.contentOffset.y -autoDistance);
+             [self.contentScrollView setContentOffset:autoOffset animated:YES];
+        }
+    } else if (scrollBottom <= labelBottom ) {
+        CGFloat intersection = scrollBottom - pointToWin.y;
+        if (intersection > 0 && intersection < 40 ) {
+            CGFloat autoDistance = ((labelBottom - scrollBottom) > 40) ? 40 : (labelBottom - scrollBottom);
+            CGPoint autoOffset = CGPointMake(self.contentScrollView.contentOffset.x,self.contentScrollView.contentOffset.y + autoDistance);
+            [self.contentScrollView setContentOffset:autoOffset animated:YES];
+        }
+    }
+}
+
 
 #pragma mark - public Method
 
