@@ -81,12 +81,14 @@
         } else if (idx == count -1) {
             _rightCursor.cursorHeight = rect.size.height;
         }
-//        if (idx != count - 1) {
-//            rect.size.width = self.pathRect.size.width-self.pathRect.origin.x;
-//        }
-//        if (idx != 0) {
-//            rect.origin.x = self.pathRect.origin.x;
-//        }
+        if (idx == 0 && count > 1) {
+             rect.size.width = self.pathRect.size.width-(rect.origin.x-self.pathRect.origin.x);
+        } else if (idx != count - 1 && idx != 0) {
+             rect.size.width = self.pathRect.size.width;
+        }
+        if (idx != 0) {
+            rect.origin.x = self.pathRect.origin.x;
+        }
 
         CGPoint cgPoint = CGPointApplyAffineTransform(rect.origin, transform);
         CGPoint point = CGPointMake(cgPoint.x, cgPoint.y-rect.size.height);
