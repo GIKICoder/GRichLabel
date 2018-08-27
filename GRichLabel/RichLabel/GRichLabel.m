@@ -119,7 +119,6 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
 - (void)setCanSelect:(BOOL)canSelect
 {
     if (_canSelect == canSelect) return;
-    
     _canSelect = canSelect;
     if (canSelect) {
         self.minSelectRange = 1;
@@ -140,10 +139,6 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
     }
 }
 
-- (void)setCanScrollerSelect:(BOOL)canScrollerSelect
-{
-    _canScrollerSelect = canScrollerSelect;
-}
 
 /**
  是否开启异步绘制
@@ -361,6 +356,9 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
  */
 - (NSRange)selectWordsRangeAtpoint:(CGPoint)point
 {
+    if (self.minSelectRange > self.textBuilder.attributedString.length) {
+        return NSMakeRange(0, self.textBuilder.attributedString.length);
+    }
     CGPoint touchPoint = CGPointMake(point.x, self.textBuilder.pathRect.size.height-point.y);
     __block CFIndex index = NSNotFound;
     __block NSRange returnRange = NSMakeRange(NSNotFound, 0);
@@ -835,8 +833,11 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
  */
 - (void)updateContainerScroller:(CGPoint)point isLeft:(BOOL)isLeft
 {
-    if (!self.contentScrollView || !self.contentScrollView.superview || !self.canScrollerSelect) return;
-  
+    if (!self.contentScrollView || !self.contentScrollView.superview || self.scrollerAutoSelectType == GRichLabelScrollerAutoSelectNone ) return;
+    CGFloat distance = 40;
+    if (self.scrollerAutoSelectType == GRichLabelScrollerAutoSelectAll) {
+        distance = CGFLOAT_MAX;
+    }
     UIWindow *window= [UIApplication sharedApplication].keyWindow;
     
     CGRect scrollRect = self.contentScrollView.frame;
@@ -853,14 +854,15 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
     if (isLeft && (scrollToWinRect.origin.y >= labelToWinRect.origin.y)) {
         CGFloat intersection = pointToWin.y - scrollToWinRect.origin.y;
         if (intersection <= 40 && intersection > 0) { //start scroll up
-            CGFloat autoDistance = ((labelToWinRect.origin.y - scrollToWinRect.origin.y) > 40) ? 40 : (labelToWinRect.origin.y - scrollToWinRect.origin.y);
+    
+            CGFloat autoDistance = (fabs(labelToWinRect.origin.y - scrollToWinRect.origin.y) > distance) ? distance : fabs(labelToWinRect.origin.y - scrollToWinRect.origin.y) + 10;
             CGPoint autoOffset = CGPointMake(self.contentScrollView.contentOffset.x,self.contentScrollView.contentOffset.y -autoDistance);
              [self.contentScrollView setContentOffset:autoOffset animated:YES];
         }
     } else if (scrollBottom <= labelBottom ) {
         CGFloat intersection = scrollBottom - pointToWin.y;
         if (intersection > 0 && intersection < 40 ) {
-            CGFloat autoDistance = ((labelBottom - scrollBottom) > 40) ? 40 : (labelBottom - scrollBottom);
+            CGFloat autoDistance =  ((labelBottom - scrollBottom) > distance) ? distance : (labelBottom - scrollBottom)+ 10;
             CGPoint autoOffset = CGPointMake(self.contentScrollView.contentOffset.x,self.contentScrollView.contentOffset.y + autoDistance);
             [self.contentScrollView setContentOffset:autoOffset animated:YES];
         }

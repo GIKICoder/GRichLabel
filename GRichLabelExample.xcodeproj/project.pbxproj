@@ -530,7 +530,7 @@
 				TargetAttributes = {
 					2B58E5671F61548F00505193 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = RCF9CM736N;
+						DevelopmentTeam = LSND274XQ9;
 						ProvisioningStyle = Automatic;
 					};
 					2B58E5801F61548F00505193 = {
@@ -943,7 +943,7 @@
 			baseConfigurationReference = C2BF400BE1D9302992C730A2 /* Pods-GRichLabelExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = RCF9CM736N;
+				DEVELOPMENT_TEAM = LSND274XQ9;
 				INFOPLIST_FILE = GRichLabelExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -957,7 +957,7 @@
 			baseConfigurationReference = D504E9C9F1C68C2795CEF8B6 /* Pods-GRichLabelExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = RCF9CM736N;
+				DEVELOPMENT_TEAM = LSND274XQ9;
 				INFOPLIST_FILE = GRichLabelExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

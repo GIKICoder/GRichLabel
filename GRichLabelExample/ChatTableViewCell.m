@@ -81,6 +81,8 @@
 - (void)setWeakTableView:(UITableView *)weakTableView
 {
     self.richLabel.contentScrollView = weakTableView;
+    self.richLabel.scrollerAutoSelectType = GRichLabelScrollerAutoSelectAll;
+    self.richLabel.minSelectRange = CGFLOAT_MAX;
 }
 
 + (CGFloat)getTextHeight:(GDrawTextBuilder*)textBuilder

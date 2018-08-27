@@ -57,6 +57,7 @@
         self.richLabel.frame = CGRectMake(5, 0, self.view.frame.size.width-10, self.scrollview.contentSize.height);
     
         self.richLabel.contentScrollView = self.scrollview;
+        self.richLabel.scrollerAutoSelectType = GRichLabelScrollerAutoSelectLine;
         self.richLabel.displaysAsynchronously = YES;
         [self.scrollview addSubview:self.richLabel];
 //        self.scrollview.scrollEnabled = NO;

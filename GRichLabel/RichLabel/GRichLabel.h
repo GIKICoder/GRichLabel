@@ -12,6 +12,18 @@
 #import "NSAttributedString+GRichLabel.h"
 #import "GMenuContextProtocol.h"
 
+/**
+ 文本选择
+ richLabel在scrollview等具有滚动功能的视图上。开启可以滚动选择文字。
+ - GRichLabelScrollerAutoSelectNone: 不开启滚动选择
+ - GRichLabelScrollerAutoSelectLine: 开启滚动选择，默认向下滚动一行
+ - GRichLabelScrollerAutoSelectAll: 开启滚动选择，默认滚动到控件顶部或者底部
+ */
+typedef NS_ENUM(NSUInteger, GRichLabelScrollerAutoSelect) {
+    GRichLabelScrollerAutoSelectNone,
+    GRichLabelScrollerAutoSelectLine,
+    GRichLabelScrollerAutoSelectAll,
+};
 @interface GRichLabel : UIView
 
 @property (nonatomic, strong) NSString * text;
@@ -46,7 +58,7 @@
  最小的选择范围
  
  @brief: 开启canSelect 生效
- @default: 1
+ @default: 1 如果想要微信聊天那种效果，可设置为MAXFLOAT,会自动选择全部文本
  */
 @property (nonatomic, assign) CGFloat  minSelectRange;
 
@@ -57,19 +69,20 @@
 @property (nonatomic, assign) BOOL isFixedLineHeight;
 
 /**
- 是否可以滚动选择
- richLabel在scrollview等具有滚动功能的视图上。开启可以滚动选择文字。
- default：NO
- */
-@property (nonatomic, assign) BOOL  canScrollerSelect;
-
-/**
  richlabel的容器view
  如果开启canSelect,并且richLabel在scrollview等具有滚动功能的view上.
  滚动会和select文字选择冲突.
  需要把scrollview 传入来处理滚动事件
  */
 @property (nonatomic, weak  ) __kindof UIScrollView   *contentScrollView;
+
+/**
+ 是否可以滚动选择
+ richLabel在scrollview等具有滚动功能的视图上。开启可以滚动选择文字。
+ default：GRichLabelScrollerAutoSelectNone
+ */
+@property (nonatomic, assign) GRichLabelScrollerAutoSelect  scrollerAutoSelectType;
+
 
 /**
  选择框颜色
