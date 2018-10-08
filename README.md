@@ -80,12 +80,9 @@ Installation
 
 update Info
 ==============
-- 29/10/2017 代码重构.处理耦合逻辑.简化代码.重新整理NSAttributedString分类(参考NSAttributedString+YYText).使GRichLabel具有更强大的文本处理能力.
+- 29/10/2017 代码重构.处理耦合逻辑.简化代码.重新整理NSAttributedString分类(参考NSAttributedString+YYText[YYText](https://github.com/ibireme/YYText)).使GRichLabel具有更强大的文本处理能力.
 - 06/12/2017 增加kGAttributeTokenReplaceStringName. 支持自定义表情 链接等字符串copy 处理.
 - 19/04/2018 增加GMatherExpression 增加字符匹配模式.
 - 27/08/2018 增加文本选择模式，在滚动视图下可支持滚动文本选择。
 
-Thanks
-==============
- *[YYText](https://github.com/ibireme/YYText)
  
