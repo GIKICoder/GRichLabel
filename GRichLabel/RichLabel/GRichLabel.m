@@ -377,7 +377,7 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
                 GLineLayout *nextLineLayout = [_textBuilder.lineLayouts objectAtIndex:idx+1];
                 __block CTLineRef nextLine = (__bridge CTLineRef)nextLineLayout.line;
                 nextRange = CTLineGetStringRange(nextLine);
-            
+                
                 if (index >= range.location && index <= range.location+range.length && range.length > 1) {
                     range = NSMakeRange(range.location, range.length + nextRange.length);
                 }
@@ -484,7 +484,7 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
         transform = CGAffineTransformScale(transform, 1.0, -1.0);
         selectedRect = CGRectApplyAffineTransform(selectedRect, transform);
         if ([self.menuConfiguration respondsToSelector:@selector(ShowRichLabelTextMenuWithTargetRect:)]) {
-             [self.menuConfiguration ShowRichLabelTextMenuWithTargetRect:selectedRect];
+            [self.menuConfiguration ShowRichLabelTextMenuWithTargetRect:selectedRect];
         }
     } else {
         if ([self.menuConfiguration respondsToSelector:@selector(ShowRichLabelTextMenuWithTargetRect:)]) {
@@ -606,7 +606,7 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
             _isLongPressTouch = NO;
             [self releaseSelectionRanges];
         }
-
+        
         if (isSelectCursor) {
             [[NSNotificationCenter defaultCenter] postNotificationName:GRichLabelDidSelectNotification object:nil];
             [self hideMenu];
@@ -674,8 +674,8 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
         }
         
         CFIndex index = [self moveConvertTouchPointToSelectIndex:point isLeft:isLeftCursor];
-//        NSLog(@"movelindex --- %ld",index);
-
+        //        NSLog(@"movelindex --- %ld",index);
+        
         if (index == kCFNotFound) {
             return;
         }
@@ -796,7 +796,6 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
                 self.currentController = [self getViewController];
             }
             if (self.currentController) {
-                
                 if ([self.currentController.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
                     if (self.currentController.navigationController.interactivePopGestureRecognizer.enabled == YES) {
                         self.currentController.navigationController.interactivePopGestureRecognizer.enabled = NO;
@@ -805,6 +804,21 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
                 }
             }
         }
+    }
+    
+    if ([self pointInside:point withEvent:event] == NO) return nil;
+    NSInteger count = self.subviews.count;
+    UIView *fitView = nil;
+    for (NSInteger i = count - 1; i >= 0; i--) {
+        UIView *childView = self.subviews[i];
+        CGPoint childP = [self convertPoint:point toView:childView];
+        fitView = [childView hitTest:childP withEvent:event];
+        if (fitView) {
+            break;
+        }
+    }
+    if (fitView) {
+        return fitView;
     }
     return self;
 }
@@ -827,7 +841,7 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
 
 /**
  在scrollView上开启自动处理滚动
-
+ 
  @param point move point
  @param isLeft 是否是左边光标
  */
@@ -846,7 +860,7 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
     CGRect scrollToWinRect = [self.contentScrollView.superview convertRect:scrollRect toView:window];
     CGRect labelToWinRect = [self.superview convertRect:self.frame toView:window];
     CGRect intersectionRect = CGRectIntersection(labelToWinRect, scrollToWinRect);
-
+    
     if (CGRectEqualToRect(intersectionRect, labelToWinRect) || CGRectIsEmpty(intersectionRect) || CGRectIsNull(intersectionRect)) return;
     CGFloat scrollBottom = scrollToWinRect.origin.y + scrollToWinRect.size.height;
     CGFloat labelBottom = labelToWinRect.origin.y + labelToWinRect.size.height;
@@ -854,10 +868,10 @@ NSNotificationName  const GRichLabelDidCancelSelectNotification= @"GRichLabelDid
     if (isLeft && (scrollToWinRect.origin.y >= labelToWinRect.origin.y)) {
         CGFloat intersection = pointToWin.y - scrollToWinRect.origin.y;
         if (intersection <= 40 && intersection > 0) { //start scroll up
-    
+            
             CGFloat autoDistance = (fabs(labelToWinRect.origin.y - scrollToWinRect.origin.y) > distance) ? distance : fabs(labelToWinRect.origin.y - scrollToWinRect.origin.y) + 10;
             CGPoint autoOffset = CGPointMake(self.contentScrollView.contentOffset.x,self.contentScrollView.contentOffset.y -autoDistance);
-             [self.contentScrollView setContentOffset:autoOffset animated:YES];
+            [self.contentScrollView setContentOffset:autoOffset animated:YES];
         }
     } else if (scrollBottom <= labelBottom ) {
         CGFloat intersection = scrollBottom - pointToWin.y;

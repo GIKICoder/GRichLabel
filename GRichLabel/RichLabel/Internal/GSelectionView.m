@@ -34,7 +34,6 @@
         self.clipsToBounds = NO;
         
         _isShowCursor = YES;
-        
         _markViews = [NSMutableArray array];
         _highlightViews = [NSMutableArray array];
         
