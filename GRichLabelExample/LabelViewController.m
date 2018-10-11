@@ -73,7 +73,7 @@
     button.backgroundColor = UIColor.blueColor;
     [button setTitle:@"test" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.scrollview addSubview:button];
+//    [self.scrollview addSubview:button];
     {
         CGFloat left = 0;
         CGFloat top = 100;
