@@ -85,7 +85,15 @@ update Info
 screenshot
 ==============
 
-<img src="https://github.com/GIKICoder/GRichLabel/blob/master/screenshot/001.png" width="200">
-<img src="https://github.com/GIKICoder/GRichLabel/blob/master/screenshot/002.png" width="200">
-<img src="https://github.com/GIKICoder/GRichLabel/blob/master/screenshot/003.png" width="200">
+[![Alt][screenshot1_thumb]]   [![Alt][screenshot2_thumb]]    [![Alt][screenshot3_thumb]]
+
+[screenshot1_thumb]: <img src="https://github.com/GIKICoder/GRichLabel/blob/master/screenshot/001.png" width="200">
+[screenshot1]: https://github.com/GIKICoder/GRichLabel/blob/master/screenshot/001.png
+[screenshot2_thumb]: <img src="https://github.com/GIKICoder/GRichLabel/blob/master/screenshot/002.png" width="200">
+[screenshot2]: https://github.com/GIKICoder/GRichLabel/blob/master/screenshot/002.png
+[screenshot3_thumb]: <img src="https://github.com/GIKICoder/GRichLabel/blob/master/screenshot/003.png" width="200">
+[screenshot3]: https://github.com/GIKICoder/GRichLabel/blob/master/screenshot/003.png
+
+
+
 
