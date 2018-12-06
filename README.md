@@ -85,7 +85,7 @@ update Info
 screenshot
 ==============
 
-[![Alt][screenshot1_thumb width="200"]]   [![Alt][screenshot2_thumb]]    [![Alt][screenshot3_thumb]]
+[![Alt][screenshot1_thumb]]   [![Alt][screenshot2_thumb]]    [![Alt][screenshot3_thumb]]
 
 [screenshot1_thumb]: https://github.com/GIKICoder/GRichLabel/blob/master/screenshot/001.png
 [screenshot2_thumb]:  https://github.com/GIKICoder/GRichLabel/blob/master/screenshot/002.png
