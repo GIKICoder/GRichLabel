@@ -8,6 +8,12 @@ DEPENDENCIES:
   - GMenuController
   - YYAsyncLayer
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - GBigbang
+    - GMenuController
+    - YYAsyncLayer
+
 SPEC CHECKSUMS:
   GBigbang: 1b89811891ec0f84b1def9ca031fa5baffcfc4f0
   GMenuController: c7712947635f972cd00e62a52b6276bfab24bfc6
@@ -15,4 +21,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: b8e2c421cf398ce3825533aaf48074aeb9911975
 
-COCOAPODS: 1.2.1.beta.1
+COCOAPODS: 1.5.3

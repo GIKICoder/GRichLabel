@@ -12,7 +12,7 @@
 @interface GLineLayout : NSObject
 
 @property (nonatomic, assign) CGRect rect;
-@property (nonatomic, assign) id  line;
+@property (nonatomic, strong) id  line;
 @property (nonatomic, assign) CGFloat  linespace;
 @property (nonatomic, assign) CGFloat  linePonintY;
 + (instancetype)line:(id)line Layout:(CGRect)rect;

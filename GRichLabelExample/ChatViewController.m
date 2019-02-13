@@ -91,6 +91,11 @@
         [arrayM addObject:builder];
     }];
     self.datas = arrayM.copy;
+    NSMutableArray * arrayNew = [NSMutableArray array];
+    for (int i =0 ; i<20; i++) {
+        [arrayNew addObjectsFromArray:arrayM.copy];
+    }
+    self.datas = arrayNew.copy;
 }
 
 - (NSArray *)texts
