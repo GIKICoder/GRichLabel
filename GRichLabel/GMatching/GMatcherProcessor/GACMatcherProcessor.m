@@ -94,9 +94,7 @@
 - (void)insertString:(NSString *)aString userInfo:(id)info
 {
     GACNode *p = _root;
-    
     unsigned long length = [aString length];
-    
     for (int i = 0; i < length; ++i) {
         NSString *temp = [aString substringWithRange:NSMakeRange(i,1)];
         GACNode * node = [p.next objectForKey:temp];
@@ -189,15 +187,12 @@
     [_queue addQueue:_root];
     while (![_queue isEmpty]) {
         GACNode *temp = [_queue getQueue];
-        
         [temp.next enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, GACNode * _Nonnull obj, BOOL * _Nonnull stop) {
             GACNode *p;
-            
             if (temp == _root) {
                 obj.failed = _root;
             } else {
                 p = temp.failed;
-                
                 while (p) {
                     GACNode *nextNode = [p.next objectForKey:key];
                     if (nextNode) {
@@ -207,7 +202,6 @@
                     p = p.failed;
                 }
             }
-            
             if (!p) {
                 obj.failed = _root;
             }
