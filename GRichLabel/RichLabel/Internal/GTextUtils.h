@@ -6,11 +6,6 @@
 //  Copyright © 2017年 GIKI. All rights reserved.
 //
 
-/**
- most of the code reference from YYText! Thanks!
- gitHup:https://github.com/ibireme/YYText/blob/master/YYText/Utility/YYTextUtilities.h
- */
-
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 

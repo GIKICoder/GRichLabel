@@ -6,10 +6,6 @@
 //  Copyright © 2017年 GIKI. All rights reserved.
 //
 
-/**
- most of the code reference from YYText! Thanks!
- gitHup:https://github.com/ibireme/YYText/blob/master/YYText/Component/YYTextEffectWindow.m
- */
 #import <UIKit/UIKit.h>
 
 #define GMagnifiterINST [GMagnifiterWindow sharedWindow]

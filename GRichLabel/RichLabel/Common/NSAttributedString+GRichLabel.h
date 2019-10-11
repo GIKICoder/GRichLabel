@@ -7,7 +7,7 @@
 //
 /**
  This Class most of the code reference from YYText! Thanks!
- gitHup:https://github.com/ibireme/YYText/blob/master/YYText
+ github:https://github.com/ibireme/YYText/blob/master/YYText
  */
 
 #import <Foundation/Foundation.h>
